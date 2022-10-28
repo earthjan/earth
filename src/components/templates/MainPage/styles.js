@@ -4,9 +4,9 @@ const styles = {
      * Used by extra background to emphasize the landing page text
      */
     position: "relative",
+    zIndex: "1",
     backgroundColor: "primary.main",
     minWidth: "320px",
-    zIndex: "1",
   },
 
   gridBase: {
@@ -26,14 +26,17 @@ const styles = {
   mainTextContent: {
     fontSize: {
       xs: "1.3rem",
+      sm: "2rem"
     },
   },
   mainTextContentSpan: {
     fontWeight: {
       xs: "bold",
+      sm: "medium"
     },
     fontSize: {
       xs: "1.8rem",
+      sm: "3rem"
     },
   },
 
