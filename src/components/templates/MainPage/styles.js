@@ -7,6 +7,7 @@ const styles = {
     zIndex: "1",
     backgroundColor: "primary.main",
     minWidth: "320px",
+    height: "100vh"
   },
 
   gridBase: {
@@ -17,10 +18,10 @@ const styles = {
       xs: "15px",
     },
     /**
-     * Overrides the py on >md
+     * Overrides the py on >md to center the main content
      */
     paddingTop: {
-      md: "100px",
+      md: "15%",
     },
   },
 
@@ -50,7 +51,9 @@ const styles = {
   },
 
   upperSubtitleBase: {
-    paddingLeft: getSubtitlePaddingX()
+    paddingLeft: {
+        md: getSubtitlePaddingX()
+    }
   },
   subtitleUpper: {
     fontSize: getSubtitleFontSize(),
@@ -60,7 +63,12 @@ const styles = {
     justifyContent: {
       md: "flex-end",
     },
-    paddingRight: getSubtitlePaddingX()
+    paddingTop: {
+        md: "10px"
+    },
+    paddingRight: {
+        md: getSubtitlePaddingX()
+    }
   },
 
   subtitleBottom: {
@@ -74,6 +82,8 @@ const styles = {
     position: "absolute",
     height: {
       xs: "60%",
+      sm: "40%",
+      md: "60%"
     },
     width: {
       xs: "60vw",
