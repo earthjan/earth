@@ -11,14 +11,14 @@ const MainPage = () => {
   return (
     <Box sx={styles.landingPageBase}>
       <Grid container sx={styles.gridBase}>
-        <GridItem>
-          <TextGray sx={styles.subtitle}>Earth Jan Baquir Marzan</TextGray>
+        <GridItem sx={styles.upperSubtitleBase}>
+          <TextGray sx={styles.subtitleUpper}>Earth Jan Baquir Marzan</TextGray>
         </GridItem>
         <GridItem sx={styles.mainTextBase}>
           <MainContent />
         </GridItem>
-        <GridItem>
-          <TextGray sx={styles.subtitle}>
+        <GridItem container={true} sx={styles.bottomSubtitleBase}>
+          <TextGray sx={styles.subtitleBottom}>
             I build apps with modern techs, ensuring reliablity and
             maintainability.
           </TextGray>
