@@ -11,20 +11,26 @@ const defaultTheme = createTheme({
       contrastText: "#FFFFFF",
     },
     emphasizedText: {
-      main: "E6B259",
+      main: "#E6B259",
       contrastText: "#000000",
     },
     titleText: {
-      main: "FFFFFF"
+      main: "#FFFFFF"
     },
     content: {
-      main: "AAA8AE"
+      main: "#AAA8AE"
     },
     links: {
-      main: "60B2FF"
+      main: "#60B2FF"
     },
+    text: {
+      primary: "white"
+    }
   },
   typography: {
+    allVariants: {
+      color: "#FFFFFF"
+    },
     fontFamily: "'Montserrat', sans-serif",
     button: {
       textTransform: "none",
