@@ -1,17 +1,31 @@
 const styles = {
   landingPageBase: {
-    /**
-     * Used by extra background to emphasize the landing page text
-     */
-    position: "relative",
-    zIndex: "1",
     backgroundColor: "primary.main",
     minWidth: "320px",
     height: {
       xs: "100vh",
     },
+
+    /**
+     * Centers element when device width > max
+     */
+    display: { xl: "flex" },
+    justifyContent: { xl: "center" },
   },
-  maxWidthSetter: { maxWidth: "1536px" },
+  maxWidthSetter: {
+    /**
+     * Used by extra background to emphasize the landing page text
+     */
+    position: "relative",
+    zIndex: "1",
+    maxWidth: "1536px",
+
+    /**
+     * To keep track the max width if it's right
+     */
+    border: 1,
+    borderColor: "white",
+  },
 
   gridBase: {
     px: {
@@ -72,19 +86,21 @@ const styles = {
     fontSize: getSubtitleFontSize(),
     width: {
       md: "30vw",
+      xl: "400px",
     },
   },
 
   scrollDownBase: {
     position: "absolute",
     top: "90vh",
-    left: { 
-      xs: "40vw", 
-      sm: "45vw", 
+    left: {
+      xs: "40vw",
+      sm: "45vw",
       /**
        * Instead of vw, it depends on the set max width.
        */
-      xl: "50%" },
+      xl: "50%",
+    },
   },
   scrollDownStack: {
     flexDirection: "column",
@@ -117,20 +133,32 @@ const styles = {
   },
 
   extraBg: {
-    display: {xs: "none", md: "block"},
+    /**
+     * Hides it on <md screens as it's harder than I thought to keep it on the same spot.
+     */
+    display: {
+      xs: "none",
+      md: "block",
+    },
     position: "absolute",
     height: {
-      xs: "60vh",
-      sm: "20vh",
-      md: "30vh",
-      lg: "50vh",
+      md: "300px",
     },
     width: {
-      xs: "60vw",
+      md: "60%",
+      xl: "75%"
     },
     backgroundColor: "secondary.main",
-    top: { xs: "20vh", sm: "38vh", md: "30vh", lg: "20vh", xl: "25vh" },
-    left: { xs: "25vw", md: "35vw" },
+    top: { 
+      md: "30vh", 
+      lg: "20vh", 
+      xl: "25vh" 
+    },
+    left: { 
+      xs: "25vw", 
+      md: "35vw", 
+      xl: "25%" 
+    },
     zIndex: "-1",
     borderRadius: "5px",
   },
