@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Grid, Box, Typography, Container } from "@mui/material";
+import { Grid, Box, Typography, IconButton, Stack } from "@mui/material";
+import SouthIcon from "@mui/icons-material/South";
 
 import GridItem from "../../atoms/GridItem/GridItem";
 import TextGray from "../../atoms/TextGray/TextGray";
@@ -22,6 +23,17 @@ const MainPage = () => {
             I build apps with modern techs, ensuring reliablity and
             maintainability.
           </TextGray>
+        </GridItem>
+
+        <GridItem container={true} sx={styles.scrollDownBase}>
+          <IconButton>
+            <Stack sx={styles.scrollDownStack}>
+              <GridItem container={true} sx={styles.scrollDownIconBase}>
+                <SouthIcon sx={styles.scrollDownIcon}/>
+              </GridItem>
+              <Typography sx={styles.scrollDownLabel}>Scroll Down</Typography>
+            </Stack>
+          </IconButton>
         </GridItem>
       </Grid>
 
