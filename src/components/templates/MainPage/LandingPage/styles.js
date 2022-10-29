@@ -1,10 +1,10 @@
 const styles = {
   gridBase: {
-    /**
+        /**
      * Used by extra background that emphasizes the landing page text
      */
-    position: "relative",
-    zIndex: "1",
+         position: "relative",
+         zIndex: "1",
     px: {
       xs: "15px",
     },
@@ -120,6 +120,8 @@ const styles = {
     position: "absolute",
     height: {
       md: "300px",
+      lg: "350px",
+      xl: "400px"
     },
     width: {
       md: "60%",
