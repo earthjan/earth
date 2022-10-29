@@ -7,20 +7,21 @@ const styles = {
     zIndex: "1",
     backgroundColor: "primary.main",
     minWidth: "320px",
+    height: {
+      xs: "100vh",
+    },
   },
+  maxWidthSetter: { maxWidth: "1536px" },
 
   gridBase: {
-    py: {
-      xs: "135px",
-    },
     px: {
       xs: "15px",
     },
-    /**
-     * Overrides the py on >md to center the main content
-     */
     paddingTop: {
-      md: "15%",
+      xs: "30vh",
+      sm: "40vh",
+      md: "30vh",
+      lg: "20vh",
     },
   },
 
@@ -33,7 +34,9 @@ const styles = {
   mainTextContent: {
     fontSize: {
       xs: "2rem",
-      md: "2.5rem",
+      md: "2rem",
+      lg: "2.5rem",
+      xl: "30px",
     },
   },
   mainTextContentSpan: {
@@ -41,15 +44,15 @@ const styles = {
       xs: "medium",
     },
     fontSize: {
-      xs: "3rem",
-      md: "5rem",
+      xs: "2.5rem",
+      md: "4rem",
+      lg: "6rem",
+      xl: "8rem",
     },
   },
 
   upperSubtitleBase: {
-    paddingLeft: {
-      md: getSubtitlePaddingX(),
-    },
+    paddingLeft: getSubtitlePaddingX(),
   },
   subtitleUpper: {
     fontSize: getSubtitleFontSize(),
@@ -62,9 +65,7 @@ const styles = {
     paddingTop: {
       md: "10px",
     },
-    paddingRight: {
-      md: getSubtitlePaddingX(),
-    },
+    paddingRight: getSubtitlePaddingX(),
   },
 
   subtitleBottom: {
@@ -75,11 +76,15 @@ const styles = {
   },
 
   scrollDownBase: {
-    justifyContent: "center",
-    paddingTop: {
-      xs: "25vh",
-      md: "15vh",
-    },
+    position: "absolute",
+    top: "90vh",
+    left: { 
+      xs: "40vw", 
+      sm: "45vw", 
+      /**
+       * Instead of vw, it depends on the set max width.
+       */
+      xl: "50%" },
   },
   scrollDownStack: {
     flexDirection: "column",
@@ -108,22 +113,24 @@ const styles = {
       xs: "0.5rem",
     },
     color: "content.main",
-    marginTop: "15px"
+    marginTop: "15px",
   },
 
   extraBg: {
+    display: {xs: "none", md: "block"},
     position: "absolute",
     height: {
       xs: "60vh",
-      sm: "30vh",
-      md: "60vh"
+      sm: "20vh",
+      md: "30vh",
+      lg: "50vh",
     },
     width: {
       xs: "60vw",
     },
     backgroundColor: "secondary.main",
-    top: { xs: "10vh" },
-    left: { xs: "25vw", md: "35%vw" },
+    top: { xs: "20vh", sm: "38vh", md: "30vh", lg: "20vh", xl: "25vh" },
+    left: { xs: "25vw", md: "35vw" },
     zIndex: "-1",
     borderRadius: "5px",
   },
@@ -136,11 +143,13 @@ export default styles;
 function getSubtitleFontSize() {
   return {
     sm: "0.8rem",
+    lg: "1rem",
   };
 }
 
 function getSubtitlePaddingX() {
   return {
     md: "60px",
+    lg: "70px",
   };
 }

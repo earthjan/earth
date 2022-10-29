@@ -11,33 +11,37 @@ import styles from "./styles";
 const MainPage = () => {
   return (
     <Box sx={styles.landingPageBase}>
-      <Grid container sx={styles.gridBase}>
-        <GridItem sx={styles.upperSubtitleBase}>
-          <TextGray sx={styles.subtitleUpper}>Earth Jan Baquir Marzan</TextGray>
-        </GridItem>
-        <GridItem sx={styles.mainTextBase}>
-          <MainContent />
-        </GridItem>
-        <GridItem container={true} sx={styles.bottomSubtitleBase}>
-          <TextGray sx={styles.subtitleBottom}>
-            I build apps with modern techs, ensuring reliablity and
-            maintainability.
-          </TextGray>
-        </GridItem>
+      <Box sx={styles.maxWidthSetter}>
+        <Grid container sx={styles.gridBase}>
+          <GridItem sx={styles.upperSubtitleBase}>
+            <TextGray sx={styles.subtitleUpper}>
+              Earth Jan Baquir Marzan
+            </TextGray>
+          </GridItem>
+          <GridItem sx={styles.mainTextBase}>
+            <MainContent />
+          </GridItem>
+          <GridItem container={true} sx={styles.bottomSubtitleBase}>
+            <TextGray sx={styles.subtitleBottom}>
+              I build apps with modern techs, ensuring reliablity and
+              maintainability.
+            </TextGray>
+          </GridItem>
 
-        <GridItem container={true} sx={styles.scrollDownBase}>
-          <IconButton>
-            <Stack sx={styles.scrollDownStack}>
-              <GridItem container={true} sx={styles.scrollDownIconBase}>
-                <SouthIcon sx={styles.scrollDownIcon}/>
-              </GridItem>
-              <Typography sx={styles.scrollDownLabel}>Scroll Down</Typography>
-            </Stack>
-          </IconButton>
-        </GridItem>
-      </Grid>
+          <Box sx={styles.scrollDownBase}>
+            <IconButton>
+              <Stack sx={styles.scrollDownStack}>
+                <GridItem container={true} sx={styles.scrollDownIconBase}>
+                  <SouthIcon sx={styles.scrollDownIcon} />
+                </GridItem>
+                <Typography sx={styles.scrollDownLabel}>Scroll Down</Typography>
+              </Stack>
+            </IconButton>
+          </Box>
+        </Grid>
 
-      <Box sx={styles.extraBg} />
+        <Box sx={styles.extraBg} />
+      </Box>
     </Box>
   );
 };
