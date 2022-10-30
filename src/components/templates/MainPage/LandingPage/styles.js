@@ -1,19 +1,16 @@
 const styles = {
-  gridBase: {
-        /**
+  stackBase: {
+    /**
      * Used by extra background that emphasizes the landing page text
      */
-         position: "relative",
-         zIndex: "1",
+    position: "relative",
+    zIndex: "1",
     px: {
       xs: "15px",
     },
-    paddingTop: {
-      xs: "30vh",
-      sm: "40vh",
-      md: "30vh",
-      lg: "20vh",
-    },
+
+    height: "100vh",
+    // flexDirection: "column",
   },
 
   mainTextContentParent: {
@@ -50,9 +47,6 @@ const styles = {
   },
 
   bottomSubtitleBase: {
-    justifyContent: {
-      md: "flex-end",
-    },
     paddingTop: {
       md: "10px",
     },
@@ -60,11 +54,8 @@ const styles = {
   },
 
   subtitleBottom: {
+    textAlign: { md: "right" },
     fontSize: getSubtitleFontSize(),
-    width: {
-      md: "30vw",
-      xl: "400px",
-    },
   },
 
   scrollDownBase: {
@@ -121,7 +112,7 @@ const styles = {
     height: {
       md: "300px",
       lg: "350px",
-      xl: "400px"
+      xl: "450px",
     },
     width: {
       md: "60%",

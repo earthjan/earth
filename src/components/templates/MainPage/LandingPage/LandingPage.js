@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid, Box, Typography, IconButton, Stack } from "@mui/material";
+import { Box, Typography, IconButton, Stack } from "@mui/material";
 import SouthIcon from "@mui/icons-material/South";
 
 import GridItem from "../../../atoms/GridItem/GridItem";
@@ -10,17 +10,19 @@ import styles from "./styles";
 
 const LandingPage = () => {
   return (
-    <Grid container sx={styles.gridBase}>
+    <Stack flexDirection="column" justifyContent="center" sx={styles.stackBase}>
       <GridItem sx={styles.upperSubtitleBase}>
         <TextGray sx={styles.subtitleUpper}>Earth Jan Baquir Marzan</TextGray>
       </GridItem>
       <GridItem sx={styles.mainTextBase}>
         <MainContent />
       </GridItem>
-      <GridItem container={true} sx={styles.bottomSubtitleBase}>
+      <GridItem sx={styles.bottomSubtitleBase}>
         <TextGray sx={styles.subtitleBottom}>
-          I build apps with modern techs, ensuring reliablity and
-          maintainability.
+          I build apps with modern techs, ensuring
+        </TextGray>
+        <TextGray sx={styles.subtitleBottom}>
+          reliablity and maintainability.
         </TextGray>
       </GridItem>
 
@@ -35,7 +37,7 @@ const LandingPage = () => {
         </IconButton>
       </Box>
       <Box sx={styles.extraBg} />
-    </Grid>
+    </Stack>
   );
 };
 
