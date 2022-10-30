@@ -12,7 +12,9 @@ const styles = {
     color: "secondary",
   },
 
-  container: { maxWidth: "xl" },
+  container: { 
+    mx: { xs: "20px", xl: "60px" }
+  },
 
   toolbar: { justifyContent: "space-between" },
 

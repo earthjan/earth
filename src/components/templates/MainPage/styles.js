@@ -20,17 +20,19 @@ const styles = {
      * To keep track the max width if it's right
      */
     border: 1,
-    // borderColor: "white",
+    borderColor: "white",
   },
 
-  logoBase: {
-  },
   logo: {
     height: {
       xs: "30px",
+      md: "35px",
+      xl: "45px"
     },
     width: {
       xs: "90px",
+      md: "95px",
+      xl: "105px"
     }
   },
 

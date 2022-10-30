@@ -1,8 +1,8 @@
-import React from 'react'
-import { Button } from '@mui/material'
-import { navButtonStyles } from './styles'
+import React from "react";
+import { Button } from "@mui/material";
+import { navButtonStyles } from "./styles";
 import PropTypes from "prop-types";
-import { ReactElement } from 'react';
+import { Link } from "react-router-dom";
 
 /**
  * To create a nav link for an `AppBar`. 
@@ -24,18 +24,27 @@ import { ReactElement } from 'react';
       ))}
     </NavLinksContainer>
  */
-const NavButton = ({ content }) => {
+const NavButton = ({
+  content,
+  onClick,
+  variant,
+  bgColor,
+  textColor = "titleText.main",
+}) => {
   return (
-    <Button 
-    sx={navButtonStyles} href={'/'+ content}>{content}</Button>
-  )
-}
-
-NavButton.propTypes = {
-  content: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element
-  ]).isRequired,
+      <Button
+        onClick={onClick}
+        variant={variant}
+        sx={navButtonStyles(bgColor, textColor)}
+      >
+        {content}
+      </Button>
+  );
 };
 
-export default NavButton
+NavButton.propTypes = {
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
+};
+
+export default NavButton;

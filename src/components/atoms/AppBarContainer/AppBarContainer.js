@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {
   IconButton,
   AppBar,
-  Container,
+  Box,
   Toolbar,
   MenuItem,
   Menu as MenuParent,
@@ -48,13 +48,13 @@ const AppBarContainer = ({ logo, navLinks, menuList }) => {
 
   return (
     <AppBar id="appbar" color={styles.appBar.color} sx={styles.appBar.sx}>
-      <Container sx={styles.container}>
+      <Box sx={styles.container}>
         <Toolbar sx={styles.toolbar} disableGutters>
           {logo}
           <Menu items={menuList} />
           <NavLinks navPages={navLinks} />
         </Toolbar>
-      </Container>
+      </Box>
     </AppBar>
   );
 };
@@ -130,10 +130,6 @@ function Menu({ items }) {
       >
         {items &&
           items.map((item, key) => {
-            // If an item is a custom `MenuItem`, then use render it instead.
-            if (item.CustomMenuItem) {
-              return <item.CustomMenuItem key={key} onClick={handleClose} />;
-            }
 
             if (typeof item === "string") {
               return (
@@ -142,8 +138,8 @@ function Menu({ items }) {
                 </MenuItem>
               );
             }
-
-            return null;
+            // If an item is a custom `MenuItem`, then use render it instead.
+            return <item.CustomMenuItem key={key} onClick={handleClose} />;
           })}
       </MenuParent>
     </>
@@ -153,9 +149,13 @@ function Menu({ items }) {
 function NavLinks({ navPages = [] }) {
   return (
     <NavLinksContainer>
-      {navPages.map((navPage) => (
-        <NavButton key={navPage} content={navPage} />
-      ))}
+      {navPages.map((navPage, key) => {
+        if (typeof navPage === "string") {
+          return <NavButton key={key} content={navPage} />
+        }
+
+        return <navPage.CustomNavButton key={key} />
+      })}
     </NavLinksContainer>
   );
 }
