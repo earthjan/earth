@@ -3,7 +3,7 @@ const styles = {
     backgroundColor: "primary.main",
     minWidth: "320px",
     height: {
-      xs: "100vh",
+      // xs: "100vh",
     },
 
     /**
@@ -20,7 +20,32 @@ const styles = {
      * To keep track the max width if it's right
      */
     border: 1,
-    borderColor: "white",
+    // borderColor: "white",
+  },
+
+  logoBase: {
+  },
+  logo: {
+    height: {
+      xs: "30px",
+    },
+    width: {
+      xs: "90px",
+    }
+  },
+
+  textWithIconBase: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  textWithIconText: {
+    textDecoration: "underline",
+    color: "links.main",
+  },
+  textWithIconIcon: {
+    color: "links.main",
+    paddingLeft: "15px",
   },
 };
 
