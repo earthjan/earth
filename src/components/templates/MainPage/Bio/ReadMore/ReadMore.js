@@ -19,7 +19,7 @@ const ReadMore = () => {
         sx={styles.accordionSummary}
       />
       <AccordionDetails sx={styles.accordionDetails}>
-        <Stack spacing={1}>
+        <Stack spacing={{ xs: 1, xl: 6 }}>
           <Skills />
           <Experience />
           <Education />

@@ -40,6 +40,10 @@ const styles = {
     px: {
       xs: "15px",
       md: "15vw",
+      /**
+       * It needs to be in pixel if the screen is > max width (xl) so that we can ignore the width screen at this point.
+       */
+      xl: "250px"
     },
   },
 

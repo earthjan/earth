@@ -13,10 +13,7 @@ const Bio = () => {
     <Box sx={styles.base}>
       <Box sx={styles.pySetter}>
         <TextTitle
-          fontSize={{
-            xs: "1.5rem",
-            lg: "2rem",
-          }}
+          fontSize={styles.title.fontSize}
         >
           Hi, I’m Earth!
         </TextTitle>

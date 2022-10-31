@@ -7,19 +7,28 @@ const styles = {
      */
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
-  pySetter: { 
-    paddingTop: { xs: "80px", md: "100px" },
-    paddingBottom: { xs: "20px" }
+  pySetter: {
+    paddingTop: { xs: "80px", md: "100px", xl: "150px" },
+    paddingBottom: { xs: "20px" },
   },
-  
+
+  title: {
+    fontSize: {
+      xs: "1.5rem",
+      lg: "2rem",
+      xl: "2.3rem"
+    },
+  },
+
   content: {
     fontSize: {
-      lg: "1.3rem"
+      lg: "1.3rem",
+      xl: "1.5rem"
     },
-    paddingTop: { xs: "10px" }
+    paddingTop: { xs: "10px" },
   },
 };
 
