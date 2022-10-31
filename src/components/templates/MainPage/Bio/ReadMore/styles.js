@@ -6,8 +6,6 @@ const TEXT_PADDING_TOP = "10px";
 const styles = {
   accordion: {
     backgroundColor: "primary.main",
-    border: { xs: 0, md: 1 },
-    borderColor: "content.main",
     paddingTop: { xs: "50px" },
   },
 
