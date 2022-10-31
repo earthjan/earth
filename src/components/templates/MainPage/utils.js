@@ -84,8 +84,7 @@ export function getNavLinks() {
           <NavButton
             content="Contact me"
             variant="contained"
-            bgColor="emphasizedText.main"
-            textColor="#000000"
+            color="emphasizedText"
           />
         );
       },

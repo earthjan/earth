@@ -1,4 +1,4 @@
-export const navButtonStyles = (bgColor, textColor) => ({
+export const navButtonStyles = {
   my: 2,
   marginLeft: { xs: "55px" },
   display: "block",
@@ -6,7 +6,4 @@ export const navButtonStyles = (bgColor, textColor) => ({
   fontSize: {
     lg: "1.2rem"
   },
-
-  backgroundColor: bgColor,
-  color: textColor
-});
+};

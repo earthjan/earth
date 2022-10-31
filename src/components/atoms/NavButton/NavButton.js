@@ -28,14 +28,14 @@ const NavButton = ({
   content,
   onClick,
   variant,
-  bgColor,
-  textColor = "titleText.main",
+  color = "titleText",
 }) => {
   return (
       <Button
         onClick={onClick}
         variant={variant}
-        sx={navButtonStyles(bgColor, textColor)}
+        color={color}
+        sx={navButtonStyles}
       >
         {content}
       </Button>
