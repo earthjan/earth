@@ -16,6 +16,9 @@ const styles = {
   },
   
   content: {
+    fontSize: {
+      lg: "1.3rem"
+    },
     paddingTop: { xs: "10px" }
   },
 };

@@ -12,7 +12,14 @@ const Bio = () => {
   return (
     <Box sx={styles.base}>
       <Box sx={styles.pySetter}>
-        <TextTitle>Hi, I’m Earth!</TextTitle>
+        <TextTitle
+          fontSize={{
+            xs: "1.5rem",
+            lg: "2rem",
+          }}
+        >
+          Hi, I’m Earth!
+        </TextTitle>
         <TextGray sx={styles.content}>
           I’m a self-taught Front End Developer and school-taught Systems
           Engineer from Nigeria.
