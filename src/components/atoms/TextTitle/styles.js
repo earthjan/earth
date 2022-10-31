@@ -1,8 +1,9 @@
 const styles = {
-  title: (color) => ({
-    fontSize: {
-      xs: "1.5rem",
-    },
+  title: (
+    color,
+    fontSize = "1.5rem"
+  ) => ({
+    fontSize: fontSize,
     fontWeight: "bold",
     color: color,
   }),

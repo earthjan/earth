@@ -4,8 +4,8 @@ import { Typography } from "@mui/material";
 
 import styles from "./styles";
 
-const TextTitle = ({ children, color }) => {
-  return <Typography sx={styles.title(color)}>{children}</Typography>;
+const TextTitle = ({ children, color, fontSize }) => {
+  return <Typography sx={styles.title(color, fontSize)}>{children}</Typography>;
 };
 
 export default TextTitle;
