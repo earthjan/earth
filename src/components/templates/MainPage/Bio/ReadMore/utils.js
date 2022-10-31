@@ -1,7 +1,7 @@
 import React from "react";
 // import PropTypes from "prop-types";
 
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, Grid } from "@mui/material";
 
 import TextTitle from "../../../../atoms/TextTitle/TextTitle";
 import TextGray from "../../../../atoms/TextGray/TextGray";
@@ -14,9 +14,17 @@ export const Skills = () => {
   return (
     <Box sx={styles.skBase}>
       <TextTitle color={styles.textTitle}>Skills</TextTitle>
-      <Languages />
-      <Libraries />
-      <Tools />
+      <Grid container spacing={1}>
+        <GridItem md="auto">
+          <Languages />
+        </GridItem>
+        <GridItem md="auto">
+          <Libraries />
+        </GridItem>
+        <GridItem md="auto">
+          <Tools />
+        </GridItem>
+      </Grid>
     </Box>
   );
 
@@ -69,13 +77,13 @@ export const Experience = () => {
     <Box sx={styles.expBase}>
       <TextTitle color={styles.textTitle}>Experience</TextTitle>
       <GridItem container={true} sx={styles.expList1}>
-        <GridItem>
+        <GridItem md={true}>
           <Typography sx={styles.expSubtitle}>
             <Typography component="span">DigitalInnov,</Typography> Front-end
             Developer Intern
           </Typography>
         </GridItem>
-        <GridItem>
+        <GridItem md="auto">
           <Typography sx={styles.expSubtitleDate}>
             June 2022 - Current
           </Typography>
@@ -97,7 +105,7 @@ export const Education = () => {
       <TextTitle color={styles.textTitle}>Education</TextTitle>
       <Box sx={styles.edList1}>
         <GridItem container={true}>
-          <GridItem>
+          <GridItem md={true}>
             <Typography sx={styles.edSubtitle}>
               B.S. Aviation Information Technology
             </Typography>
@@ -105,7 +113,7 @@ export const Education = () => {
               Philippine State College of Aeronautics, Pasay, Metro Manila
             </TextGray>
           </GridItem>
-          <GridItem>
+          <GridItem md="auto">
             <Typography sx={styles.expSubtitleDate}>
               June 2018 - October 2022
             </Typography>
@@ -126,7 +134,7 @@ export const Education = () => {
 
       <Box sx={styles.edList2}>
         <GridItem container={true}>
-          <GridItem>
+          <GridItem md={true}>
             <Typography sx={styles.edSubtitle}>
               Tech-Voc Senior High school
             </Typography>
@@ -134,7 +142,7 @@ export const Education = () => {
               AMA Basic Education, Las Piñas, Metro Manila
             </TextGray>
           </GridItem>
-          <GridItem>
+          <GridItem md="auto">
             <Typography sx={styles.expSubtitleDate}>2018</Typography>
           </GridItem>
         </GridItem>

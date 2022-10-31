@@ -56,7 +56,10 @@ const styles = {
     fontWeight: "bold",
   },
   expSubtitleDate: {
-    paddingTop: TEXT_PADDING_TOP,
+    /**
+     * No padding-top for md screens as the layout is different
+     */
+    paddingTop: { xs: TEXT_PADDING_TOP, md: 0},
     fontWeight: "bold",
   },
   expUnorderedList: {

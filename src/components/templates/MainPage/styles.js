@@ -36,7 +36,12 @@ const styles = {
     },
   },
 
-  bioPadding: { px: "15px" },
+  bioPadding: {
+    px: {
+      xs: "15px",
+      md: "15vw",
+    },
+  },
 
   textWithIconBase: {
     flexDirection: "row",

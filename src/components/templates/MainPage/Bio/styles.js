@@ -11,7 +11,7 @@ const styles = {
   },
 
   pySetter: { 
-    paddingTop: { xs: "80px" },
+    paddingTop: { xs: "80px", md: "100px" },
     paddingBottom: { xs: "20px" }
   },
   
