@@ -15,6 +15,8 @@ const styles = {
     },
   },
 
+  accordionDetails: { padding: "0" },
+
   expandIcon: {
     color: "content.main",
   },
@@ -78,7 +80,7 @@ const styles = {
     fontWeight: "bold",
   },
   edSubtitleLocation: {
-    fontStyle: "italic"
+    fontStyle: "italic",
   },
   edAdditionalInfo: {
     paddingTop: TEXT_PADDING_TOP,

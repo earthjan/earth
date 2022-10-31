@@ -18,7 +18,7 @@ const ReadMore = () => {
         expandIcon={<ExpandMoreIcon sx={styles.expandIcon} />}
         sx={styles.accordionSummary}
       />
-      <AccordionDetails>
+      <AccordionDetails sx={styles.accordionDetails}>
         <Stack spacing={1}>
           <Skills />
           <Experience />
