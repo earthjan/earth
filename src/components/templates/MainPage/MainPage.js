@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 
 import LandingPage from "./LandingPage/LandingPage";
 import AppBarContainer from "../../atoms/AppBarContainer/AppBarContainer";
+import Bio from "./Bio/Bio";
 
 import { LogoEarth, getNavLinks, getMenuList } from "./utils";
 
@@ -21,12 +22,12 @@ const MainPage = () => {
           menuList={getMenuList()}
         />
 
-        {/* For testing purposes. It sets horizontal scroll to test AppBar on scroll behavior */}
-        <Box sx={{ height: "1500px" }} />
+        <Box sx={styles.bioPadding}>
+          <Bio />
+        </Box>
       </Box>
     </Box>
   );
 };
 
 export default MainPage;
-

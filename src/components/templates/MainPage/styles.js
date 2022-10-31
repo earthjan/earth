@@ -27,28 +27,16 @@ const styles = {
     height: {
       xs: "30px",
       md: "35px",
-      xl: "45px"
+      xl: "45px",
     },
     width: {
       xs: "90px",
       md: "95px",
-      xl: "105px"
-    }
+      xl: "105px",
+    },
   },
 
-  textWithIconBase: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-  },
-  textWithIconText: {
-    textDecoration: "underline",
-    color: "links.main",
-  },
-  textWithIconIcon: {
-    color: "links.main",
-    paddingLeft: "15px",
-  },
+  bioPadding: { px: "15px" },
 };
 
 export default styles;
