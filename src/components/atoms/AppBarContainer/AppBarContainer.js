@@ -1,19 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {
-  IconButton,
-  AppBar,
-  Box,
-  Toolbar,
-  MenuItem,
-  Menu as MenuParent,
-} from "@mui/material";
+import { IconButton, AppBar, Box, Toolbar, MenuItem } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
 import NavLinksContainer from "../NavLinksContainer/NavLinksContainer";
 import NavButton from "../NavButton/NavButton";
+import MenuParent from "../Menu/Menu";
 
 import useHideAppBarOnScroll from "../../../utils/useHideAppBarOnScroll";
 
@@ -61,7 +55,9 @@ const AppBarContainer = ({ logo, navLinks, menuList }) => {
 
 AppBarContainer.propTypes = {
   logo: PropTypes.element,
-  navLinks: PropTypes.arrayOf(PropTypes.string),
+  navLinks: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  ),
   menu: PropTypes.element,
 };
 
@@ -108,41 +104,32 @@ export default AppBarContainer;
  *)
  */
 function Menu({ items }) {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
+  const renderProp = (handleClose) => {
+    const list = items.map((item, key) => {
+      if (typeof item === "string") {
+        return (
+          <MenuItem key={key} onClick={handleClose}>
+            {item}
+          </MenuItem>
+        );
+      }
+      // If an item is a custom `MenuItem`, then use render it instead.
+      return <item.CustomMenuItem key={key} onClick={handleClose} />;
+    });
+
+    return list;
   };
 
   return (
-    <>
-      <IconButton onClick={handleClick} sx={styles.menuIcon}>
-        <MenuIcon />
-      </IconButton>
-      <MenuParent
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        sx={styles.menu}
-      >
-        {items &&
-          items.map((item, key) => {
-
-            if (typeof item === "string") {
-              return (
-                <MenuItem key={key} onClick={handleClose}>
-                  {item}
-                </MenuItem>
-              );
-            }
-            // If an item is a custom `MenuItem`, then use render it instead.
-            return <item.CustomMenuItem key={key} onClick={handleClose} />;
-          })}
-      </MenuParent>
-    </>
+    <MenuParent
+      button={(handleOpen) => (
+        <IconButton onClick={handleOpen} sx={styles.menuIcon}>
+          <MenuIcon />
+        </IconButton>
+      )}
+    >
+      {items && renderProp}
+    </MenuParent>
   );
 }
 
@@ -151,10 +138,10 @@ function NavLinks({ navPages = [] }) {
     <NavLinksContainer>
       {navPages.map((navPage, key) => {
         if (typeof navPage === "string") {
-          return <NavButton key={key} content={navPage} />
+          return <NavButton key={key} content={navPage} />;
         }
 
-        return <navPage.CustomNavButton key={key} />
+        return <navPage.CustomNavButton key={key} />;
       })}
     </NavLinksContainer>
   );

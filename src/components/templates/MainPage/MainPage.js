@@ -1,14 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { useNavigate } from "react-router-dom";
-
-import { Box, MenuItem, Stack, Typography, Menu } from "@mui/material";
+import { Box, MenuItem, Stack, Typography } from "@mui/material";
 
 import LandingPage from "./LandingPage/LandingPage";
 import Logo from "../../atoms/LogoContainer/LogoContainer";
 import AppBarContainer from "../../atoms/AppBarContainer/AppBarContainer";
 import NavButton from "../../atoms/NavButton/NavButton";
+import Menu from "../../atoms/Menu/Menu";
 
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 
@@ -22,13 +21,11 @@ const MainPage = () => {
       <Box sx={styles.maxWidthSetter}>
         <LandingPage />
 
-        {/* <Box sx={{ position: "relative", overflowY: "hidden" }}> */}
         <AppBarContainer
           logo={<LogoEarth />}
           navLinks={getNavLinks()}
           menuList={getMenuList()}
         />
-        {/* </Box> */}
 
         {/* For testing purposes. It sets horizontal scroll to test AppBar on scroll behavior */}
         <Box sx={{ height: "1500px" }} />
@@ -46,49 +43,57 @@ function LogoEarth() {
   );
 }
 
+/**
+ * Get links for the appbar
+ * 
+ * @returns {array<string | object>} An array<string | object> that has custom navigation buttons (`CustomNavButton`)
+ */
 function getNavLinks() {
   return [
     "Projects",
+    /**
+     * Custom navigation button that will be rendered on the appbar
+     */
     {
       CustomNavButton() {
-        const [anchorEl, setAnchorEl] = React.useState(null);
-        const open = Boolean(anchorEl);
-        const handleClick = (event) => {
-          setAnchorEl(event.currentTarget);
-        };
-        const handleClose = () => {
-          setAnchorEl(null);
-        };
+        const links = [
+          {
+            text: "Download my Resume",
+            url: "download-resume",
+          },
+          {
+            text: "Download my CV",
+            url: "download-cv",
+          },
+        ];
+
+        const handleDownload = (url) => {
+          console.log("downloading..", url)
+        }
 
         return (
           <>
-            <NavButton content="CV / Resume" onClick={handleClick} />
-
             <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              sx={{
-                "& .MuiPopover-paper": {
-                  backgroundColor: "secondary.main",
-                  border: 1,
-                  borderColor: "textTitle.main",
-                  borderRadius: "5px",
-                },
-              }}
+              button={(onClick) => (
+                <NavButton content="CV / Resume" onClick={onClick} />
+              )}
             >
-              <MenuItem onClick={handleClose}>
-                <TextWithIcon
-                  text="Download my Resume"
-                  Icon={VerticalAlignBottomIcon}
-                />
-              </MenuItem>
-              <MenuItem onClick={handleClose}>
-                <TextWithIcon
-                  text="Download my CV"
-                  Icon={VerticalAlignBottomIcon}
-                />
-              </MenuItem>
+              {(onClick) =>
+                links.map((link, key) => (
+                  <MenuItem
+                    key={key}
+                    onClick={() => {
+                      handleDownload(link.url);
+                      onClick();
+                    }}
+                  >
+                    <TextWithIcon
+                      text={link.text}
+                      Icon={VerticalAlignBottomIcon}
+                    />
+                  </MenuItem>
+                ))
+              }
             </Menu>
           </>
         );
@@ -110,6 +115,12 @@ function getNavLinks() {
   ];
 }
 
+
+/**
+ * Gets a list of menus for the appbar's hamburger.
+ * 
+ * @returns {array<string | ReactElement>} An array<string | ReactElement> that has custom menu items (`CustomMenuItem`)
+ */
 function getMenuList() {
   return [
     "Projects",
