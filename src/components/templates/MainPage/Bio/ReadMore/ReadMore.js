@@ -4,24 +4,26 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Typography,
+  Stack,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import styles from "./styles";
+import { Skills, Experience, Education } from "./utils";
 
 const ReadMore = () => {
   return (
     <Accordion sx={styles.accordion}>
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon sx={styles.expandIcon}/>}
+        expandIcon={<ExpandMoreIcon sx={styles.expandIcon} />}
         sx={styles.accordionSummary}
       />
       <AccordionDetails>
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </Typography>
+        <Stack spacing={1}>
+          <Skills />
+          <Experience />
+          <Education />
+        </Stack>
       </AccordionDetails>
     </Accordion>
   );
