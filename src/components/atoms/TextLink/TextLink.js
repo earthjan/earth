@@ -11,6 +11,10 @@ const TextLink = ({ component, children, href }) => {
   )
 }
 
-TextLink.propTypes = {}
+TextLink.propTypes = {
+  component: PropTypes.string,
+  children: PropTypes.any,
+  href: PropTypes.string
+}
 
 export default TextLink

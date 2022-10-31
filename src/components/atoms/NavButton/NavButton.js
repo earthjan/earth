@@ -1,8 +1,9 @@
 import React from "react";
-import { Button } from "@mui/material";
-import { navButtonStyles } from "./styles";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+
+import { Button } from "@mui/material";
+
+import { navButtonStyles } from "./styles";
 
 /**
  * To create a nav link for an `AppBar`. 

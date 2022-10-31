@@ -63,8 +63,8 @@ export const Skills = () => {
       <Stack sx={styles.stack}>
         <Typography sx={styles.skSubtitle}>Tools</Typography>
         <Box component="ul" sx={styles.skUnorderedList}>
-          {["Git", "GitHub", "BitBucket", "Jira"].map((tool) => (
-            <TextGray component="li">{tool}</TextGray>
+          {["Git", "GitHub", "BitBucket", "Jira"].map((tool, key) => (
+            <TextGray key={key} component="li">{tool}</TextGray>
           ))}
         </Box>
       </Stack>
