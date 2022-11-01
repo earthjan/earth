@@ -46,6 +46,12 @@ const styles = {
       xl: "250px"
     },
   },
+  
+  projectsPadding: {
+    px: {
+      xs: "15px"
+    }
+  },
 
   textWithIconBase: {
     flexDirection: "row",
