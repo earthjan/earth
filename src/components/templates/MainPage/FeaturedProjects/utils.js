@@ -10,15 +10,15 @@ import styles from "./styles";
 
 export function Project1() {
   return (
-    <Grid container sx={styles.projectGridBase}>
-      <GridItem>
+    <Grid container sx={styles.prj1GridBase}>
+      <GridItem lg={6} >
         <ProjectThumbnail
           thumbnailUrl={
             "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png"
           }
         />
       </GridItem>
-      <GridItem>
+      <GridItem lg={6} sx={styles.prj1PdBase}>
         <ProjectDescription
           title="Trainella"
           description="I built this project for a client after attending her yoga
@@ -35,15 +35,15 @@ export function Project1() {
 
 export function Project2() {
   return (
-    <Grid container sx={styles.projectGridBase}>
-      <GridItem>
+    <Grid container sx={styles.prj2GridBase}>
+      <GridItem lg={6} >
         <ProjectThumbnail
           thumbnailUrl={
             "https://cdn.dribbble.com/userupload/3913979/file/original-9d13aac60d5c45077e81dbd3e5bcfcf4.png?compress=1&resize=752x"
           }
         />
       </GridItem>
-      <GridItem>
+      <GridItem lg={6} sx={styles.prj2PdBase}>
         <ProjectDescription
           title="Trainella"
           description="I built this project for a client after attending her yoga
@@ -69,12 +69,12 @@ function ProjectThumbnail({ thumbnailUrl }) {
 function ProjectDescription({ title, description, techStack, projectUrl }) {
   return (
     <Box sx={styles.pdBase}>
-      <TextTitle>{title}</TextTitle>
+      <TextTitle fontSize={styles.pdTitle.fontSize}>{title}</TextTitle>
       <TextGray sx={styles.pdDescription}>{description}</TextGray>
-      <Stack flexDirection="row">
+      <Stack flexDirection={styles.pdTechStackBase.flexDirection}>
         {techStack.map((tech, key) => (
           <Box key={key} component="ul" sx={styles.pdUl}>
-            <TextGray component="li">{tech}</TextGray>
+            <TextGray component="li" sx={styles.pdli}>{tech}</TextGray>
           </Box>
         ))}
       </Stack>
