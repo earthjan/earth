@@ -13,6 +13,7 @@ import styles from "./styles";
  * @param {string | object | ReactElement} props.label - Input label
  * @param {string | object} props.variant - Textfield variant
  * @param {function} props.onChange - onChange handler
+ * @param {number} props.maxLength - Max length
  * 
  * @example 
  * // Basic usage
@@ -35,7 +36,7 @@ import styles from "./styles";
     />
  * )
  */
-const TextField = ({ label, variant, onChange }) => {
+const TextField = ({ label, variant, onChange, maxLength }) => {
   return (
     <MUITextField
       InputProps={{
@@ -44,6 +45,9 @@ const TextField = ({ label, variant, onChange }) => {
             {label}
           </InputAdornment>
         ),
+      }}
+      inputProps={{
+        maxLength: maxLength,
       }}
       variant={variant}
       sx={styles.textfield}
@@ -60,6 +64,7 @@ TextField.propTypes = {
   ]),
   variant: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onChange: PropTypes.func,
+  maxLength: PropTypes.number
 };
 
 export default TextField;
