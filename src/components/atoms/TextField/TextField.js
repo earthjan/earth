@@ -14,6 +14,9 @@ import styles from "./styles";
  * @param {string | object} props.variant - Textfield variant
  * @param {function} props.onChange - onChange handler
  * @param {number} props.maxLength - Max length
+ * @param {any} props.multiline - If supplied, the textfield supports multiple lines.
+ * @param {number} props.rows - Number of rows
+ * @param {ReactElement} props.inputAdornment - Element passed to `InputProps`
  * 
  * @example 
  * // Basic usage
@@ -34,13 +37,35 @@ import styles from "./styles";
           </Typography>
         }
     />
+
+    // With inputAdornment
+    <TextField
+      maxLength={1000}
+      multiline
+      rows={10}
+      inputAdornment={
+        <InputAdornment position="start" sx={styles.inputAdornment}>
+          Message
+        </InputAdornment>
+      }
+    />    
  * )
  */
-const TextField = ({ label, variant, onChange, maxLength }) => {
+const TextField = ({
+  label,
+  variant,
+  onChange,
+  maxLength,
+  multiline,
+  rows,
+  inputAdornment,
+}) => {
   return (
     <MUITextField
       InputProps={{
-        startAdornment: (
+        startAdornment: inputAdornment ? (
+          inputAdornment
+        ) : (
           <InputAdornment position="start" sx={styles.inputAdornment}>
             {label}
           </InputAdornment>
@@ -49,9 +74,12 @@ const TextField = ({ label, variant, onChange, maxLength }) => {
       inputProps={{
         maxLength: maxLength,
       }}
+      multiline={multiline}
+      rows={rows}
       variant={variant}
       sx={styles.textfield}
       onChange={onChange}
+      fullWidth
     />
   );
 };
@@ -64,7 +92,10 @@ TextField.propTypes = {
   ]),
   variant: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   onChange: PropTypes.func,
-  maxLength: PropTypes.number
+  maxLength: PropTypes.number,
+  multiline: PropTypes.any,
+  rows: PropTypes.number,
+  inputAdornment: PropTypes.element
 };
 
 export default TextField;
