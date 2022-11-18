@@ -117,7 +117,7 @@ const styles = {
     flexDirection: "row-reverse"
   },
   prj2PdBase: {
-    paddingRight: PD_SPACING,
+    paddingLeft: PD_SPACING,
   },
 };
 
