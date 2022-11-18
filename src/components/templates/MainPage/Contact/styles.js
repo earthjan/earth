@@ -5,6 +5,7 @@ const styles = {
 
   form: {
     marginTop: globalSpacing.MarginSpacing,
+    width: { sm: "400px" },
   },
   inputAdornment: {
     marginBottom: "210px",
