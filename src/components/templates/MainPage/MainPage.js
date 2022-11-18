@@ -7,6 +7,7 @@ import AppBarContainer from "../../atoms/AppBarContainer/AppBarContainer";
 import Bio from "./Bio/Bio";
 import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
 import Contact from "./Contact/Contact";
+import Footer from "./Footer/Footer";
 
 import { LogoEarth, getNavLinks, getMenuList } from "./utils";
 
@@ -38,6 +39,8 @@ const MainPage = ({ formDownloadLinks, handleContactSubmit }) => {
             handleSubmit={handleContactSubmit}
           />
         </Box>
+
+        <Footer />
       </Box>
     </Box>
   );
