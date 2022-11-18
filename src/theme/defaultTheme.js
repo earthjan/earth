@@ -25,6 +25,10 @@ const defaultTheme = createTheme({
     },
     text: {
       primary: "#FFFFFF"
+    },
+    textfield: {
+      main: "#FFFFFF",
+      text: "#000000"
     }
   },
   typography: {
@@ -39,3 +43,7 @@ const defaultTheme = createTheme({
 });
 
 export default defaultTheme;
+
+export const globalSpacing = {
+  get MarginSpacing() { return "15px" }
+}
