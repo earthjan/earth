@@ -8,50 +8,44 @@ import GridItem from "../../../atoms/GridItem/GridItem";
 
 import styles from "./styles";
 
-export function Project1() {
+export function Project1({ thumbnailUrl, title, description, techStack, projectUrl }) {
   return (
     <Grid container sx={styles.prj1GridBase}>
       <GridItem lg={6} >
         <ProjectThumbnail
           thumbnailUrl={
-            "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png"
+            thumbnailUrl
           }
         />
       </GridItem>
       <GridItem lg={6} sx={styles.prj1PdBase}>
         <ProjectDescription
-          title="Trainella"
-          description="I built this project for a client after attending her yoga
-            class. She wanted a WordPress site with a more
-            custom layout so I used an existing WordPress theme
-            and tweaked it with about 500 lines of additional CSS."
-          techStack={["HTML", "CSS", "JavaScript"]}
-          projectUrl="#"
+          title={title}
+          description={description}
+          techStack={techStack}
+          projectUrl={projectUrl}
         />
       </GridItem>
     </Grid>
   );
 }
 
-export function Project2() {
+export function Project2({ thumbnailUrl, title, description, techStack, projectUrl }) {
   return (
     <Grid container sx={styles.prj2GridBase}>
       <GridItem lg={6} >
         <ProjectThumbnail
           thumbnailUrl={
-            "https://cdn.dribbble.com/userupload/3913979/file/original-9d13aac60d5c45077e81dbd3e5bcfcf4.png?compress=1&resize=752x"
+            thumbnailUrl
           }
         />
       </GridItem>
       <GridItem lg={6} sx={styles.prj2PdBase}>
         <ProjectDescription
-          title="Trainella"
-          description="I built this project for a client after attending her yoga
-            class. She wanted a WordPress site with a more
-            custom layout so I used an existing WordPress theme
-            and tweaked it with about 500 lines of additional CSS."
-          techStack={["HTML", "CSS", "JavaScript"]}
-          projectUrl="#"
+          title={title}
+          description={description}
+          techStack={techStack}
+          projectUrl={projectUrl}
         />
       </GridItem>
     </Grid>

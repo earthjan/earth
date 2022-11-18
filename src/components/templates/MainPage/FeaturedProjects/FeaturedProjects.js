@@ -12,24 +12,35 @@ import hr from "../../../../assets/Svgs/hr.svg"
 import { Project1, Project2 } from "./utils";
 import styles from "./styles";
 
-const FeaturedProjects = () => {
+const FeaturedProjects = ({ title, projects=[] }) => {
   return (
     <Box sx={styles.base}>
       <TextTitle fontSize={styles.title.fontSize}>Featured projects</TextTitle>
       <TextGray sx={styles.subtitle}>
-        I do most of my work under contract but I tend to freelance from time to
-        time or build projects for fun. Here are some of my most recent
-        commercial projects:
+        {title}
       </TextGray>
 
-      <Project1 />
+      {projects.map(
+        (projectDetails, index, array) => (
+          <>
+            {(index % 2) === 0 && (<Project1 {...projectDetails} />)}
 
-      {/* GridItem to center the divider */}
-      <GridItem container={true} sx={styles.dividerBase}>
-        <LogoContainer src={hr} width={styles.divider.width} height={styles.divider.height}/>
-      </GridItem>
+            {(index % 2) !== 0 && (<Project2 {...projectDetails} />)}
 
-      <Project2 />
+            {/* Prevents putting a divider on the bottom of the last project */}
+            {index + 1 !== array.length && (
+              // GridItem to center the divider
+              <GridItem container={true} sx={styles.dividerBase}>
+                <LogoContainer
+                  src={hr}
+                  width={styles.divider.width}
+                  height={styles.divider.height}
+                />
+              </GridItem>
+            )}
+          </>
+        )
+      )}
     </Box>
   );
 };

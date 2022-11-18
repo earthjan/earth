@@ -2,7 +2,13 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { Box, Typography, InputAdornment, Button, Stack, requirePropFactory } from "@mui/material";
+import {
+  Box,
+  Typography,
+  InputAdornment,
+  Button,
+  Stack,
+} from "@mui/material";
 
 import TextTitle from "../../../atoms/TextTitle/TextTitle";
 import TextGray from "../../../atoms/TextGray/TextGray";
@@ -88,7 +94,7 @@ Contact.propTypes = {
   downloadLinks: PropTypes.exact({
     CV: PropTypes.string,
     resume: PropTypes.string,
-  })
+  }),
 };
 
 export default Contact;
