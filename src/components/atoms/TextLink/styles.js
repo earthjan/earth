@@ -1,8 +1,12 @@
 const styles = {
-    text: {
-        color: "links.main",
-        textDecoration: "underline"
-    }
-}
+  text(fontStyle, fontSize) {
+    return {
+      color: "links.main",
+      textDecoration: "underline",
+      fontStyle: fontStyle,
+      fontSize: fontSize
+    };
+  },
+};
 
-export default styles
+export default styles;
