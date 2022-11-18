@@ -8,7 +8,6 @@ import {
   InputAdornment,
   Button,
   Stack,
-  requirePropFactory,
 } from "@mui/material";
 
 import TextTitle from "../../../atoms/TextTitle/TextTitle";
