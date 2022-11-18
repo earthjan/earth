@@ -59,6 +59,12 @@ const styles = {
     },
   },
 
+  contactPadding: {
+    px: {
+      xs: "15px",
+    },
+  },
+
   textWithIconBase: {
     flexDirection: "row",
     justifyContent: "space-between",
