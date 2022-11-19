@@ -60,7 +60,7 @@ const styles = {
 
   scrollDownBase: {
     position: "absolute",
-    top: "90vh",
+    top: "80vh",
     left: {
       xs: "40vw",
       sm: "45vw",
