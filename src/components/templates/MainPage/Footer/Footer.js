@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 
 import TextGray from "../../../atoms/TextGray/TextGray";
 import LogoContainer from "../../../atoms/LogoContainer/LogoContainer";
