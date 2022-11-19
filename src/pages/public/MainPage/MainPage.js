@@ -59,6 +59,8 @@ const projects = [
   },
 ];
 
+const linkedInURL = "https://linkedin.com/in/earthjan";
+const githubURL = "https://github.com/earthjan"
 const MainPage = () => {
   return (
     <MainPageTemplate
@@ -66,6 +68,8 @@ const MainPage = () => {
       projects={projects}
       formDownloadLinks={formDownloadLinks}
       handleContactSubmit={handleContactSubmit}
+      linkedInURL={linkedInURL}
+      githubURL={githubURL}
     />
   );
 };

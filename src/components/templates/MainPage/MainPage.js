@@ -13,7 +13,7 @@ import { LogoEarth, getNavLinks, getMenuList } from "./utils";
 
 import styles from "./styles";
 
-const MainPage = ({ projectSecTitle, projects, formDownloadLinks, handleContactSubmit }) => {
+const MainPage = ({ projectSecTitle, projects, formDownloadLinks, handleContactSubmit, linkedInURL, githubURL }) => {
   return (
     <Box sx={styles.mainPageBase}>
       <Box sx={styles.maxWidthSetter}>
@@ -40,7 +40,7 @@ const MainPage = ({ projectSecTitle, projects, formDownloadLinks, handleContactS
           />
         </Box>
 
-        <Footer />
+        <Footer linkedInURL={linkedInURL} githubURL={githubURL} />
       </Box>
     </Box>
   );
