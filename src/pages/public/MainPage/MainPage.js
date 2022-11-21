@@ -123,6 +123,50 @@ const handleContactSubmit = (e) => {
   console.log("Submit was clicked!");
 };
 
+const bioOverview = {
+  title: "Hi, I’m Earth!",
+  paragraphs: [
+    "I’m a self-taught Front End Developer and school-taught Systems Engineer from Nigeria.",
+    "I've been building websites since 2017 with a focus on responsive design, accessibility and pleasing aesthetics.",
+    "I've spoken at multiple international conferences on a variety of topics ranging from web accessibility to career development.",
+  ],
+};
+
+const readMoreContent = {
+  skills: {
+    languages: ["HTML, CSS, JS", "NodeJS", "C#"],
+    libraries: ["ReactJS", "React-Redux", "Material-UI"],
+    tools: ["Git", "GitHub", "BitBucket", "Jira"],
+  },
+  experiences: [
+    {
+      company: "DigitalInnov",
+      position: "Front-end Developer Intern",
+      howLong: "June 2022 - Current",
+      description:
+        " Working with Shopify technologies to create e-commerce stores on various client projects.",
+    },
+  ],
+  educations: {
+    college: {
+      level: "B.S. Aviation Information Technology",
+      school: "Philippine State College of Aeronautics, Pasay, Metro Manila",
+      schoolYear: "June 2018 - October 2022",
+      keyProject: {
+        title: "Built a Computer Laboratory Management Software",
+        link: "https://github.com/earthjan/computer-lab-management",
+        year: "2022",
+      },
+    },
+    shs: {
+      level: "Tech-Voc Senior High school",
+      school: "AMA Basic Education, Las Piñas, Metro Manila",
+      schoolYear: "2018",
+      relevantCourseWork: "Introduction and Fundamentals of Programming",
+    },
+  },
+};
+
 const projectSecTitle =
   "I do most of my work under contract but I tend to freelance from time to time or build projects for fun. Here are some of my most recent commercial projects:";
 const projects = [
@@ -173,6 +217,10 @@ const MainPage = () => {
       appbarLogoSrc={logo}
       appbarLinks={appbarLinks}
       appbarMenuLinks={appbarBurgerLinks}
+      bioOverview={bioOverview}
+      skills={readMoreContent.skills}
+      experiences={readMoreContent.experiences}
+      educations={readMoreContent.educations}
       projectSecTitle={projectSecTitle}
       projects={projects}
       formDownloadLinks={formDownloadLinks}

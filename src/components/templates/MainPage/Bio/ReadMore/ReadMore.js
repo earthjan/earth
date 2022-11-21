@@ -9,9 +9,8 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import styles from "./styles";
-import { Skills, Experience, Education } from "./utils";
 
-const ReadMore = () => {
+const ReadMore = ({ content }) => {
   return (
     <Accordion sx={styles.accordion}>
       <AccordionSummary
@@ -20,9 +19,11 @@ const ReadMore = () => {
       />
       <AccordionDetails sx={styles.accordionDetails}>
         <Stack spacing={{ xs: 1, xl: 6 }}>
-          <Skills />
-          <Experience />
-          <Education />
+          {content.map((Section, key) => (
+            <React.Fragment key={key}>
+              {Section}
+            </React.Fragment>
+          ))}
         </Stack>
       </AccordionDetails>
     </Accordion>

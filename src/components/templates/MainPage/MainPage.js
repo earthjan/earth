@@ -13,7 +13,21 @@ import { LogoEarth } from "./utils";
 
 import styles from "./styles";
 
-const MainPage = ({ appbarLogoSrc, appbarLinks, appbarMenuLinks, projectSecTitle, projects, formDownloadLinks, handleContactSubmit, linkedInURL, githubURL }) => {
+const MainPage = ({
+  appbarLogoSrc,
+  appbarLinks,
+  appbarMenuLinks,
+  bioOverview,
+  skills,
+  experiences,
+  educations,
+  projectSecTitle,
+  projects,
+  formDownloadLinks,
+  handleContactSubmit,
+  linkedInURL,
+  githubURL,
+}) => {
   return (
     <Box sx={styles.mainPageBase}>
       <Box sx={styles.maxWidthSetter}>
@@ -26,7 +40,12 @@ const MainPage = ({ appbarLogoSrc, appbarLinks, appbarMenuLinks, projectSecTitle
         />
 
         <Box sx={styles.bioPadding}>
-          <Bio />
+          <Bio
+            overview={bioOverview}
+            skills={skills}
+            experiences={experiences}
+            educations={educations}
+          />
         </Box>
 
         <Box sx={styles.projectsPadding}>
