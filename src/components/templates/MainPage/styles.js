@@ -15,12 +15,6 @@ const styles = {
 
   maxWidthSetter: {
     maxWidth: "1536px",
-
-    /**
-     * To keep track the max width if it's right
-     */
-    border: 1,
-    borderColor: "white",
   },
 
   logo: {
