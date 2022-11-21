@@ -113,10 +113,10 @@ const handleContactSubmit = (e) => {
   /**
    * Uncomment this if it will be used.
    */
-  // const name = e.target.form[0].value;
-  // const email = e.target.form[2].value;
-  // const subject = e.target.form[4].value;
-  // const message = e.target.form[6].value;
+  // const name = e.target[0].value;
+  // const email = e.target[2].value;
+  // const subject = e.target[4].value;
+  // const message = e.target[6].value;
 
   // console.log(name, email, subject, message)
 

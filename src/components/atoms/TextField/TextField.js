@@ -80,6 +80,7 @@ const TextField = ({
       sx={styles.textfield}
       onChange={onChange}
       fullWidth
+      required
     />
   );
 };

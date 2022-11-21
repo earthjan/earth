@@ -2,18 +2,9 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import {
-  Box,
-  Typography,
-  InputAdornment,
-  Button,
-  Stack,
-} from "@mui/material";
+import { Box, Typography, InputAdornment, Button, Stack } from "@mui/material";
 
-import TextTitle from "../../../atoms/TextTitle/TextTitle";
-import TextGray from "../../../atoms/TextGray/TextGray";
-import TextField from "../../../atoms/TextField/TextField";
-import TextLink from "../../../atoms/TextLink/TextLink";
+import { TextTitle, TextGray, TextField, TextLink } from "../../../atoms/atoms";
 
 import styles from "./styles";
 
@@ -32,22 +23,11 @@ const Contact = ({ downloadLinks: { CV, resume }, handleSubmit }) => {
       <TextGray>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </TextGray>
-      <Box component="form" {...styles.form}>
+      <Box component="form" onSubmit={handleSubmit} {...styles.form}>
         <Stack spacing={1}>
-          <TextField label="Name:" />
-          <TextField label="Email:" />
-          <TextField
-            label={
-              <Typography>
-                Subject
-                <Typography component="span" fontSize="0.7rem">
-                  {" "}
-                  (optional)
-                </Typography>
-                :
-              </Typography>
-            }
-          />
+          <TextField label="Name:"/>
+          <TextField label="Email:"/>
+          <TextField label={<Typography>Subject:</Typography>}/>
 
           <Box sx={styles.messageBase}>
             <TextField
@@ -56,7 +36,7 @@ const Contact = ({ downloadLinks: { CV, resume }, handleSubmit }) => {
               rows={10}
               inputAdornment={
                 <InputAdornment position="start" sx={styles.inputAdornment}>
-                  Message
+                  Message:
                 </InputAdornment>
               }
               onChange={handleMessage}
@@ -70,7 +50,6 @@ const Contact = ({ downloadLinks: { CV, resume }, handleSubmit }) => {
               variant="contained"
               color={styles.submit.color}
               sx={styles.submit.sx}
-              onClick={handleSubmit}
             >
               Send
             </Button>
