@@ -20,7 +20,7 @@ const paramDefaultValues = {
  * @param {(number|string)} obj.borderRadius - Border radius of the logo.
  * @param {string} obj.borderColor - Border color.
  * @param {string} obj.alt - Text that replaces your broken `src`.
- * @param {string} obj.src - Path of your logo. You must import the image, and pass it as the param value so that React can recognize it. Additionally, we recommend to have an .svg to preserve the logo quality on different screen sizes.
+ * @param {string | object} obj.src - Path of your logo. You must import the image, and pass it as the param value so that React can recognize it. Additionally, we recommend to have an .svg to preserve the logo quality on different screen sizes.
  * 
  * @component
  * @category Components
@@ -87,7 +87,10 @@ LogoContainer.propTypes = {
   ]),
   borderColor: PropTypes.string,
   alt: PropTypes.string,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]).isRequired,
 };
 
 LogoContainer.defaultProps = {
