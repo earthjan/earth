@@ -9,20 +9,20 @@ import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
 import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
 
-import { LogoEarth, getNavLinks, getMenuList } from "./utils";
+import { LogoEarth } from "./utils";
 
 import styles from "./styles";
 
-const MainPage = ({ projectSecTitle, projects, formDownloadLinks, handleContactSubmit, linkedInURL, githubURL }) => {
+const MainPage = ({ appbarLogoSrc, appbarLinks, appbarMenuLinks, projectSecTitle, projects, formDownloadLinks, handleContactSubmit, linkedInURL, githubURL }) => {
   return (
     <Box sx={styles.mainPageBase}>
       <Box sx={styles.maxWidthSetter}>
         <LandingPage />
 
         <AppBarContainer
-          logo={<LogoEarth />}
-          navLinks={getNavLinks()}
-          menuList={getMenuList()}
+          logo={<LogoEarth logo={appbarLogoSrc} />}
+          navLinks={appbarLinks}
+          menuList={appbarMenuLinks}
         />
 
         <Box sx={styles.bioPadding}>

@@ -113,7 +113,7 @@ function Menu({ items }) {
           </MenuItem>
         );
       }
-      // If an item is a custom `MenuItem`, then use render it instead.
+      // If an item is a custom `MenuItem`, then render it instead.
       return <item.CustomMenuItem key={key} onClick={handleClose} />;
     });
 
@@ -137,11 +137,12 @@ function NavLinks({ navPages = [] }) {
   return (
     <NavLinksContainer>
       {navPages.map((navPage, key) => {
-        if (typeof navPage === "string") {
-          return <NavButton key={key} content={navPage} />;
+        if ("CustomNavButton" in navPage) {
+          return <navPage.CustomNavButton key={key} />;
         }
 
-        return <navPage.CustomNavButton key={key} />;
+
+        return <NavButton key={key} content={navPage.text} onClick={navPage.onClick} />;
       })}
     </NavLinksContainer>
   );
