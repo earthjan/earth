@@ -14,7 +14,6 @@ import { LogoEarth } from "./utils";
 import styles from "./styles";
 
 const MainPage = ({
-  appbarLogoSrc,
   appbarLinks,
   appbarMenuLinks,
   bioOverview,
@@ -34,7 +33,7 @@ const MainPage = ({
         <LandingPage />
 
         <AppBarContainer
-          logo={<LogoEarth logo={appbarLogoSrc} />}
+          logo={<LogoEarth />}
           navLinks={appbarLinks}
           menuList={appbarMenuLinks}
         />

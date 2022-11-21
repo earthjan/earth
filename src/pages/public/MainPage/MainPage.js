@@ -7,8 +7,6 @@ import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 import MainPageTemplate from "../../../components/templates/MainPage/MainPage";
 import { TextWithIcon, Menu, NavButton } from "../../../components/atoms/atoms";
 
-import { logo } from "../../../assets/Svgs/assets";
-
 /**
  * An array of links with download callback
  */
@@ -210,11 +208,9 @@ const projects = [
 
 const linkedInURL = "https://linkedin.com/in/earthjan";
 const githubURL = "https://github.com/earthjan";
-
 const MainPage = () => {
   return (
     <MainPageTemplate
-      appbarLogoSrc={logo}
       appbarLinks={appbarLinks}
       appbarMenuLinks={appbarBurgerLinks}
       bioOverview={bioOverview}
