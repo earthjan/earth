@@ -8,6 +8,8 @@ import { ThemeProvider } from "@mui/material";
 
 import App from "./App";
 
+import { BrowserRouter } from "react-router-dom";
+
 import reportWebVitals from "./reportWebVitals";
 
 import defaultTheme from "./theme/defaultTheme";
@@ -16,7 +18,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );

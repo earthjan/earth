@@ -1,5 +1,7 @@
 import React from "react";
 
+import { HashLink } from "react-router-hash-link";
+
 import { Box, Typography, IconButton, Stack } from "@mui/material";
 import SouthIcon from "@mui/icons-material/South";
 
@@ -8,7 +10,7 @@ import TextGray from "../../../atoms/TextGray/TextGray";
 
 import styles from "./styles";
 
-const LandingPage = () => {
+const LandingPage = ({ scrollToURL }) => {
   return (
     <Stack flexDirection="column" justifyContent="center" sx={styles.stackBase}>
       <GridItem sx={styles.upperSubtitleBase}>
@@ -27,14 +29,16 @@ const LandingPage = () => {
       </GridItem>
 
       <Box sx={styles.scrollDownBase}>
-        <IconButton>
-          <Stack sx={styles.scrollDownStack}>
-            <GridItem container={true} sx={styles.scrollDownIconBase}>
-              <SouthIcon sx={styles.scrollDownIcon} />
-            </GridItem>
-            <Typography sx={styles.scrollDownLabel}>Scroll Down</Typography>
-          </Stack>
-        </IconButton>
+        <HashLink smooth to={scrollToURL}>
+          <IconButton>
+            <Stack sx={styles.scrollDownStack}>
+              <GridItem container={true} sx={styles.scrollDownIconBase}>
+                <SouthIcon sx={styles.scrollDownIcon} />
+              </GridItem>
+              <Typography sx={styles.scrollDownLabel}>Scroll Down</Typography>
+            </Stack>
+          </IconButton>
+        </HashLink>
       </Box>
       <Box sx={styles.extraBg} />
     </Stack>

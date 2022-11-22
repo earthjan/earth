@@ -1,5 +1,7 @@
 import React from "react";
 
+import { HashLink } from "react-router-hash-link";
+
 import { MenuItem } from "@mui/material";
 
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
@@ -9,6 +11,7 @@ import { TextWithIcon, Menu, NavButton } from "../../../components/atoms/atoms";
 
 import URLPaths from "../../../utils/URLPaths";
 
+const landingPageScrollToURL = `/#${URLPaths.About}`
 /**
  * An array of links with download callback
  */
@@ -31,8 +34,13 @@ const appbarMenuLinks = [
  */
 const appbarLinks = [
   {
-    text: "Projects",
-    onClick: () => window.location.assign(`/#${URLPaths.Projects}`),
+    CustomNavButton() {
+      return (
+        <HashLink smooth to={`/#${URLPaths.Projects}`}>
+          <NavButton content="Projects" />
+        </HashLink>
+      );
+    },
   },
   /**
    * Custom navigation button that will be rendered on the appbar
@@ -68,18 +76,24 @@ const appbarLinks = [
     },
   },
   {
-    text: "About",
-    onClick: () => window.location.assign(`/#${URLPaths.About}`),
+    CustomNavButton() {
+      return (
+        <HashLink smooth to={`/#${URLPaths.About}`}>
+          <NavButton content="About" />
+        </HashLink>
+      );
+    },
   },
   {
     CustomNavButton() {
       return (
-        <NavButton
-          onClick={() => window.location.assign(`/#${URLPaths.Contact}`)}
-          content="Contact me"
-          variant="contained"
-          color="emphasizedText"
-        />
+        <HashLink smooth to={`/#${URLPaths.Contact}`}>
+          <NavButton
+            content="Contact me"
+            variant="contained"
+            color="emphasizedText"
+          />
+        </HashLink>
       );
     },
   },
@@ -88,9 +102,51 @@ const appbarLinks = [
  * An `array<string | ReactElement>` of links that has custom menu items (`CustomMenuItem`) for app bar's burger menu
  */
 const appbarBurgerLinks = [
-  "Projects",
-  "About",
-  "Contact me",
+  {
+    CustomMenuItem({ onClick }) {
+      return (
+        <HashLink smooth to={`/#${URLPaths.Projects}`}>
+          <MenuItem
+            onClick={() => {
+              onClick();
+            }}
+          >
+            Project
+          </MenuItem>
+        </HashLink>
+      );
+    },
+  },
+  {
+    CustomMenuItem({ onClick }) {
+      return (
+        <HashLink smooth to={`/#${URLPaths.About}`}>
+          <MenuItem
+            onClick={() => {
+              onClick();
+            }}
+          >
+            About
+          </MenuItem>
+        </HashLink>
+      );
+    },
+  },
+  {
+    CustomMenuItem({ onClick }) {
+      return (
+        <HashLink smooth to={`/#${URLPaths.Contact}`}>
+          <MenuItem
+            onClick={() => {
+              onClick();
+            }}
+          >
+            Contact me
+          </MenuItem>
+        </HashLink>
+      );
+    },
+  },
   ...appbarMenuLinks.map((link) => ({
     CustomMenuItem({ onClick }) {
       return (
@@ -214,6 +270,7 @@ const githubURL = "https://github.com/earthjan";
 const MainPage = () => {
   return (
     <MainPageTemplate
+      landingPageScrollToURL={landingPageScrollToURL}
       appbarLinks={appbarLinks}
       appbarMenuLinks={appbarBurgerLinks}
       bioOverview={bioOverview}

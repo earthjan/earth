@@ -15,6 +15,7 @@ import { LogoEarth } from "./utils";
 import styles from "./styles";
 
 const MainPage = ({
+  landingPageScrollToURL,
   appbarLinks,
   appbarMenuLinks,
   bioOverview,
@@ -31,7 +32,7 @@ const MainPage = ({
   return (
     <Box sx={styles.mainPageBase}>
       <Box sx={styles.maxWidthSetter}>
-        <LandingPage />
+        <LandingPage scrollToURL={landingPageScrollToURL} />
 
         <AppBarContainer
           logo={<LogoEarth />}
@@ -50,7 +51,11 @@ const MainPage = ({
         </Box>
 
         <Box sx={styles.projectsPadding}>
-          <FeaturedProjects id={URLPaths.Projects} title={projectSecTitle} projects={projects} />
+          <FeaturedProjects
+            id={URLPaths.Projects}
+            title={projectSecTitle}
+            projects={projects}
+          />
         </Box>
 
         <Box sx={styles.contactPadding}>
@@ -60,7 +65,7 @@ const MainPage = ({
             handleSubmit={handleContactSubmit}
           />
         </Box>
-        
+
         <Footer linkedInURL={linkedInURL} githubURL={githubURL} />
       </Box>
     </Box>
