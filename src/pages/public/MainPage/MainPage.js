@@ -1,13 +1,11 @@
 import React from "react";
 
-import { HashLink } from "react-router-hash-link";
-
 import { MenuItem } from "@mui/material";
 
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 
 import MainPageTemplate from "../../../components/templates/MainPage/MainPage";
-import { TextWithIcon, Menu, NavButton } from "../../../components/atoms/atoms";
+import { TextWithIcon, Menu, NavButton, HashLink } from "../../../components/atoms/atoms";
 
 import URLPaths from "../../../utils/URLPaths";
 
@@ -36,7 +34,7 @@ const appbarLinks = [
   {
     CustomNavButton() {
       return (
-        <HashLink smooth to={`/#${URLPaths.Projects}`}>
+        <HashLink to={`/#${URLPaths.Projects}`}>
           <NavButton content="Projects" />
         </HashLink>
       );
@@ -78,7 +76,7 @@ const appbarLinks = [
   {
     CustomNavButton() {
       return (
-        <HashLink smooth to={`/#${URLPaths.About}`}>
+        <HashLink to={`/#${URLPaths.About}`}>
           <NavButton content="About" />
         </HashLink>
       );
@@ -87,7 +85,7 @@ const appbarLinks = [
   {
     CustomNavButton() {
       return (
-        <HashLink smooth to={`/#${URLPaths.Contact}`}>
+        <HashLink to={`/#${URLPaths.Contact}`}>
           <NavButton
             content="Contact me"
             variant="contained"
@@ -105,7 +103,7 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink smooth to={`/#${URLPaths.Projects}`}>
+        <HashLink to={`/#${URLPaths.Projects}`}>
           <MenuItem
             onClick={() => {
               onClick();
@@ -120,7 +118,7 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink smooth to={`/#${URLPaths.About}`}>
+        <HashLink to={`/#${URLPaths.About}`}>
           <MenuItem
             onClick={() => {
               onClick();
@@ -135,7 +133,7 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink smooth to={`/#${URLPaths.Contact}`}>
+        <HashLink to={`/#${URLPaths.Contact}`}>
           <MenuItem
             onClick={() => {
               onClick();

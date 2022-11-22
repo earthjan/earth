@@ -1,12 +1,9 @@
 import React from "react";
 
-import { HashLink } from "react-router-hash-link";
-
 import { Box, Typography, IconButton, Stack } from "@mui/material";
 import SouthIcon from "@mui/icons-material/South";
 
-import GridItem from "../../../atoms/GridItem/GridItem";
-import TextGray from "../../../atoms/TextGray/TextGray";
+import { HashLink, TextGray, GridItem } from "../../../atoms/atoms";
 
 import styles from "./styles";
 
@@ -29,7 +26,7 @@ const LandingPage = ({ scrollToURL }) => {
       </GridItem>
 
       <Box sx={styles.scrollDownBase}>
-        <HashLink smooth to={scrollToURL}>
+        <HashLink to={scrollToURL}>
           <IconButton>
             <Stack sx={styles.scrollDownStack}>
               <GridItem container={true} sx={styles.scrollDownIconBase}>
