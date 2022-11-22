@@ -6,7 +6,7 @@ import styles from "./styles";
 
 const HashLink = ({ to, children }) => {
   return (
-    <HL smooth to={to} styles={styles.link}>
+    <HL smooth to={to} style={styles.link}>
       {children}
     </HL>   
   );
