@@ -7,6 +7,7 @@ import TextGray from "./TextGray/TextGray";
 import GridItem from "./GridItem/GridItem";
 import TextLink from "./TextLink/TextLink";
 import TextField from "./TextField/TextField";
+import HashLink from "./HashLink/HashLink";
 
 export {
   TextWithIcon,
@@ -17,5 +18,6 @@ export {
   TextGray,
   GridItem,
   TextLink,
-  TextField
+  TextField,
+  HashLink
 };
