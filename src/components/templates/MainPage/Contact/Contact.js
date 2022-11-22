@@ -10,7 +10,7 @@ import styles from "./styles";
 
 const MAX_MESSAGE = 1000;
 
-const Contact = ({ downloadLinks: { CV, resume }, handleSubmit }) => {
+const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
   const [messageLength, setMessageLength] = React.useState(MAX_MESSAGE);
 
   const handleMessage = (e) => {
@@ -18,7 +18,7 @@ const Contact = ({ downloadLinks: { CV, resume }, handleSubmit }) => {
   };
 
   return (
-    <Box {...styles.root}>
+    <Box id={id} {...styles.root}>
       <TextTitle>Contact</TextTitle>
       <TextGray>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.

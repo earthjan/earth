@@ -7,6 +7,8 @@ import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 import MainPageTemplate from "../../../components/templates/MainPage/MainPage";
 import { TextWithIcon, Menu, NavButton } from "../../../components/atoms/atoms";
 
+import URLPaths from "../../../utils/URLPaths";
+
 /**
  * An array of links with download callback
  */
@@ -30,7 +32,7 @@ const appbarMenuLinks = [
 const appbarLinks = [
   {
     text: "Projects",
-    onClick: () => console.log("Clicked"),
+    onClick: () => window.location.assign(`/#${URLPaths.Projects}`),
   },
   /**
    * Custom navigation button that will be rendered on the appbar
@@ -67,12 +69,13 @@ const appbarLinks = [
   },
   {
     text: "About",
-    onClick: () => console.log("Clicked"),
+    onClick: () => window.location.assign(`/#${URLPaths.About}`),
   },
   {
     CustomNavButton() {
       return (
         <NavButton
+          onClick={() => window.location.assign(`/#${URLPaths.Contact}`)}
           content="Contact me"
           variant="contained"
           color="emphasizedText"

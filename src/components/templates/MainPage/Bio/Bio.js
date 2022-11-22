@@ -8,7 +8,7 @@ import ReadMore from "./ReadMore/ReadMore";
 import { Skills, Experience, Education } from "./utils";
 import styles from "./styles";
 
-const Bio = ({ overview, skills, experiences, educations }) => {
+const Bio = ({ id, overview, skills, experiences, educations }) => {
   const readMoreContent = [
     <Skills
       skills={skills}
@@ -21,7 +21,7 @@ const Bio = ({ overview, skills, experiences, educations }) => {
     />,
   ];
   return (
-    <Box sx={styles.base}>
+    <Box id={id} sx={styles.base}>
       <Box sx={styles.pySetter}>
         <TextTitle fontSize={styles.title.fontSize}>{overview.title}</TextTitle>
 

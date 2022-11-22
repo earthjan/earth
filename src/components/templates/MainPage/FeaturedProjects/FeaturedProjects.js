@@ -12,9 +12,9 @@ import hr from "../../../../assets/Svgs/hr.svg";
 import { Project1, Project2 } from "./utils";
 import styles from "./styles";
 
-const FeaturedProjects = ({ title, projects = [] }) => {
+const FeaturedProjects = ({ id, title, projects = [] }) => {
   return (
-    <Box sx={styles.base}>
+    <Box id={id} sx={styles.base}>
       <TextTitle fontSize={styles.title.fontSize}>Featured projects</TextTitle>
       <TextGray sx={styles.subtitle}>{title}</TextGray>
 

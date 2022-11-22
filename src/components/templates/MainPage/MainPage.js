@@ -9,8 +9,9 @@ import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
 import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
 
-import { LogoEarth } from "./utils";
+import URLPaths from "../../../utils/URLPaths";
 
+import { LogoEarth } from "./utils";
 import styles from "./styles";
 
 const MainPage = ({
@@ -40,6 +41,7 @@ const MainPage = ({
 
         <Box sx={styles.bioPadding}>
           <Bio
+            id={URLPaths.About}
             overview={bioOverview}
             skills={skills}
             experiences={experiences}
@@ -48,16 +50,17 @@ const MainPage = ({
         </Box>
 
         <Box sx={styles.projectsPadding}>
-          <FeaturedProjects title={projectSecTitle} projects={projects} />
+          <FeaturedProjects id={URLPaths.Projects} title={projectSecTitle} projects={projects} />
         </Box>
 
         <Box sx={styles.contactPadding}>
           <Contact
+            id={URLPaths.Contact}
             downloadLinks={formDownloadLinks}
             handleSubmit={handleContactSubmit}
           />
         </Box>
-
+        
         <Footer linkedInURL={linkedInURL} githubURL={githubURL} />
       </Box>
     </Box>
