@@ -3,7 +3,7 @@ import { globalSpacing } from "../../../../theme/defaultTheme";
 const styles = {
   root: { marginTop: { xs: "50px" } },
 
-  form: {
+  formBase: {
     marginTop: globalSpacing.MarginSpacing,
     width: { sm: "400px" },
   },

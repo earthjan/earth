@@ -23,47 +23,49 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
       <TextGray>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </TextGray>
-      <Box component="form" onSubmit={handleSubmit} {...styles.form}>
-        <Stack spacing={1}>
-          <TextField label="Name:"/>
-          <TextField label="Email:"/>
-          <TextField label={<Typography>Subject:</Typography>}/>
+      <Box {...styles.formBase}>
+        <form netlify onSubmit={handleSubmit}>
+          <Stack spacing={1}>
+            <TextField label="Name:" />
+            <TextField label="Email:" />
+            <TextField label={<Typography>Subject:</Typography>} />
 
-          <Box sx={styles.messageBase}>
-            <TextField
-              maxLength={MAX_MESSAGE}
-              multiline
-              rows={10}
-              inputAdornment={
-                <InputAdornment position="start" sx={styles.inputAdornment}>
-                  Message:
-                </InputAdornment>
-              }
-              onChange={handleMessage}
-            />
-            <Typography sx={styles.messageLength}>{messageLength}</Typography>
-          </Box>
+            <Box sx={styles.messageBase}>
+              <TextField
+                maxLength={MAX_MESSAGE}
+                multiline
+                rows={10}
+                inputAdornment={
+                  <InputAdornment position="start" sx={styles.inputAdornment}>
+                    Message:
+                  </InputAdornment>
+                }
+                onChange={handleMessage}
+              />
+              <Typography sx={styles.messageLength}>{messageLength}</Typography>
+            </Box>
 
-          <Stack {...styles.actionButtonsStack}>
-            <Button
-              type="submit"
-              variant="contained"
-              color={styles.submit.color}
-              sx={styles.submit.sx}
-            >
-              Send
-            </Button>
+            <Stack {...styles.actionButtonsStack}>
+              <Button
+                type="submit"
+                variant="contained"
+                color={styles.submit.color}
+                sx={styles.submit.sx}
+              >
+                Send
+              </Button>
 
-            <Stack>
-              <a href={CV}>
-                <TextLink {...styles.download}>Download my CV</TextLink>
-              </a>
-              <a href={resume}>
-                <TextLink {...styles.download}>Download my Resume</TextLink>
-              </a>
+              <Stack>
+                <a href={CV}>
+                  <TextLink {...styles.download}>Download my CV</TextLink>
+                </a>
+                <a href={resume}>
+                  <TextLink {...styles.download}>Download my Resume</TextLink>
+                </a>
+              </Stack>
             </Stack>
           </Stack>
-        </Stack>
+        </form>
       </Box>
     </Box>
   );
