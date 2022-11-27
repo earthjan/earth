@@ -24,14 +24,16 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </TextGray>
       <Box {...styles.formBase}>
-        <form netlify onSubmit={handleSubmit}>
+        <form name="contact" netlify onSubmit={handleSubmit}>
           <Stack spacing={1}>
-            <TextField label="Name:" />
-            <TextField label="Email:" />
+            <TextField label="Name:" type="name" name="name" />
+            <TextField label="Email:" type="email" name="email" />
             <TextField label={<Typography>Subject:</Typography>} />
 
             <Box sx={styles.messageBase}>
               <TextField
+                name="message"
+                type="text"
                 maxLength={MAX_MESSAGE}
                 multiline
                 rows={10}
