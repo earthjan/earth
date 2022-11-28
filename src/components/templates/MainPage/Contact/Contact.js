@@ -18,58 +18,86 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
   };
 
   return (
-    <Box id={id} {...styles.root}>
-      <TextTitle>Contact</TextTitle>
-      <TextGray>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </TextGray>
-      <Box {...styles.formBase}>
-        <form name="contact" netlify={true} data-netlify="true" method="POST" onSubmit={handleSubmit}>
-          <Stack spacing={1}>
-            <TextField label="Name:" type="name" name="name" maxLength={50} />
-            <TextField label="Email:" type="email" name="email" maxLength={50} />
-            <TextField label="Subject:" type="text" name="subject" maxLength={50} />
+    <>
+      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="subject" />
+        <textarea name="message"></textarea>
+      </form>
 
-            <Box sx={styles.messageBase}>
+      <Box id={id} {...styles.root}>
+        <TextTitle>Contact</TextTitle>
+        <TextGray>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </TextGray>
+        <Box {...styles.formBase}>
+          <form
+            name="contact"
+            netlify={true}
+            data-netlify="true"
+            method="POST"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <Stack spacing={1}>
+              <TextField label="Name:" type="texts" name="name" maxLength={50} />
               <TextField
-                name="message"
-                type="text"
-                maxLength={MAX_MESSAGE}
-                multiline
-                rows={10}
-                inputAdornment={
-                  <InputAdornment position="start" sx={styles.inputAdornment}>
-                    Message:
-                  </InputAdornment>
-                }
-                onChange={handleMessage}
+                label="Email:"
+                type="email"
+                name="email"
+                maxLength={50}
               />
-              <Typography sx={styles.messageLength}>{messageLength}</Typography>
-            </Box>
+              <TextField
+                label="Subject:"
+                type="text"
+                name="subject"
+                maxLength={50}
+              />
 
-            <Stack {...styles.actionButtonsStack}>
-              <Button
-                type="submit"
-                variant="contained"
-                color={styles.submit.color}
-                sx={styles.submit.sx}
-              >
-                Send
-              </Button>
+              <Box sx={styles.messageBase}>
+                <TextField
+                  name="message"
+                  type="text"
+                  maxLength={MAX_MESSAGE}
+                  multiline
+                  rows={10}
+                  inputAdornment={
+                    <InputAdornment position="start" sx={styles.inputAdornment}>
+                      Message:
+                    </InputAdornment>
+                  }
+                  onChange={handleMessage}
+                />
+                <Typography sx={styles.messageLength}>
+                  {messageLength}
+                </Typography>
+              </Box>
 
-              <Stack>
-                <a href={CV}>
-                  <TextLink {...styles.download}>Download my CV</TextLink>
-                </a>
-                <a href={resume}>
-                  <TextLink {...styles.download}>Download my Resume</TextLink>
-                </a>
+              <Stack {...styles.actionButtonsStack}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color={styles.submit.color}
+                  sx={styles.submit.sx}
+                >
+                  Send
+                </Button>
+
+                <Stack>
+                  <a href={CV}>
+                    <TextLink {...styles.download}>Download my CV</TextLink>
+                  </a>
+                  <a href={resume}>
+                    <TextLink {...styles.download}>Download my Resume</TextLink>
+                  </a>
+                </Stack>
               </Stack>
             </Stack>
-          </Stack>
-        </form>
+          </form>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
