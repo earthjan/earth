@@ -32,7 +32,29 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </TextGray>
         <Box {...styles.formBase}>
-          <form
+          <form name="contact" method="post">
+            <input type="hidden" name="form-name" value="contact" />
+            <p>
+              <label>
+                Your Name: <input type="text" name="name" />
+              </label>
+            </p>
+            <p>
+              <label>
+                Your Email: <input type="email" name="email" />
+              </label>
+            </p>
+            <p>
+              <label>
+                Message: <textarea name="message"></textarea>
+              </label>
+            </p>
+            <p>
+              <button type="submit">Send</button>
+            </p>
+          </form>
+          ,
+          {/* <form
             name="contact"
             netlify={true}
             data-netlify="true"
@@ -94,7 +116,7 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
                 </Stack>
               </Stack>
             </Stack>
-          </form>
+          </form> */}
         </Box>
       </Box>
     </>
