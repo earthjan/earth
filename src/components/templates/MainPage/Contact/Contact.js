@@ -2,20 +2,20 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { Box, Typography, InputAdornment, Button, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 
-import { TextTitle, TextGray, TextField, TextLink } from "../../../atoms/atoms";
+import { TextTitle, TextGray } from "../../../atoms/atoms";
 
 import styles from "./styles";
 
-const MAX_MESSAGE = 1000;
+// const MAX_MESSAGE = 1000;
 
 const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
-  const [messageLength, setMessageLength] = React.useState(MAX_MESSAGE);
+  // const [messageLength, setMessageLength] = React.useState(MAX_MESSAGE);
 
-  const handleMessage = (e) => {
-    setMessageLength(() => MAX_MESSAGE - e.target.value.length);
-  };
+  // const handleMessage = (e) => {
+  //   setMessageLength(() => MAX_MESSAGE - e.target.value.length);
+  // };
 
   return (
     <>
