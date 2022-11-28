@@ -163,18 +163,18 @@ const appbarBurgerLinks = [
 
 const formDownloadLinks = { CV: "#", resume: "#" };
 const handleContactSubmit = (e) => {
-  e.preventDefault();
+  // e.preventDefault();
 
-  /**
-   * Uncomment this if it will be used.
-   */
-  const name = e.target[0].value;
-  const email = e.target[2].value;
-  const subject = e.target[4].value;
-  const message = e.target[6].value;
+  // /**
+  //  * Uncomment this if it will be used.
+  //  */
+  // const name = e.target[0].value;
+  // const email = e.target[2].value;
+  // const subject = e.target[4].value;
+  // const message = e.target[6].value;
 
-  console.log(name, email, subject, message)
-  console.log("Submit was clicked!");
+  // console.log(name, email, subject, message)
+  // console.log("Submit was clicked!");
 };
 
 const bioOverview = {

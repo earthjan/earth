@@ -24,11 +24,11 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </TextGray>
       <Box {...styles.formBase}>
-        <form name="contact" netlify onSubmit={handleSubmit}>
+        <form name="contact" netlify={true} data-netlify="true" method="POST" onSubmit={handleSubmit}>
           <Stack spacing={1}>
-            <TextField label="Name:" type="name" name="name" />
-            <TextField label="Email:" type="email" name="email" />
-            <TextField label={<Typography>Subject:</Typography>} />
+            <TextField label="Name:" type="name" name="name" maxLength={50} />
+            <TextField label="Email:" type="email" name="email" maxLength={50} />
+            <TextField label="Subject:" type="text" name="subject" maxLength={50} />
 
             <Box sx={styles.messageBase}>
               <TextField
