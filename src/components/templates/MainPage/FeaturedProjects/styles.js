@@ -15,7 +15,14 @@ const PD_SPACING = "20px";
  */
 const PD_CONTENT_FONT_SIZE = {
   lg: "1.1rem",
-  xl: "1.3rem"
+  xl: "1.3rem",
+};
+/**
+ * A global font-size for project description's tech stack content.
+ */
+const PD_TECH_STACK_FONT_SIZE = {
+  xs: "0.9rem",
+  lg: "1.1rem",
 };
 
 const styles = {
@@ -41,9 +48,9 @@ const styles = {
     justifyContent: "center",
     my: "80px",
   },
-  divider: { 
+  divider: {
     height: "1px",
-    width: "550px"
+    width: "550px",
   },
 
   /**
@@ -59,7 +66,7 @@ const styles = {
   pdTitle: {
     fontSize: {
       lg: "2rem",
-      xl: "2.3rem"
+      xl: "2.3rem",
     },
   },
   pdDescription: {
@@ -73,7 +80,7 @@ const styles = {
     my: 0,
   },
   pdli: {
-    fontSize: PD_CONTENT_FONT_SIZE,
+    fontSize: PD_TECH_STACK_FONT_SIZE,
   },
   pdView: {
     sx: {
@@ -86,16 +93,15 @@ const styles = {
    * ProjectThumbnail section
    */
   ptImgBase: {
-    height: {
-      xs: "150px",
-      sm: "250px",
-      xl: "300px"
-    },
     width: {
       xs: "100%",
     },
-    overflow: "hidden",
+  },
+  ptThumbnail: {
+    height: "auto",
+    width: "100%",
     border: 1,
+    borderColor: "border.main",
     borderRadius: "5px",
   },
 
@@ -106,7 +112,8 @@ const styles = {
     paddingTop: PROJ_BASE_SPACING,
   },
   prj1PdBase: {
-    paddingLeft: PD_SPACING,
+    px: { xs: "10px", lg: PD_SPACING },
+    // paddingLeft: { lg: PD_SPACING },
   },
 
   /**
@@ -114,10 +121,11 @@ const styles = {
    */
   prj2GridBase: {
     paddingTop: { xs: PROJ_BASE_SPACING, lg: "0" },
-    flexDirection: "row-reverse"
+    flexDirection: "row-reverse",
   },
   prj2PdBase: {
-    paddingLeft: PD_SPACING,
+    px: { xs: "10px", lg: PD_SPACING },
+    // paddingRight: { lg: PD_SPACING },
   },
 };
 
