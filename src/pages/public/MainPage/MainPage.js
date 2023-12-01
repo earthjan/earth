@@ -2,26 +2,39 @@ import React from "react";
 
 import { MenuItem } from "@mui/material";
 
-import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
+import FileOpenIcon from '@mui/icons-material/FileOpen';
 
 import MainPageTemplate from "../../../components/templates/MainPage/MainPage";
-import { TextWithIcon, Menu, NavButton, HashLink } from "../../../components/atoms/atoms";
+import {
+  TextWithIcon,
+  Menu,
+  NavButton,
+  HashLink,
+  TextLink,
+  TextGray,
+} from "../../../components/atoms/atoms";
 
 import URLPaths from "../../../utils/URLPaths";
 
-const landingPageScrollToURL = `/#${URLPaths.About}`
+import {
+  philscaLogo,
+  digitalInnovLogo,
+  myPortfolio,
+} from "../../../assets/Svgs/assets";
+
+const landingPageScrollToURL = `/#${URLPaths.About}`;
 /**
  * An array of links with download callback
  */
 const appbarMenuLinks = [
   {
-    text: "Download my Resume",
+    text: "View my Resume",
     download: () => {
       console.log("downloading resume...");
     },
   },
   {
-    text: "Download my CV",
+    text: "View my CV",
     download: () => {
       console.log("downloading CV...");
     },
@@ -63,7 +76,7 @@ const appbarLinks = [
                 >
                   <TextWithIcon
                     text={link.text}
-                    Icon={VerticalAlignBottomIcon}
+                    Icon={FileOpenIcon}
                   />
                 </MenuItem>
               ))
@@ -154,35 +167,54 @@ const appbarBurgerLinks = [
             onClick();
           }}
         >
-          <TextWithIcon text={link.text} Icon={VerticalAlignBottomIcon} />
+          <TextWithIcon text={link.text} Icon={FileOpenIcon} />
         </MenuItem>
       );
     },
   })),
 ];
 
-const formDownloadLinks = { CV: "#", resume: "#" };
+const formDownloadLinks = { CV: "C:\\Users\\Earth Jsn\\Documents\\Git\\Repos\\earth\\src\\assets\\sample.pdf", resume: "#" };
 const handleContactSubmit = (e) => {
   e.preventDefault();
 
-  /**
-   * Uncomment this if it will be used.
-   */
   const name = e.target[0].value;
   const email = e.target[2].value;
   const subject = e.target[4].value;
   const message = e.target[6].value;
 
-  console.log(name, email, subject, message)
+  console.log(name, email, subject, message);
   console.log("Submit was clicked!");
 };
 
 const bioOverview = {
   title: "Hi, I’m Earth!",
   paragraphs: [
-    "I’m a self-taught Front End Developer and school-taught Systems Engineer from Nigeria.",
-    "I've been building websites since 2017 with a focus on responsive design, accessibility and pleasing aesthetics.",
-    "I've spoken at multiple international conferences on a variety of topics ranging from web accessibility to career development.",
+    {
+      render: (key, sx) => (
+        <TextGray key={key} sx={sx}>
+          I'm a school-taught IT, and I got to work on web{" "}
+          {
+            <BioLink
+              text="front-end"
+              link={`/#${URLPaths.PrNDAPr}`}
+              fontSize={sx.fontSize}
+            />
+          }{" "}
+          and{" "}
+          {
+            <BioLink
+              text="back-end"
+              link={`/#${URLPaths.PrComLab}`}
+              fontSize={sx.fontSize}
+            />
+          }{" "}
+          projects.,
+        </TextGray>
+      ),
+    },
+    "I mostly find myself feeling rewarded when I consider the user experience (UX), so it's quite hard for me to intendedly ignore it when working on a project.",
+    "Before going to college for an IT course, I was focused on fine art field, it's even on my list of career choices.",
   ],
 };
 
@@ -198,7 +230,7 @@ const readMoreContent = {
       position: "Front-end Developer Intern",
       howLong: "June 2022 - Current",
       description:
-        " Working with Shopify technologies to create e-commerce stores on various client projects.",
+        "Working under NDA with a web app project that got me the oppurtunity to administer and develop it from the scratch.",
     },
   ],
   educations: {
@@ -207,7 +239,7 @@ const readMoreContent = {
       school: "Philippine State College of Aeronautics, Pasay, Metro Manila",
       schoolYear: "June 2018 - October 2022",
       keyProject: {
-        title: "Built a Computer Laboratory Management Software",
+        title: "Built a Computer Laboratory Management Web App",
         link: "https://github.com/earthjan/computer-lab-management",
         year: "2022",
       },
@@ -222,48 +254,43 @@ const readMoreContent = {
 };
 
 const projectSecTitle =
-  "I do most of my work under contract but I tend to freelance from time to time or build projects for fun. Here are some of my most recent commercial projects:";
+  "I spent most of my time learning web-development stuffs without using them practically (like building a fun project), but here are my featured projects:";
 const projects = [
   {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
+    id: URLPaths.PrComLab,
+    thumbnailUrl: philscaLogo,
+    title: "Computer Laboratory Management Web App",
     description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
+      "I developed this web app project for my college capstone that manages computer laboratories remotely. One of its features is the designation of computer units. It allowed me to test my knowledge in the back-end.",
+    techStack: [".NET 5", "C#", "MySQL"],
+    projectUrl: "https://github.com/earthjan/computer-lab-management",
   },
   {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
+    id: URLPaths.PrNDAPr,
+    thumbnailUrl: digitalInnovLogo,
+    title: "NDA Web-app Project with DigitalInnov",
     description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
+      "I have the opportunity to administer and develop the project from the scratch. Therefore, I've been learning tons of coding best practices and front-end, especially React.",
+    techStack: ["ReactJS", "Material-UI", "React-Redux"],
+    projectUrl: "https://digitalinnov.com",
+    buttonText: "Visit DigitalInnov"
   },
   {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
+    id: URLPaths.PrMyPortfolio,
+    thumbnailUrl: myPortfolio,
+    title: "My Portfolio",
     description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
-  },
-  {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
-    description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
+      "This is the first time I've worked on my portfolio. I kept the UI simple and functionally aesthetic, and I plan to work with it more, especially to showcase my front-end skills.",
+    techStack: ["ReactJS", "Material-UI", "JavaScript"],
+    projectUrl: "https://github.com/earthjan/earth",
   },
 ];
 
 const linkedInURL = "https://linkedin.com/in/earthjan";
 const githubURL = "https://github.com/earthjan";
+
+const contactSubtitle = "Got job opportunities? Or, just want to connect with me? Contact me!"
+
 const MainPage = () => {
   return (
     <MainPageTemplate
@@ -280,8 +307,21 @@ const MainPage = () => {
       handleContactSubmit={handleContactSubmit}
       linkedInURL={linkedInURL}
       githubURL={githubURL}
+      contactSubtitle={contactSubtitle}
     />
   );
 };
 
 export default MainPage;
+
+// ================ HELPER FUNCTIONS ================
+
+function BioLink({ link, text, fontSize }) {
+  return (
+    <HashLink to={link}>
+      <TextLink component="span" fontSize={fontSize}>
+        {text}
+      </TextLink>
+    </HashLink>
+  );
+}
