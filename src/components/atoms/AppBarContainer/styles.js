@@ -5,6 +5,10 @@ const styles = {
       top: "-100px",
       transition: "top 0.3s",
       boxShadow: 0,
+      /**
+       * Edge adds paddingRight: 17px whenever the pop-up Menu shows, so I override it.
+       */
+      paddingRight: "0px!important",
     },
     /**
      * Setting the MUI AppBar in sx is more complicated
