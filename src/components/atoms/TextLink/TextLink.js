@@ -5,9 +5,9 @@ import { Typography } from '@mui/material'
 
 import styles from './styles'
 
-const TextLink = ({ fontStyle, fontSize, children }) => {
+const TextLink = ({ component, fontStyle, fontSize, children }) => {
   return (
-    <Typography sx={styles.text(fontStyle, fontSize)}>{children}</Typography>
+    <Typography component={component} sx={styles.text(fontStyle, fontSize)}>{children}</Typography>
   )
 }
 
