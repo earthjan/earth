@@ -80,7 +80,8 @@ const TextField = ({
       sx={styles.textfield}
       onChange={onChange}
       fullWidth
-      required
+      // Disabled until netlify form is set up
+      // required
     />
   );
 };
