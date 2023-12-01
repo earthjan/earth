@@ -3,10 +3,19 @@ const URLPaths = {
         return "projects"
     },
     get About() {
-        return "About"
+        return "about"
     },
     get Contact() {
-        return "Contact"
+        return "contact"
+    },
+    get PrComLab() {
+        return "prComLab"
+    },
+    get PrNDAPr() {
+        return "prNDAPr"
+    },
+    get PrMyPortfolio() {
+        return "prMyPortfolio"
     }
 }
 
