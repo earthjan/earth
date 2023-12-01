@@ -8,15 +8,19 @@ import GridItem from "../../../atoms/GridItem/GridItem";
 
 import styles from "./styles";
 
-export function Project1({ thumbnailUrl, title, description, techStack, projectUrl }) {
+export function Project1({
+  id,
+  thumbnailUrl,
+  title,
+  description,
+  techStack,
+  projectUrl,
+  buttonText
+}) {
   return (
-    <Grid container sx={styles.prj1GridBase}>
-      <GridItem lg={6} >
-        <ProjectThumbnail
-          thumbnailUrl={
-            thumbnailUrl
-          }
-        />
+    <Grid id={id} container sx={styles.prj1GridBase}>
+      <GridItem lg={6}>
+        <ProjectThumbnail thumbnailUrl={thumbnailUrl} />
       </GridItem>
       <GridItem lg={6} sx={styles.prj1PdBase}>
         <ProjectDescription
@@ -24,21 +28,26 @@ export function Project1({ thumbnailUrl, title, description, techStack, projectU
           description={description}
           techStack={techStack}
           projectUrl={projectUrl}
+          buttonText={buttonText}
         />
       </GridItem>
     </Grid>
   );
 }
 
-export function Project2({ thumbnailUrl, title, description, techStack, projectUrl }) {
+export function Project2({
+  id,
+  thumbnailUrl,
+  title,
+  description,
+  techStack,
+  projectUrl,
+  buttonText,
+}) {
   return (
-    <Grid container sx={styles.prj2GridBase}>
-      <GridItem lg={6} >
-        <ProjectThumbnail
-          thumbnailUrl={
-            thumbnailUrl
-          }
-        />
+    <Grid id={id} container sx={styles.prj2GridBase}>
+      <GridItem lg={6}>
+        <ProjectThumbnail thumbnailUrl={thumbnailUrl} />
       </GridItem>
       <GridItem lg={6} sx={styles.prj2PdBase}>
         <ProjectDescription
@@ -46,6 +55,7 @@ export function Project2({ thumbnailUrl, title, description, techStack, projectU
           description={description}
           techStack={techStack}
           projectUrl={projectUrl}
+          buttonText={buttonText}
         />
       </GridItem>
     </Grid>
@@ -55,12 +65,12 @@ export function Project2({ thumbnailUrl, title, description, techStack, projectU
 function ProjectThumbnail({ thumbnailUrl }) {
   return (
     <Box sx={styles.ptImgBase}>
-      <Box component="img" src={thumbnailUrl} />
+      <Box component="img" src={thumbnailUrl} {...styles.ptThumbnail} />
     </Box>
   );
 }
 
-function ProjectDescription({ title, description, techStack, projectUrl }) {
+function ProjectDescription({ title, description, techStack, projectUrl, buttonText = "View Source Code" }) {
   return (
     <Box sx={styles.pdBase}>
       <TextTitle fontSize={styles.pdTitle.fontSize}>{title}</TextTitle>
@@ -68,7 +78,9 @@ function ProjectDescription({ title, description, techStack, projectUrl }) {
       <Stack flexDirection={styles.pdTechStackBase.flexDirection}>
         {techStack.map((tech, key) => (
           <Box key={key} component="ul" sx={styles.pdUl}>
-            <TextGray component="li" sx={styles.pdli}>{tech}</TextGray>
+            <TextGray component="li" sx={styles.pdli}>
+              {tech}
+            </TextGray>
           </Box>
         ))}
       </Stack>
@@ -81,7 +93,7 @@ function ProjectDescription({ title, description, techStack, projectUrl }) {
           href={projectUrl}
           sx={styles.pdView.sx}
         >
-          View Source Code
+          {buttonText}
         </Button>
       )}
     </Box>
