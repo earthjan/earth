@@ -28,6 +28,7 @@ const MainPage = ({
   handleContactSubmit,
   linkedInURL,
   githubURL,
+  contactSubtitle
 }) => {
   return (
     <Box sx={styles.mainPageBase}>
@@ -63,6 +64,7 @@ const MainPage = ({
             id={URLPaths.Contact}
             downloadLinks={formDownloadLinks}
             handleSubmit={handleContactSubmit}
+            subtitle={contactSubtitle}
           />
         </Box>
 
