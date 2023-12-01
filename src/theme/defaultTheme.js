@@ -29,7 +29,10 @@ const defaultTheme = createTheme({
     textfield: {
       main: "#FFFFFF",
       text: "#000000"
-    }
+    },
+    border: {
+      main: "#AAA8AE",
+    },
   },
   typography: {
     allVariants: {
