@@ -60,7 +60,7 @@ function MainContent() {
     <GridItem container={true}>
       <GridItem container={true} sx={styles.mainTextContentParent}>
         <Typography sx={styles.mainTextContent}>
-          Full-stack <Span text="Web Developer" />
+          Front-end <Span text="Web Developer" />
         </Typography>
       </GridItem>
       <GridItem container={true} sx={styles.mainTextContentParent}>
