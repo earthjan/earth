@@ -10,26 +10,24 @@ import styles from "./styles";
 
 const Bio = ({ id, overview, skills, experiences, educations }) => {
   const readMoreContent = [
-    <Skills
-      skills={skills}
-    />,
-    <Experience
-      experiences={experiences}
-    />,
-    <Education
-      educations={educations}
-    />,
+    <Skills skills={skills} />,
+    <Experience experiences={experiences} />,
+    <Education educations={educations} />,
   ];
   return (
     <Box id={id} sx={styles.base}>
       <Box sx={styles.pySetter}>
         <TextTitle fontSize={styles.title.fontSize}>{overview.title}</TextTitle>
 
-        {overview.paragraphs.map((p, key) => (
-          <TextGray key={key} sx={styles.content}>
-            {p}
-          </TextGray>
-        ))}
+        {overview.paragraphs.map((p, key) =>
+          typeof p === "object" && "render" in p ? (
+            p.render(key, styles.content)
+          ) : (
+            <TextGray key={key} sx={styles.content}>
+              {p}
+            </TextGray>
+          )
+        )}
 
         <ReadMore content={readMoreContent} />
       </Box>
