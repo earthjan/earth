@@ -9,6 +9,8 @@ import GitHubIcon from "../../../molecules/icons/GitHubIcon";
 
 import styles from "./styles";
 
+import packageJson from "../../../../../package.json";
+
 const Footer = ({ linkedInURL, githubURL }) => {
   return (
     <Stack {...styles.root}>
@@ -24,9 +26,12 @@ const Footer = ({ linkedInURL, githubURL }) => {
         </a>
       </Stack>
 
-      <TextGray sx={styles.textCredit}>
-        © designed & built by Earth Jan Baquir Marzan
-      </TextGray>
+      <Stack sx={{ my: "30px" }}>
+        <TextGray sx={styles.textCredit}>
+          © designed & built by Earth Jan Baquir Marzan
+        </TextGray>
+        <TextGray sx={styles.textCredit}>v{packageJson.version}</TextGray>
+      </Stack>
     </Stack>
   );
 };

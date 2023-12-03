@@ -4,7 +4,7 @@ import { Typography } from '@mui/material'
 
 const TextGray = ({ component, children, sx }) => {
   return (
-    <Typography component={component} color="content.main" sx={sx}>{children}</Typography>
+    <Typography component={component} color="text.secondary" sx={sx}>{children}</Typography>
   )
 }
 

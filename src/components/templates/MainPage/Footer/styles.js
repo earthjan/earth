@@ -9,7 +9,6 @@ const styles = {
   textCredit: {
     fontSize: "0.8rem",
     textAlign: "center",
-    my: "30px"
   },
   logoBase: {
     flexDirection: "row",
