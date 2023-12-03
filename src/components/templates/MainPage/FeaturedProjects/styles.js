@@ -93,10 +93,17 @@ const styles = {
    * ProjectThumbnail section
    */
   ptImgBase: {
+    height: {
+      xs: "150px",
+      sm: "250px",
+      xl: "300px",
+    },
     width: {
       xs: "100%",
     },
     overflow: "hidden",
+    border: 1,
+    borderRadius: "5px",
   },
   ptThumbnail: {
     height: "auto",
