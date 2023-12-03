@@ -26,19 +26,10 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
           and let’s work together!
         </TextGray>
         <Box {...styles.formBase}>
-          <form
-            name="contact"
-            data-netlify="true"
-            method="POST"
-          >
+          <form name="contact" data-netlify="true" method="POST" action="/">
             <input type="hidden" name="contact" value="contact" />
             <Stack spacing={1}>
-              <TextField
-                label="Name:"
-                type="text"
-                name="name"
-                maxLength={50}
-              />
+              <TextField label="Name:" type="text" name="name" maxLength={50} />
               <TextField
                 label="Email:"
                 type="email"
