@@ -12,11 +12,11 @@ import {
   Slide,
 } from "@mui/material";
 
-import { TextTitle, TextGray, TextField, TextLink } from "../../../atoms/atoms";
+import { TextTitle, TextGray } from "../../../atoms/atoms";
 
 import styles from "./styles";
 
-const MAX_MESSAGE = 1000;
+// const MAX_MESSAGE = 1000;
 
 const Contact = ({
   id,
@@ -27,24 +27,30 @@ const Contact = ({
   const [messageLength, setMessageLength] = React.useState(MAX_MESSAGE);
   const [openNote, setOpenNote] = React.useState(false);
 
-  const handleMessage = (e) => {
-    setMessageLength(() => MAX_MESSAGE - e.target.value.length);
-  };
+  // const handleMessage = (e) => {
+  //   setMessageLength(() => MAX_MESSAGE - e.target.value.length);
+  // };
 
   return (
     <>
       <Box id={id} {...styles.root}>
         <TextTitle>
           Contact 🚧{" "}
-          <TextGray component="span" sx={{ fontSize: { xs: "0.8rem" }, fontStyle: "italic" }}>
-             (Soon! Or, just email me{" "}
+          <TextGray
+            component="span"
+            sx={{ fontSize: { xs: "0.8rem" }, fontStyle: "italic" }}
+          >
+            (Soon! Or, just email me{" "}
             <a
               href={"mailto:earthjan22@gmail.com?subject=Hi Earth!"}
               target="_blank"
               rel="noreferrer"
             >
-              <TextLink fontSize={{ xs: "0.8rem" }} component="span">here!</TextLink>
-            </a>)
+              <TextLink fontSize={{ xs: "0.8rem" }} component="span">
+                here!
+              </TextLink>
+            </a>
+            )
           </TextGray>
         </TextTitle>
         <TextGray>{subtitle}</TextGray>

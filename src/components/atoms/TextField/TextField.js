@@ -17,6 +17,7 @@ import styles from "./styles";
  * @param {any} props.multiline - If supplied, the textfield supports multiple lines.
  * @param {number} props.rows - Number of rows
  * @param {ReactElement} props.inputAdornment - Element passed to `InputProps`
+ * @param {ReactElement} props.name - Name
  * 
  * @example 
  * // Basic usage
@@ -53,6 +54,8 @@ import styles from "./styles";
  */
 const TextField = ({
   label,
+  name,
+  type,
   variant,
   onChange,
   maxLength,
@@ -62,6 +65,8 @@ const TextField = ({
 }) => {
   return (
     <MUITextField
+      type={type}
+      name={name}
       InputProps={{
         startAdornment: inputAdornment ? (
           inputAdornment
@@ -97,7 +102,8 @@ TextField.propTypes = {
   maxLength: PropTypes.number,
   multiline: PropTypes.any,
   rows: PropTypes.number,
-  inputAdornment: PropTypes.element
+  inputAdornment: PropTypes.element,
+  name: PropTypes.string
 };
 
 export default TextField;

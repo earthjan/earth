@@ -176,7 +176,7 @@ const appbarBurgerLinks = [
 
 const formDownloadLinks = { CV: "C:\\Users\\Earth Jsn\\Documents\\Git\\Repos\\earth\\src\\assets\\sample.pdf", resume: "#" };
 const handleContactSubmit = (e) => {
-  e.preventDefault();
+  // e.preventDefault();
 
   const name = e.target[0].value;
   const email = e.target[2].value;
