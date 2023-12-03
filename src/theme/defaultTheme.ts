@@ -42,6 +42,13 @@ declare module "@mui/material/TextField" {
   }
 }
 
+declare module "@mui/material/AppBar" {
+  interface AppBarPropsColorOverrides {
+    accent: true;
+  }
+}
+
+
 const colorCodes = {
   primary: "#1F1D2B",
   textPrimary: {
