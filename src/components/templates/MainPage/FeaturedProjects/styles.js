@@ -96,6 +96,7 @@ const styles = {
     width: {
       xs: "100%",
     },
+    overflow: "hidden",
   },
   ptThumbnail: {
     height: "auto",
