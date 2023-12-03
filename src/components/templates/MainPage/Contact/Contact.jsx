@@ -17,6 +17,21 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
     setMessageLength(() => MAX_MESSAGE - e.target.value.length);
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const myForm = e.target;
+  //   const formData = new FormData(myForm);
+
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({ "form-name": "contact",  new URLSea(formData).toString() }),
+  //   })
+  //     .then(() => alert("Success!"))
+  //     .catch((error) => alert(error));
+  // };
+
   return (
     <>
       <Box id={id} {...styles.root}>
@@ -26,15 +41,9 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
           and let’s work together!
         </TextGray>
         <Box {...styles.formBase}>
-          <form
-            name="contact"
-            netlify
-            data-netlify="true"
-            method="POST"
-            action="/"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input type="hidden" name="contact" value="contact" />
+          <form name="contact" method="POST">
+            <input type="hidden" name="form-name" value="contact" />
+
             <Stack spacing={1}>
               <TextField label="Name:" type="text" name="name" maxLength={50} />
               <TextField
