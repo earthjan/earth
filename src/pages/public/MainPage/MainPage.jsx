@@ -1,15 +1,18 @@
-import React from "react";
-
 import { MenuItem } from "@mui/material";
 
 import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
 
 import MainPageTemplate from "../../../components/templates/MainPage/MainPage";
-import { TextWithIcon, Menu, NavButton, HashLink } from "../../../components/atoms/atoms";
+import {
+  TextWithIcon,
+  Menu,
+  NavButton,
+  HashLink,
+} from "../../../components/atoms/atoms";
 
-import URLPaths from "../../../utils/URLPaths";
+import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 
-const landingPageScrollToURL = `/#${URLPaths.About}`
+const landingPageScrollToURL = `/#${mainPageSectionIds.about}`;
 /**
  * An array of links with download callback
  */
@@ -34,7 +37,7 @@ const appbarLinks = [
   {
     CustomNavButton() {
       return (
-        <HashLink to={`/#${URLPaths.Projects}`}>
+        <HashLink to={`/#${mainPageSectionIds.projects}`}>
           <NavButton content="Projects" />
         </HashLink>
       );
@@ -76,7 +79,7 @@ const appbarLinks = [
   {
     CustomNavButton() {
       return (
-        <HashLink to={`/#${URLPaths.About}`}>
+        <HashLink to={`/#${mainPageSectionIds.about}`}>
           <NavButton content="About" />
         </HashLink>
       );
@@ -85,7 +88,7 @@ const appbarLinks = [
   {
     CustomNavButton() {
       return (
-        <HashLink to={`/#${URLPaths.Contact}`}>
+        <HashLink to={`/#${mainPageSectionIds.contact}`}>
           <NavButton
             content="Contact me"
             variant="contained"
@@ -103,7 +106,7 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink to={`/#${URLPaths.Projects}`}>
+        <HashLink to={`/#${mainPageSectionIds.projects}`}>
           <MenuItem
             onClick={() => {
               onClick();
@@ -118,7 +121,7 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink to={`/#${URLPaths.About}`}>
+        <HashLink to={`/#${mainPageSectionIds.about}`}>
           <MenuItem
             onClick={() => {
               onClick();
@@ -133,7 +136,7 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink to={`/#${URLPaths.Contact}`}>
+        <HashLink to={`/#${mainPageSectionIds.contact}`}>
           <MenuItem
             onClick={() => {
               onClick();
@@ -164,7 +167,6 @@ const appbarBurgerLinks = [
 const formDownloadLinks = { CV: "#", resume: "#" };
 const handleContactSubmit = (e) => {
   // e.preventDefault();
-
   // /**
   //  * Uncomment this if it will be used.
   //  */
@@ -172,7 +174,6 @@ const handleContactSubmit = (e) => {
   // const email = e.target[2].value;
   // const subject = e.target[4].value;
   // const message = e.target[6].value;
-
   // console.log(name, email, subject, message)
   // console.log("Submit was clicked!");
 };

@@ -3,9 +3,9 @@ import React from "react";
 import { Stack } from "@mui/material";
 
 import TextGray from "../../../atoms/TextGray/TextGray";
-import LogoContainer from "../../../atoms/LogoContainer/LogoContainer";
 
-import { github, linkedin } from "../../../../assets/Svgs/assets";
+import LinkedInIcon from "../../../molecules/icons/LinkedInIcon";
+import GitHubIcon from "../../../molecules/icons/GitHubIcon";
 
 import styles from "./styles";
 
@@ -16,11 +16,11 @@ const Footer = ({ linkedInURL, githubURL }) => {
 
       <Stack {...styles.logoBase}>
         <a href={linkedInURL}>
-          <LogoContainer src={linkedin} {...styles.logo} />
+          <LinkedInIcon {...styles.logo} />
         </a>
 
         <a href={githubURL}>
-          <LogoContainer src={github} {...styles.logo} />
+          <GitHubIcon {...styles.logo} />
         </a>
       </Stack>
 

@@ -1,6 +1,6 @@
-import React from "react";
-
 import { Box } from "@mui/material";
+
+import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 
 import LandingPage from "./LandingPage/LandingPage";
 import AppBarContainer from "../../atoms/AppBarContainer/AppBarContainer";
@@ -8,8 +8,6 @@ import Bio from "./Bio/Bio";
 import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
 import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
-
-import URLPaths from "../../../utils/URLPaths";
 
 import { LogoEarth } from "./utils";
 import styles from "./styles";
@@ -42,7 +40,7 @@ const MainPage = ({
 
         <Box sx={styles.bioPadding}>
           <Bio
-            id={URLPaths.About}
+            id={mainPageSectionIds.about}
             overview={bioOverview}
             skills={skills}
             experiences={experiences}
@@ -52,7 +50,7 @@ const MainPage = ({
 
         <Box sx={styles.projectsPadding}>
           <FeaturedProjects
-            id={URLPaths.Projects}
+            id={mainPageSectionIds.projects}
             title={projectSecTitle}
             projects={projects}
           />
@@ -60,7 +58,7 @@ const MainPage = ({
 
         <Box sx={styles.contactPadding}>
           <Contact
-            id={URLPaths.Contact}
+            id={mainPageSectionIds.contact}
             downloadLinks={formDownloadLinks}
             handleSubmit={handleContactSubmit}
           />

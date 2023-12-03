@@ -26,6 +26,7 @@ declare module "@mui/material/Button" {
   interface ButtonPropsColorOverrides {
     accent: true;
     secondary: true;
+    titleText: true;
   }
 }
 
@@ -47,7 +48,6 @@ declare module "@mui/material/AppBar" {
     accent: true;
   }
 }
-
 
 const colorCodes = {
   primary: "#1F1D2B",
@@ -109,6 +109,7 @@ const defaultTheme = createTheme({
     },
     text: {
       primary: colorCodes.textPrimary.primary,
+      secondary: colorCodes.textSecondary.primary,
     },
     border: {
       main: colorCodes.textSecondary.primary,
@@ -124,6 +125,13 @@ const defaultTheme = createTheme({
     fontFamily: "'Montserrat', sans-serif",
     button: {
       textTransform: "none",
+    },
+  },
+  components: {
+    MuiButton: {
+      defaultProps: {
+        color: "secondary",
+      },
     },
   },
 });
