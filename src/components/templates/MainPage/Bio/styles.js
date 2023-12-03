@@ -1,3 +1,5 @@
+import defaultTheme from "../../../../theme/defaultTheme";
+
 /**
  * A global padding top for subtexts.
  */
@@ -39,7 +41,7 @@ const styles = {
   /**
    * `ReadMore` section
    */
-  textTitle: "emphasizedText.main",
+  textTitle: defaultTheme.palette.secondary.main,
   /**
    * Skill section
    */

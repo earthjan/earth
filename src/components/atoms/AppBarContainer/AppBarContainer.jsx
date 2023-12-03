@@ -41,7 +41,7 @@ const AppBarContainer = ({ logo, navLinks, menuList }) => {
   useHideAppBarOnScroll("appbar", "-100px");
 
   return (
-    <AppBar id="appbar" color={styles.appBar.color} sx={styles.appBar.sx}>
+    <AppBar id="appbar" color="accent" sx={styles.appBar.sx}>
       <Box sx={styles.container}>
         <Toolbar sx={styles.toolbar} disableGutters>
           {logo}
@@ -141,8 +141,13 @@ function NavLinks({ navPages = [] }) {
           return <navPage.CustomNavButton key={key} />;
         }
 
-
-        return <NavButton key={key} content={navPage.text} onClick={navPage.onClick} />;
+        return (
+          <NavButton
+            key={key}
+            content={navPage.text}
+            onClick={navPage.onClick}
+          />
+        );
       })}
     </NavLinksContainer>
   );

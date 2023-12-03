@@ -31,6 +31,8 @@ const NavButton = ({
   variant,
   color = "titleText",
 }) => {
+  console.log("color", color)
+
   return (
       <Button
         onClick={onClick}

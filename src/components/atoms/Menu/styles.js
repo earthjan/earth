@@ -1,9 +1,9 @@
 const styles = {
   menu: {
     "& .MuiPopover-paper": {
-      backgroundColor: "secondary.main",
-      border: 1,
-      borderColor: "textTitle.main",
+      backgroundColor: "accent.main",
+      border: 2,
+      borderColor: "white",
       borderRadius: "5px",
     },
   },

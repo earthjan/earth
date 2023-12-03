@@ -86,7 +86,7 @@ const styles = {
     sx: {
       margin: getSubtitleSpacing("15px"),
     },
-    color: "emphasizedText",
+    color: "secondary",
   },
 
   /**
