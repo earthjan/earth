@@ -32,6 +32,7 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
             data-netlify="true"
             method="POST"
             action="/"
+            onSubmit={(e) => e.preventDefault()}
           >
             <input type="hidden" name="contact" value="contact" />
             <Stack spacing={1}>
