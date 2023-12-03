@@ -31,7 +31,7 @@ const styles = {
   },
   submit: {
     sx: { width: "80px" },
-    color: "emphasizedText",
+    color: "secondary",
   },
   download: {
     fontStyle: "italic",
