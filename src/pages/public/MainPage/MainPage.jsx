@@ -89,7 +89,7 @@ const appbarLinks = [
           <NavButton
             content="Contact me"
             variant="contained"
-            color="emphasizedText"
+            color="secondary"
           />
         </HashLink>
       );
