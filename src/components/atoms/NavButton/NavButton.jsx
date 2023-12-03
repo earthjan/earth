@@ -25,23 +25,16 @@ import { navButtonStyles } from "./styles";
       ))}
     </NavLinksContainer>
  */
-const NavButton = ({
-  content,
-  onClick,
-  variant,
-  color = "titleText",
-}) => {
-  console.log("color", color)
-
+const NavButton = ({ content, onClick, variant, color = "titleText" }) => {
   return (
-      <Button
-        onClick={onClick}
-        variant={variant}
-        color={color}
-        sx={navButtonStyles}
-      >
-        {content}
-      </Button>
+    <Button
+      onClick={onClick}
+      variant={variant}
+      color={color}
+      sx={navButtonStyles}
+    >
+      {content}
+    </Button>
   );
 };
 
