@@ -15,16 +15,18 @@ const ButtonList = () => {
         columnGap: 1,
       }}
     >
-      <Button
-        variant="contained"
-        color={"secondary" as any}
-        sx={{
-          fontWeight: "bold",
-          borderRadius: 10,
-        }}
-      >
-        Contact Me
-      </Button>
+      <HashLink to={`/#${mainPageSectionIds.contact}`}>
+        <Button
+          variant="contained"
+          color={"secondary" as any}
+          sx={{
+            fontWeight: "bold",
+            borderRadius: 10,
+          }}
+        >
+          Contact Me
+        </Button>
+      </HashLink>
       <HashLink to={`/#${mainPageSectionIds.projects}`}>
         <Button variant="outlined" color="titleText" sx={{ borderRadius: 10 }}>
           View Projects
