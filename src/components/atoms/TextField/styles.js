@@ -3,12 +3,12 @@ const styles = {
     borderRadius: "5px",
     backgroundColor: "textfield.main",
     "& .MuiOutlinedInput-input": {
-        color: "textfield.text"
+        color: "textfield.contrastText"
     }
   },
   inputAdornment: {
     "& .MuiTypography-root": {
-      color: "content.main",
+      color: "text.secondary",
     },
   },
 };
