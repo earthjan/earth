@@ -19,6 +19,7 @@ import defaultTheme from "../../../../../../theme/defaultTheme";
 const logoDimensions = {
   width: {
     sm: "50px",
+    md: "35px"
   },
   height: "auto",
 };
@@ -50,6 +51,7 @@ const TechAndTools = (props: StackProps) => {
 
           width: {
             sm: "350px",
+            md: "250px"
           },
         }}
       >

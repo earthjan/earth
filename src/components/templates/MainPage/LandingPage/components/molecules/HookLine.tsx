@@ -1,4 +1,4 @@
-import { Typography, useMediaQuery } from "@mui/material";
+import { Typography } from "@mui/material";
 
 import defaultTheme from "../../../../../../theme/defaultTheme";
 
@@ -6,10 +6,6 @@ import Container from "../atoms/Container";
 import StyledTypography from "../atoms/StyledTypography";
 
 const HookLine = () => {
-  const dsf = useMediaQuery("xs");
-
-  let rootTypographyVariant = "h4";
-
   return (
     <Container>
       <StyledTypography
@@ -36,9 +32,11 @@ const HookLine = () => {
             fontSize: {
               xs: defaultTheme.typography.h2.fontSize,
               sm: "4rem",
+              md: "5rem",
             },
             lineHeight: {
               xs: defaultTheme.typography.h2.lineHeight,
+              md: defaultTheme.typography.h1.lineHeight,
             },
           }}
         >
@@ -54,9 +52,11 @@ const HookLine = () => {
             fontSize: {
               xs: defaultTheme.typography.h3.fontSize,
               sm: "3.4rem",
+              md: "4.5rem",
             },
             lineHeight: {
               xs: defaultTheme.typography.h3.lineHeight,
+              md: defaultTheme.typography.h2.lineHeight,
             },
           }}
         >

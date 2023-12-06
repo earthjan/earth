@@ -6,14 +6,14 @@ import StyledTypography from "../atoms/StyledTypography";
 
 const HookSubtitle = () => {
   return (
-    <Container>
+    <Container sx={{ justifyContent: { md: "flex-end" } }}>
       <StyledTypography
         sx={{
           width: {
             xs: "100%",
+            md: "50%",
           },
           color: defaultTheme.palette.text.secondary,
-      
         }}
       >
         Backed by a degree in IT and real-world front-end development

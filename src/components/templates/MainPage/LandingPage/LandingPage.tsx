@@ -15,7 +15,10 @@ const LandingPage = () => {
         rowGap: 4,
         height: "100vh",
         justifyContent: "center",
-        px: 1,
+        px: {
+          xs: 1,
+          md: 10,
+        },
       }}
     >
       <HookLine />
@@ -23,8 +26,10 @@ const LandingPage = () => {
       <Container
         sx={{
           justifyContent: "flex-end",
+          alignItems: { md: "center" },
           flexDirection: {
             xs: "column",
+            md: "row",
           },
 
           rowGap: 2,
@@ -34,6 +39,7 @@ const LandingPage = () => {
           sx={{
             order: {
               xs: 2,
+              md: 1,
             },
           }}
         />
@@ -42,6 +48,7 @@ const LandingPage = () => {
             alignItems: "center",
             order: {
               xs: 1,
+              md: 2,
             },
             rowGap: 2,
           }}
