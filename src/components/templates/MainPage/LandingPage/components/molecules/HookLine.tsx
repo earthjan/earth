@@ -12,7 +12,7 @@ const HookLine = () => {
         sx={{
           fontSize: {
             xs: defaultTheme.typography.h4.fontSize,
-            // sm: "2.3rem"
+            lg: defaultTheme.typography.h3.fontSize
           },
           lineHeight: {
             xs: defaultTheme.typography.h4.lineHeight,
@@ -33,6 +33,7 @@ const HookLine = () => {
               xs: defaultTheme.typography.h2.fontSize,
               sm: "4rem",
               md: "5rem",
+              lg: defaultTheme.typography.h1.fontSize,
             },
             lineHeight: {
               xs: defaultTheme.typography.h2.lineHeight,
@@ -40,7 +41,7 @@ const HookLine = () => {
             },
           }}
         >
-          Real-world experience
+          Real-world Experience
         </Typography>{" "}
         for your{" "}
         <Typography
@@ -53,6 +54,7 @@ const HookLine = () => {
               xs: defaultTheme.typography.h3.fontSize,
               sm: "3.4rem",
               md: "4.5rem",
+              lg: "5.5rem"
             },
             lineHeight: {
               xs: defaultTheme.typography.h3.lineHeight,

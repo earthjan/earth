@@ -12,6 +12,7 @@ const HookSubtitle = () => {
           width: {
             xs: "100%",
             md: "50%",
+            lg: "70%"
           },
           color: defaultTheme.palette.text.secondary,
         }}

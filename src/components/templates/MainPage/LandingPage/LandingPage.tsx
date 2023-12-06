@@ -14,10 +14,17 @@ const LandingPage = () => {
         alignItems: "center",
         rowGap: 4,
         height: "100vh",
-        justifyContent: "center",
+        justifyContent: {
+          xs: "center",
+          lg: "flex-start",
+        },
         px: {
           xs: 1,
           md: 10,
+          lg: 20,
+        },
+        py: {
+          lg: "10vh",
         },
       }}
     >
@@ -26,6 +33,9 @@ const LandingPage = () => {
       <Container
         sx={{
           justifyContent: "flex-end",
+          alignSelf: {
+            md: "flex-end",
+          },
           alignItems: { md: "center" },
           flexDirection: {
             xs: "column",
