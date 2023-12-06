@@ -12,13 +12,13 @@ export const Skills = ({ skills }) => {
     <Box sx={styles.skBase}>
       <TextTitle color={styles.textTitle}>Skills</TextTitle>
       <Grid container spacing={1}>
-        <GridItem md="auto">
+        <GridItem sm="auto">
           <Languages languages={skills.languages} />
         </GridItem>
-        <GridItem md="auto">
+        <GridItem sm="auto">
           <Libraries libraries={skills.libraries} />
         </GridItem>
-        <GridItem md="auto">
+        <GridItem sm="auto">
           <Tools tools={skills.tools} />
         </GridItem>
       </Grid>
