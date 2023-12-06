@@ -9,6 +9,9 @@ const StyledTypography = (props: TypographyProps) => {
           xs: "center",
           md: "end",
         },
+        fontSize: {
+          sm: "1.2rem",
+        },
         ...props.sx,
       }}
     >

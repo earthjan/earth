@@ -6,13 +6,22 @@ import { HashLink } from "../../../../../atoms/atoms";
 
 import Container from "../atoms/Container";
 
+const buttonStyles = {
+  fontSize: {
+    sm: "1.3rem",
+  },
+};
+
 const ButtonList = () => {
   return (
     <Container
       sx={{
         justifyContent: "center",
         alignItems: "center",
-        columnGap: 1,
+        columnGap: {
+          xs: 1,
+          sm: 2,
+        },
       }}
     >
       <HashLink to={`/#${mainPageSectionIds.contact}`}>
@@ -20,6 +29,7 @@ const ButtonList = () => {
           variant="contained"
           color={"secondary" as any}
           sx={{
+            ...buttonStyles,
             fontWeight: "bold",
             borderRadius: 10,
           }}
@@ -28,7 +38,14 @@ const ButtonList = () => {
         </Button>
       </HashLink>
       <HashLink to={`/#${mainPageSectionIds.projects}`}>
-        <Button variant="outlined" color="titleText" sx={{ borderRadius: 10 }}>
+        <Button
+          variant="outlined"
+          color="titleText"
+          sx={{
+            ...buttonStyles,
+            borderRadius: 10,
+          }}
+        >
           View Projects
         </Button>
       </HashLink>

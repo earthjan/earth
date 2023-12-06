@@ -13,6 +13,7 @@ const HookSubtitle = () => {
             xs: "100%",
           },
           color: defaultTheme.palette.text.secondary,
+      
         }}
       >
         Backed by a degree in IT and real-world front-end development

@@ -16,6 +16,13 @@ import ReduxIcon from "../../../../../molecules/icons/ReduxIcon";
 
 import defaultTheme from "../../../../../../theme/defaultTheme";
 
+const logoDimensions = {
+  width: {
+    sm: "50px",
+  },
+  height: "auto",
+};
+
 const TechAndTools = (props: StackProps) => {
   return (
     <Stack
@@ -40,19 +47,23 @@ const TechAndTools = (props: StackProps) => {
           p: 2,
 
           borderRadius: 5,
+
+          width: {
+            sm: "350px",
+          },
         }}
       >
-        <ReactIcon />
-        <TypeScriptIcon />
-        <MuiIcon />
-        <GitHubIcon />
-        <GitIcon />
-        <ViteIcon />
-        <Html5Icon />
-        <CssIcon />
-        <RTLIcon />
-        <VitestIcon />
-        <ReduxIcon />
+        <ReactIcon {...logoDimensions} />
+        <TypeScriptIcon {...logoDimensions} />
+        <MuiIcon {...logoDimensions} />
+        <GitHubIcon {...logoDimensions} />
+        <GitIcon {...logoDimensions} />
+        <ViteIcon {...logoDimensions} />
+        <Html5Icon {...logoDimensions} />
+        <CssIcon {...logoDimensions} />
+        <RTLIcon {...logoDimensions} />
+        <VitestIcon {...logoDimensions} />
+        <ReduxIcon {...logoDimensions} />
       </Box>
     </Stack>
   );

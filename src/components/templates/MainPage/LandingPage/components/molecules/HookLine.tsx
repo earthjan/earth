@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 
 import defaultTheme from "../../../../../../theme/defaultTheme";
 
@@ -6,11 +6,21 @@ import Container from "../atoms/Container";
 import StyledTypography from "../atoms/StyledTypography";
 
 const HookLine = () => {
+  const dsf = useMediaQuery("xs");
+
+  let rootTypographyVariant = "h4";
+
   return (
     <Container>
       <StyledTypography
-        variant="h4"
         sx={{
+          fontSize: {
+            xs: defaultTheme.typography.h4.fontSize,
+            // sm: "2.3rem"
+          },
+          lineHeight: {
+            xs: defaultTheme.typography.h4.lineHeight,
+          },
           textAlign: {
             xs: "center",
             md: "end",
@@ -20,9 +30,17 @@ const HookLine = () => {
       >
         <Typography
           component="span"
-          variant="h2"
           fontWeight="bold"
           color={defaultTheme.palette.secondary.main}
+          sx={{
+            fontSize: {
+              xs: defaultTheme.typography.h2.fontSize,
+              sm: "4rem",
+            },
+            lineHeight: {
+              xs: defaultTheme.typography.h2.lineHeight,
+            },
+          }}
         >
           Real-world experience
         </Typography>{" "}
@@ -32,6 +50,15 @@ const HookLine = () => {
           variant="h3"
           fontWeight="medium"
           color={defaultTheme.palette.text.primary}
+          sx={{
+            fontSize: {
+              xs: defaultTheme.typography.h3.fontSize,
+              sm: "3.4rem",
+            },
+            lineHeight: {
+              xs: defaultTheme.typography.h3.lineHeight,
+            },
+          }}
         >
           {" "}
           Web Project{" "}
