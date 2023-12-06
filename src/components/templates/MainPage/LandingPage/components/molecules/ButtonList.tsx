@@ -9,7 +9,8 @@ import Container from "../atoms/Container";
 const buttonStyles = {
   fontSize: {
     sm: "1.3rem",
-    md: "1.2rem"
+    md: "1.2rem",
+    xl: "1.5rem"
   },
 };
 

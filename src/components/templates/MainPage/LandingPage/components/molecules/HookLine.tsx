@@ -34,6 +34,7 @@ const HookLine = () => {
               sm: "4rem",
               md: "5rem",
               lg: defaultTheme.typography.h1.fontSize,
+              xl: "8rem"
             },
             lineHeight: {
               xs: defaultTheme.typography.h2.lineHeight,
@@ -54,7 +55,8 @@ const HookLine = () => {
               xs: defaultTheme.typography.h3.fontSize,
               sm: "3.4rem",
               md: "4.5rem",
-              lg: "5.5rem"
+              lg: "5.5rem",
+              xl: "7rem"
             },
             lineHeight: {
               xs: defaultTheme.typography.h3.lineHeight,

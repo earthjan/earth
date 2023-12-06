@@ -11,7 +11,10 @@ const LandingPage = () => {
   return (
     <Stack
       sx={{
-        alignItems: "center",
+        alignItems: {
+          xs: "center",
+          md: "flex-end",
+        },
         rowGap: 4,
         height: "100vh",
         justifyContent: {
