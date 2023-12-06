@@ -18,14 +18,10 @@ const styles = {
   },
 
   logo: {
-    height: {
-      xs: "30px",
-      md: "35px",
-      xl: "45px",
-    },
+    height: "auto",
     width: {
       xs: "90px",
-      md: "95px",
+      sm: "95px",
       xl: "105px",
     },
   },

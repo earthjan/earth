@@ -124,7 +124,7 @@ function Menu({ items }) {
     <MenuParent
       button={(handleOpen) => (
         <IconButton onClick={handleOpen} sx={styles.menuIcon}>
-          <MenuIcon />
+          <MenuIcon fontSize="large" />
         </IconButton>
       )}
     >
