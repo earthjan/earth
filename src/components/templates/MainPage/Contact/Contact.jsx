@@ -10,27 +10,12 @@ import styles from "./styles";
 
 const MAX_MESSAGE = 1000;
 
-const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
+const Contact = ({ id, onDownloadCv, onDownloadResume }) => {
   const [messageLength, setMessageLength] = React.useState(MAX_MESSAGE);
 
   const handleMessage = (e) => {
     setMessageLength(() => MAX_MESSAGE - e.target.value.length);
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   const myForm = e.target;
-  //   const formData = new FormData(myForm);
-
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: encode({ "form-name": "contact",  new URLSea(formData).toString() }),
-  //   })
-  //     .then(() => alert("Success!"))
-  //     .catch((error) => alert(error));
-  // };
 
   return (
     <>
@@ -88,14 +73,14 @@ const Contact = ({ id, downloadLinks: { CV, resume }, handleSubmit }) => {
                   Send
                 </Button>
 
-                <Stack>
-                  <a href={CV}>
+                {/* <Stack>
+                  <a onClick={onDownloadCv} style={{ cursor: "pointer" }}>
                     <TextLink {...styles.download}>Download my CV</TextLink>
                   </a>
-                  <a href={resume}>
+                  <a onClick={onDownloadResume} style={{ cursor: "pointer" }}>
                     <TextLink {...styles.download}>Download my Resume</TextLink>
                   </a>
-                </Stack>
+                </Stack> */}
               </Stack>
             </Stack>
           </form>

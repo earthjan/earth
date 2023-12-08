@@ -12,6 +12,9 @@ import {
 
 import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 
+import pdftest from "../../../assets/pdftest.pdf";
+import downloadFile, { handleDownload } from "./utils/downloadFile";
+
 const landingPageScrollToURL = `/#${mainPageSectionIds.about}`;
 /**
  * An array of links with download callback
@@ -19,15 +22,11 @@ const landingPageScrollToURL = `/#${mainPageSectionIds.about}`;
 const appbarMenuLinks = [
   {
     text: "Download my Resume",
-    download: () => {
-      console.log("downloading resume...");
-    },
+    download: async () => await handleDownload("resume"),
   },
   {
     text: "Download my CV",
-    download: () => {
-      console.log("downloading CV...");
-    },
+    download: async () => await handleDownload("cv"),
   },
 ];
 /**
@@ -46,36 +45,36 @@ const appbarLinks = [
   /**
    * Custom navigation button that will be rendered on the appbar
    */
-  {
-    CustomNavButton() {
-      return (
-        <>
-          <Menu
-            button={(onClick) => (
-              <NavButton content="CV / Resume" onClick={onClick} />
-            )}
-          >
-            {(onClick) =>
-              appbarMenuLinks.map((link, key) => (
-                <MenuItem
-                  key={key}
-                  onClick={() => {
-                    link.download();
-                    onClick();
-                  }}
-                >
-                  <TextWithIcon
-                    text={link.text}
-                    Icon={VerticalAlignBottomIcon}
-                  />
-                </MenuItem>
-              ))
-            }
-          </Menu>
-        </>
-      );
-    },
-  },
+  // {
+  //   CustomNavButton() {
+  //     return (
+  //       <>
+  //         <Menu
+  //           button={(onClick) => (
+  //             <NavButton content="CV / Resume" onClick={onClick} />
+  //           )}
+  //         >
+  //           {(onClick) =>
+  //             appbarMenuLinks.map((link, key) => (
+  //               <MenuItem
+  //                 key={key}
+  //                 onClick={async () => {
+  //                   await link.download();
+  //                   onClick();
+  //                 }}
+  //               >
+  //                 <TextWithIcon
+  //                   text={link.text}
+  //                   Icon={VerticalAlignBottomIcon}
+  //                 />
+  //               </MenuItem>
+  //             ))
+  //           }
+  //         </Menu>
+  //       </>
+  //     );
+  //   },
+  // },
   {
     CustomNavButton() {
       return (
@@ -148,20 +147,20 @@ const appbarBurgerLinks = [
       );
     },
   },
-  ...appbarMenuLinks.map((link) => ({
-    CustomMenuItem({ onClick }) {
-      return (
-        <MenuItem
-          onClick={() => {
-            link.download();
-            onClick();
-          }}
-        >
-          <TextWithIcon text={link.text} Icon={VerticalAlignBottomIcon} />
-        </MenuItem>
-      );
-    },
-  })),
+  // ...appbarMenuLinks.map((link) => ({
+  //   CustomMenuItem({ onClick }) {
+  //     return (
+  //       <MenuItem
+  //         onClick={() => {
+  //           link.download();
+  //           onClick();
+  //         }}
+  //       >
+  //         <TextWithIcon text={link.text} Icon={VerticalAlignBottomIcon} />
+  //       </MenuItem>
+  //     );
+  //   },
+  // })),
 ];
 
 const formDownloadLinks = { CV: "#", resume: "#" };
@@ -279,6 +278,8 @@ const MainPage = () => {
       projects={projects}
       formDownloadLinks={formDownloadLinks}
       handleContactSubmit={handleContactSubmit}
+      onDownloadCv={async () => await handleDownload("cv")}
+      onDownloadResume={async () => await handleDownload("resume")}
       linkedInURL={linkedInURL}
       githubURL={githubURL}
     />
