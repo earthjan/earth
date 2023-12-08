@@ -1,18 +1,17 @@
 import { MenuItem } from "@mui/material";
 
-import VerticalAlignBottomIcon from "@mui/icons-material/VerticalAlignBottom";
-
 import MainPageTemplate from "../../../components/templates/MainPage/MainPage";
-import {
-  TextWithIcon,
-  Menu,
-  NavButton,
-  HashLink,
-} from "../../../components/atoms/atoms";
+import { NavButton, HashLink } from "../../../components/atoms/atoms";
 
 import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 
-import downloadFile, { handleDownload } from "./utils/downloadFile";
+import {
+  myPortfolio,
+  philscaLogo,
+  digitalInnovLogo,
+} from "../../../assets/Svgs/svgs";
+
+import { handleDownload } from "./utils/downloadFile";
 
 const landingPageScrollToURL = `/#${mainPageSectionIds.about}`;
 /**
@@ -163,41 +162,46 @@ const appbarBurgerLinks = [
 ];
 
 const formDownloadLinks = { CV: "#", resume: "#" };
-const handleContactSubmit = (e) => {
-  // e.preventDefault();
-  // /**
-  //  * Uncomment this if it will be used.
-  //  */
-  // const name = e.target[0].value;
-  // const email = e.target[2].value;
-  // const subject = e.target[4].value;
-  // const message = e.target[6].value;
-  // console.log(name, email, subject, message)
-  // console.log("Submit was clicked!");
-};
 
 const bioOverview = {
   title: "Hi, I’m Earth!",
   paragraphs: [
-    "I’m a self-taught Front End Developer and school-taught Systems Engineer from Nigeria.",
-    "I've been building websites since 2017 with a focus on responsive design, accessibility and pleasing aesthetics.",
-    "I've spoken at multiple international conferences on a variety of topics ranging from web accessibility to career development.",
+    "As an experienced junior web developer specializing building web apps, particularly admin panels, I bring a strong foundation in front-end development.",
+    "My proficiency in React and TypeScript, coupled with my experience in MUI (Material UI) and unit testing automation, allows me to develop robust and efficient web apps. I am also adept at using GitHub for version control and project management.",
+    "I am a self-motivated individual who is always eager to learn and grow in my role.",
   ],
 };
 
 const readMoreContent = {
   skills: {
-    languages: ["HTML, CSS, JS", "NodeJS", "C#"],
-    libraries: ["ReactJS", "React-Redux", "Material-UI"],
-    tools: ["Git", "GitHub", "BitBucket", "Jira"],
+    languages: ["TypeScript", "HTML, CSS, JS", "NodeJS", "C#"],
+    libraries: [
+      "ReactJS",
+      "Material-UI",
+      "React Testing Library",
+      "Vitest",
+      "React-Redux",
+    ],
+    tools: ["Git", "GitHub", "Vite"],
   },
   experiences: [
     {
       company: "DigitalInnov",
-      position: "Front-end Developer Intern",
-      howLong: "June 2022 - Current",
-      description:
-        " Working with Shopify technologies to create e-commerce stores on various client projects.",
+      position: "Full-time Web Developer",
+      howLong: "Oct 2022 - Present",
+      description: [
+        "Part of the core team, leading the development of multiple web app projects.",
+        "Contribute to the overall development strategy and implementation of web apps.",
+      ],
+    },
+    {
+      company: "DigitalInnov",
+      position: "Web Developer Intern",
+      howLong: "June - Oct 2022 (5 months)",
+      description: [
+        "Part of the core developer team, responsible for developing web apps using React and Material UI.",
+        "Contribute to the overall development strategy and implementation of web apps.",
+      ],
     },
   ],
   educations: {
@@ -221,43 +225,60 @@ const readMoreContent = {
 };
 
 const projectSecTitle =
-  "I do most of my work under contract but I tend to freelance from time to time or build projects for fun. Here are some of my most recent commercial projects:";
+  "Driven by a passion for web development and a keen eye for detail, I've built a diverse portfolio of projects. Here are some of my most recent projects, showcasing my proficiency in building web apps.";
 const projects = [
   {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
+    thumbnailUrl: philscaLogo,
+    title: "Computer Laboratory Management System in PhilSCA Pasay Campus",
     description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
+      "I was responsible for the development of the web app. This application automates tasks such as remote computer monitoring. I utilized C# ASP.NET for platform development, MySQL for DBMS, and PsTools for remote executions.",
+    techStack: ["C#", "ASP.NET", "MySQL", "PsTools"],
+    projectUrl: "https://github.com/earthjan/computer-lab-management",
   },
   {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
+    thumbnailUrl: digitalInnovLogo,
+    title: "Digitalinnov: Confidential Project A",
     description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
+      "As an intern, I'm leading a confidential web application project, architecting it with React and TypeScript, and ensuring optimal performance. I utilized MUI v5 for a responsive user interface and Vitest & RTL for app's quality and reliability.",
+    techStack: [
+      "ReactJS",
+      "TypeScript",
+      "MUI",
+      "Vitest",
+      "React Testing Library",
+      "Redux",
+    ],
+    officialSite: "https://digitalinnov.com/",
   },
   {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
+    thumbnailUrl: digitalInnovLogo,
+    title: "Digitalinnov: Confidential Project B",
     description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
+      "I'm part of the project's core dev team, allowing me to also decide the architecture and design to tech stack selection. I used ReactJS, TypeScript, MUI, React Admin v4, Vitest, and React Testing Library to build the application.",
+    techStack: [
+      "ReactJS",
+      "TypeScript",
+      "MUI",
+      "React Admin v4",
+      "Vitest",
+      "React Testing Library",
+    ],
+    officialSite: "https://digitalinnov.com/",
   },
   {
-    thumbnailUrl:
-      "https://cdn.dribbble.com/users/37585/screenshots/19759254/645dc533-44c8-4b19-bf2d-1ad510346a25.png",
-    title: "Trainella",
+    thumbnailUrl: myPortfolio,
+    title: "My Portfolio",
     description:
-      "I built this project for a client after attending her yoga class. She wanted a WordPress site with a more custom layout so I used an existing WordPress theme and tweaked it with about 500 lines of additional CSS.",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    projectUrl: "#",
+      "I'm part of the project's core dev team, allowing me to also decide the architecture and design to tech stack selection. I used ReactJS, TypeScript, MUI, React Admin v4, Vitest, and React Testing Library to build the application.",
+    techStack: [
+      "ReactJS",
+      "TypeScript",
+      "MUI",
+      "React Admin v4",
+      "Vitest",
+      "React Testing Library",
+    ],
+    projectUrl: "https://github.com/earthjan/earth",
   },
 ];
 
@@ -276,7 +297,6 @@ const MainPage = () => {
       projectSecTitle={projectSecTitle}
       projects={projects}
       formDownloadLinks={formDownloadLinks}
-      handleContactSubmit={handleContactSubmit}
       onDownloadCv={async () => await handleDownload("cv")}
       onDownloadResume={async () => await handleDownload("resume")}
       linkedInURL={linkedInURL}
