@@ -12,7 +12,6 @@ import {
 
 import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 
-import pdftest from "../../../assets/pdftest.pdf";
 import downloadFile, { handleDownload } from "./utils/downloadFile";
 
 const landingPageScrollToURL = `/#${mainPageSectionIds.about}`;
