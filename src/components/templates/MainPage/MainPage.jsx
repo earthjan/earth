@@ -24,7 +24,6 @@ const MainPage = ({
   projects,
   onDownloadCv,
   onDownloadResume,
-  handleContactSubmit,
   linkedInURL,
   githubURL,
 }) => {
@@ -60,7 +59,6 @@ const MainPage = ({
         <Box sx={styles.contactPadding}>
           <Contact
             id={mainPageSectionIds.contact}
-            handleSubmit={handleContactSubmit}
             onDownloadCv={onDownloadCv}
             onDownloadResume={onDownloadResume}
           />

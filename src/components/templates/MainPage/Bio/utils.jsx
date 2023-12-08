@@ -89,9 +89,11 @@ export const Experience = ({ experiences }) => {
             </GridItem>
           </GridItem>
           <Box component="ul" sx={styles.expUnorderedList}>
-            <TextGray component="li" sx={styles.expList}>
-              {exp.description}
-            </TextGray>
+            {exp.description.map((desc) => (
+              <TextGray component="li" sx={styles.expList}>
+                {desc}
+              </TextGray>
+            ))}
           </Box>
         </React.Fragment>
       ))}

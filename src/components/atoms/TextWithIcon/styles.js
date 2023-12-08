@@ -11,6 +11,7 @@ const styles = {
   textWithIconIcon: {
     color: "links.main",
     paddingLeft: "15px",
+    paddingRight: "5px",
   },
 };
 

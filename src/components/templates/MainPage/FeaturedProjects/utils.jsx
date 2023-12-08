@@ -2,55 +2,35 @@ import React from "react";
 
 import { Box, Grid, Stack, Button } from "@mui/material";
 
+import LaunchIcon from "@mui/icons-material/Launch";
+
 import TextTitle from "../../../atoms/TextTitle/TextTitle";
 import TextGray from "../../../atoms/TextGray/TextGray";
 import GridItem from "../../../atoms/GridItem/GridItem";
 
 import styles from "./styles";
 
-export function Project1({
-  thumbnailUrl,
-  title,
-  description,
-  techStack,
-  projectUrl,
-}) {
+export function Project1(props) {
   return (
     <Grid container sx={styles.prj1GridBase}>
       <GridItem lg={6}>
-        <ProjectThumbnail thumbnailUrl={thumbnailUrl} />
+        <ProjectThumbnail {...props} />
       </GridItem>
       <GridItem lg={6} sx={styles.prj1PdBase}>
-        <ProjectDescription
-          title={title}
-          description={description}
-          techStack={techStack}
-          projectUrl={projectUrl}
-        />
+        <ProjectDescription {...props} />
       </GridItem>
     </Grid>
   );
 }
 
-export function Project2({
-  thumbnailUrl,
-  title,
-  description,
-  techStack,
-  projectUrl,
-}) {
+export function Project2(props) {
   return (
     <Grid container sx={styles.prj2GridBase}>
       <GridItem lg={6}>
-        <ProjectThumbnail thumbnailUrl={thumbnailUrl} />
+        <ProjectThumbnail {...props} />
       </GridItem>
       <GridItem lg={6} sx={styles.prj2PdBase}>
-        <ProjectDescription
-          title={title}
-          description={description}
-          techStack={techStack}
-          projectUrl={projectUrl}
-        />
+        <ProjectDescription {...props} />
       </GridItem>
     </Grid>
   );
@@ -64,12 +44,27 @@ function ProjectThumbnail({ thumbnailUrl }) {
   );
 }
 
-function ProjectDescription({ title, description, techStack, projectUrl }) {
+function ProjectDescription({
+  title,
+  description,
+  techStack,
+  projectUrl,
+  officialSite,
+}) {
+  const buttonProps = {
+    variant: "contained",
+    color: styles.pdView.color,
+    component: "a",
+    target: "_blank",
+    sx: styles.pdView.sx,
+    startIcon: <LaunchIcon />,
+  };
+
   return (
     <Box sx={styles.pdBase}>
       <TextTitle fontSize={styles.pdTitle.fontSize}>{title}</TextTitle>
       <TextGray sx={styles.pdDescription}>{description}</TextGray>
-      <Stack flexDirection={styles.pdTechStackBase.flexDirection}>
+      <Box display="flex" flexWrap="wrap" gap={0.5}>
         {techStack.map((tech, key) => (
           <Box key={key} component="ul" sx={styles.pdUl}>
             <TextGray component="li" sx={styles.pdli}>
@@ -77,17 +72,17 @@ function ProjectDescription({ title, description, techStack, projectUrl }) {
             </TextGray>
           </Box>
         ))}
-      </Stack>
+      </Box>
 
       {projectUrl && (
-        <Button
-          variant="contained"
-          color={styles.pdView.color}
-          component="a"
-          href={projectUrl}
-          sx={styles.pdView.sx}
-        >
+        <Button variant="contained" {...buttonProps} href={projectUrl}>
           View Source Code
+        </Button>
+      )}
+
+      {officialSite && (
+        <Button variant="outlined" {...buttonProps} href={officialSite}>
+          View Official Site
         </Button>
       )}
     </Box>
