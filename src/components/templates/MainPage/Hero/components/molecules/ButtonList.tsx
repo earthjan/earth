@@ -10,7 +10,7 @@ const buttonStyles = {
   fontSize: {
     sm: "1.3rem",
     md: "1.2rem",
-    xl: "1.5rem"
+    xl: "1.5rem",
   },
 };
 
@@ -42,7 +42,6 @@ const ButtonList = () => {
       <HashLink to={`/#${mainPageSectionIds.projects}`}>
         <Button
           variant="outlined"
-          color="titleText"
           sx={{
             ...buttonStyles,
             borderRadius: 10,

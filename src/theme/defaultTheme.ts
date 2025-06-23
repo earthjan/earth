@@ -22,38 +22,11 @@ declare module "@mui/material/styles" {
   }
 }
 
-declare module "@mui/material/Button" {
-  interface ButtonPropsColorOverrides {
-    accent: true;
-    secondary: true;
-    titleText: true;
-  }
-}
-
-declare module "@mui/material/IconButton" {
-  interface IconButtonPropsColorOverrides {
-    accent: true;
-    secondary: true;
-  }
-}
-
-declare module "@mui/material/TextField" {
-  interface TextFieldPropsColorOverrides {
-    textfield: true;
-  }
-}
-
-declare module "@mui/material/AppBar" {
-  interface AppBarPropsColorOverrides {
-    accent: true;
-  }
-}
-
 const colorCodes = {
-  primary: "#1F1D2B",
+  primary: "#FFFFFF",
   textPrimary: {
     primary: "#FFFFFF",
-    dark: "##e6e6e6",
+    dark: "##A2A2A2",
   },
   textSecondary: {
     primary: "#AAA8AE",
@@ -65,29 +38,22 @@ const colorCodes = {
 
 const defaultTheme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
       main: colorCodes.primary,
-      dark: "#0b0a0f",
-      light: "#2c293d",
-      contrastText: colorCodes.textPrimary.primary,
+      contrastText: "#121212",
     },
     secondary: {
-      main: "#E6B259",
-      dark: "#e1a337",
-      light: "#ebc27a",
-      contrastText: colorCodes.primary,
+      main: "#90CAF9",
+      contrastText: "#121212",
     },
-    accent: {
-      main: "#252836",
-      dark: "#15161e",
-      light: "#34384c",
-      contrastText: colorCodes.textPrimary.primary,
+
+    background: {
+      default: "#121212",
+      paper: "#121212",
     },
-    titleText: {
-      main: colorCodes.textPrimary.primary,
-      dark: colorCodes.textPrimary.dark,
-      light: colorCodes.textPrimary.primary,
-      contrastText: colorCodes.primary,
+    border: {
+      main: "#727272",
     },
     content: {
       main: colorCodes.textSecondary.primary,
@@ -101,43 +67,48 @@ const defaultTheme = createTheme({
       dark: "#339cff",
       contrastText: colorCodes.textLink,
     },
-    textfield: {
-      main: colorCodes.textPrimary.primary,
-      dark: colorCodes.textPrimary.dark,
-      light: colorCodes.textPrimary.primary,
-      contrastText: colorCodes.primary,
-    },
+
     text: {
       primary: colorCodes.textPrimary.primary,
       secondary: colorCodes.textSecondary.primary,
     },
-    border: {
-      main: colorCodes.textSecondary.primary,
-      dark: colorCodes.textSecondary.dark,
-      light: colorCodes.textSecondary.light,
-      contrastText: colorCodes.primary,
-    },
   },
   typography: {
     h1: {
-      fontSize: "1.8rem",
+      fontSize: "1.802rem", // 28.83px
+      lineHeight: 1.5,
+      letterSpacing: "-0.015em",
     },
     h2: {
-      fontSize: "1.6rem",
+      fontSize: "1.602rem", // 25.63px
+      lineHeight: 1.5,
+      letterSpacing: "-0.005em",
     },
     h3: {
-      fontSize: "1.42rem",
+      fontSize: "1.424rem", // 22.78px
+      lineHeight: 1.5,
+      letterSpacing: "0em",
     },
     h4: {
-      fontSize: "1.27rem",
+      fontSize: "1.266rem", // 20.25px
+      lineHeight: 1.5,
+      letterSpacing: "0.0025em",
     },
     h5: {
-      fontSize: "1.13rem",
+      fontSize: "1.125rem", // 18px
+      lineHeight: 1.5,
+      letterSpacing: "0em",
     },
+    h6: {
+      fontSize: "1rem", // 16px
+      lineHeight: 1.5,
+      letterSpacing: "0.0015em",
+    },
+
     subtitle1: {
       fontSize: "1rem",
     },
-    
+
     body1: {
       fontSize: "1rem",
     },
@@ -148,16 +119,6 @@ const defaultTheme = createTheme({
       color: colorCodes.textPrimary.primary,
     },
     fontFamily: "'Noto Sans', sans-serif",
-    button: {
-      textTransform: "none",
-    },
-  },
-  components: {
-    MuiButton: {
-      defaultProps: {
-        color: "secondary",
-      },
-    },
   },
 });
 

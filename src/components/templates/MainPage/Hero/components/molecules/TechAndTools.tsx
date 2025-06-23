@@ -1,4 +1,4 @@
-import { Stack, Box, StackProps } from "@mui/material";
+import { Stack, Box, StackProps, useTheme } from "@mui/material";
 
 import StyledTypography from "../atoms/StyledTypography";
 
@@ -15,17 +15,20 @@ import VitestIcon from "../../../../../molecules/icons/VitestIcon";
 import ReduxIcon from "../../../../../molecules/icons/ReduxIcon";
 
 import defaultTheme from "../../../../../../theme/defaultTheme";
+import { BORDER_WIDTH } from "../../../../../../constants/styles";
 
 const logoDimensions = {
   width: {
     sm: "50px",
     md: "35px",
-    xl: "40px"
+    xl: "40px",
   },
   height: "auto",
 };
 
 const TechAndTools = (props: StackProps) => {
+  const theme = useTheme();
+
   return (
     <Stack
       {...props}
@@ -44,16 +47,16 @@ const TechAndTools = (props: StackProps) => {
           justifyContent: "center",
           alignItems: "center",
           gap: 1,
-          backgroundColor: defaultTheme.palette.accent.main,
+          border: BORDER_WIDTH,
+          borderColor: theme.palette.border.main,
+          borderRadius: theme.shape.borderRadius,
 
           p: 2,
-
-          borderRadius: 5,
 
           width: {
             sm: "350px",
             md: "250px",
-            xl: "300px"
+            xl: "300px",
           },
         }}
       >
