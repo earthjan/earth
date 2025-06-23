@@ -119,10 +119,35 @@ const defaultTheme = createTheme({
     },
   },
   typography: {
+    h1: {
+      fontSize: "1.8rem",
+    },
+    h2: {
+      fontSize: "1.6rem",
+    },
+    h3: {
+      fontSize: "1.42rem",
+    },
+    h4: {
+      fontSize: "1.27rem",
+    },
+    h5: {
+      fontSize: "1.13rem",
+    },
+    subtitle1: {
+      fontSize: "1rem",
+    },
+    
+    body1: {
+      fontSize: "1rem",
+    },
+    body2: {
+      fontSize: "0.889rem",
+    },
     allVariants: {
       color: colorCodes.textPrimary.primary,
     },
-    fontFamily: "'Montserrat', sans-serif",
+    fontFamily: "'Noto Sans', sans-serif",
     button: {
       textTransform: "none",
     },
