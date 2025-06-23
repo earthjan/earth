@@ -5,7 +5,6 @@ import LogoContainer from "./LogoContainer/LogoContainer";
 import TextTitle from "./TextTitle/TextTitle";
 import TextGray from "./TextGray/TextGray";
 import GridItem from "./GridItem/GridItem";
-import TextLink from "./TextLink/TextLink";
 import TextField from "./TextField/TextField";
 import HashLink from "./HashLink/HashLink";
 
@@ -17,7 +16,6 @@ export {
   TextTitle,
   TextGray,
   GridItem,
-  TextLink,
   TextField,
   HashLink
 };

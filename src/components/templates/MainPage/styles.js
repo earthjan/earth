@@ -1,6 +1,6 @@
 const styles = {
   mainPageBase: {
-    backgroundColor: "primary.main",
+    backgroundColor: "background.default",
     minWidth: "320px",
     height: {
       // xs: "100vh",

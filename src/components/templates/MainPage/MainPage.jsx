@@ -5,9 +5,9 @@ import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 import Hero from "./Hero/Hero";
 import AppBarContainer from "../../atoms/AppBarContainer/AppBarContainer";
 import Bio from "./Bio/Bio";
-import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
 import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
+import Projects from "./Projects/Projects";
 
 import { LogoEarth } from "./utils";
 import styles from "./styles";
@@ -49,11 +49,7 @@ const MainPage = ({
         </Box>
 
         <Box sx={styles.projectsPadding}>
-          <FeaturedProjects
-            id={mainPageSectionIds.projects}
-            title={projectSecTitle}
-            projects={projects}
-          />
+          <Projects />
         </Box>
 
         <Box sx={styles.contactPadding}>

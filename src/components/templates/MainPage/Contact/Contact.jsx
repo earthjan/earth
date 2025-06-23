@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { Box, Stack, InputAdornment, Typography, Button } from "@mui/material";
 
-import { TextTitle, TextGray, TextLink, TextField } from "../../../atoms/atoms";
+import { TextTitle, TextGray, TextField } from "../../../atoms/atoms";
 
 import styles from "./styles";
 

@@ -3,7 +3,8 @@ import React from "react";
 
 import { Box, Stack, Typography, Grid } from "@mui/material";
 
-import { TextTitle, TextGray, GridItem, TextLink } from "../../../atoms/atoms";
+import { TextTitle, TextGray, GridItem } from "../../../atoms/atoms";
+import TextLink from "../../../atoms/TextLink/TextLink";
 
 import styles from "./styles";
 

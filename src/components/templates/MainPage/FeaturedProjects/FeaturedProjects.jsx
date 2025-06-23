@@ -12,6 +12,16 @@ import hr from "../../../../assets/Svgs/hr.svg";
 import { Project1, Project2 } from "./utils";
 import styles from "./styles";
 
+function FeaturedProjects2() {
+  return (
+    <Stack>
+      <TextTitle fontSize={styles.title.fontSize}>Featured Projects</TextTitle>
+      
+    </Stack>
+  )
+
+}
+
 const FeaturedProjects = ({ id, title, projects = [] }) => {
   return (
     <Box id={id} sx={styles.base}>
