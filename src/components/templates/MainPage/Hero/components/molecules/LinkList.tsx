@@ -10,16 +10,16 @@ import TextLinkWithIcon from "../../../../../atoms/TextWithIcon/TextWithIcon";
 const LinkList = () => {
   return (
     <Stack sx={{ alignItems: "center", justifyContent: "center", rowGap: 0.5 }}>
-      <a href={links.linkedin}>
-        <TextLinkWithIcon text={links.linkedin} StartIcon={LinkedInIcon} />
-      </a>
+      <Box component="a" href={links.linkedin.url}>
+        <TextLinkWithIcon text={links.linkedin.label} StartIcon={LinkedInIcon} />
+      </Box>
 
-      <a href="mailto:earth.baquir.marzan@gmail.com">
+       <Box component="a" href="mailto:earth.baquir.marzan@gmail.com">
         <TextLinkWithIcon
           text="earth.baquir.marzan@gmail.com"
           StartIcon={AlternateEmailIcon}
         />
-      </a>
+      </Box>
     </Stack>
   );
 };

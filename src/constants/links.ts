@@ -1,6 +1,9 @@
 const links = {
   get linkedin() {
-    return "https://www.linkedin.com/in/earthjan";
+    return {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/earth-marzan/",
+    };
   },
 };
 

@@ -11,7 +11,7 @@ const HookLine = () => {
       <StyledTypography
         sx={{
           fontSize: {
-            xs: defaultTheme.typography.h4.fontSize,
+            xs: "2rem",
             lg: defaultTheme.typography.h3.fontSize
           },
           lineHeight: {
@@ -30,7 +30,7 @@ const HookLine = () => {
           color={defaultTheme.palette.secondary.main}
           sx={{
             fontSize: {
-              xs: defaultTheme.typography.h2.fontSize,
+              xs: "3rem",
               sm: "4rem",
               md: "5rem",
               lg: defaultTheme.typography.h1.fontSize,
@@ -52,7 +52,7 @@ const HookLine = () => {
           color={defaultTheme.palette.text.primary}
           sx={{
             fontSize: {
-              xs: defaultTheme.typography.h3.fontSize,
+              xs: "2.5rem",
               sm: "3.4rem",
               md: "4.5rem",
               lg: "5.5rem",
