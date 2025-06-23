@@ -12,7 +12,10 @@ import styles from "./styles";
 
 const ReadMore = ({ content }) => {
   return (
-    <Accordion sx={styles.accordion}>
+    <Accordion sx={{
+      ...styles.accordion,
+      backgroundImage: "unset"
+    }}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={styles.expandIcon} />}
         sx={styles.accordionSummary}

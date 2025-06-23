@@ -1,6 +1,6 @@
 const styles = {
   accordion: {
-    backgroundColor: "primary.main",
+    backgroundColor: "transparent",
     paddingTop: { xs: "50px" },
   },
 
