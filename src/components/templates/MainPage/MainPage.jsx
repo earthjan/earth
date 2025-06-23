@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 
 import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 
-import LandingPage from "./LandingPage/LandingPage";
+import Hero from "./Hero/Hero";
 import AppBarContainer from "../../atoms/AppBarContainer/AppBarContainer";
 import Bio from "./Bio/Bio";
 import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
@@ -30,7 +30,7 @@ const MainPage = ({
   return (
     <Box sx={styles.mainPageBase}>
       <Box sx={styles.maxWidthSetter}>
-        <LandingPage scrollToURL={landingPageScrollToURL} />
+        <Hero scrollToURL={landingPageScrollToURL} />
 
         <AppBarContainer
           logo={<LogoEarth />}

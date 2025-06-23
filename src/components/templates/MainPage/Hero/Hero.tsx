@@ -7,7 +7,7 @@ import ButtonList from "./components/molecules/ButtonList";
 import LinkList from "./components/molecules/LinkList";
 import TechAndTools from "./components/molecules/TechAndTools";
 
-const LandingPage = () => {
+const Hero = () => {
   return (
     <Stack
       sx={{
@@ -74,4 +74,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default Hero;
