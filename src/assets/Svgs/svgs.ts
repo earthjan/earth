@@ -12,6 +12,8 @@ import react from "./react-svg.svg";
 import redux from "./redux-svg.svg";
 import ts from "./ts-svg.svg";
 import vite from "./vite-svg.svg";
+import nextJs from "./nextjs-svg.svg";
+import reactQuery from "./react-query-svg.svg";
 
 export {
   hr,
@@ -28,4 +30,6 @@ export {
   redux,
   ts,
   vite,
+  nextJs,
+  reactQuery,
 };

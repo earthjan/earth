@@ -25,7 +25,7 @@ import { navButtonStyles } from "./styles";
       ))}
     </NavLinksContainer>
  */
-const NavButton = ({ content, onClick, variant, color = "titleText" }) => {
+const NavButton = ({ content, onClick, variant, color = "primary" }) => {
   return (
     <Button
       onClick={onClick}

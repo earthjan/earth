@@ -30,14 +30,6 @@ const styles = {
     },
   },
 
-  content: {
-    fontSize: {
-      lg: "1.3rem",
-      xl: "1.5rem",
-    },
-    paddingTop: { xs: "10px" },
-  },
-
   /**
    * `ReadMore` section
    */

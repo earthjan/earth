@@ -40,44 +40,29 @@ const appbarLinks = [
       );
     },
   },
-  /**
-   * Custom navigation button that will be rendered on the appbar
-   */
-  // {
-  //   CustomNavButton() {
-  //     return (
-  //       <>
-  //         <Menu
-  //           button={(onClick) => (
-  //             <NavButton content="CV / Resume" onClick={onClick} />
-  //           )}
-  //         >
-  //           {(onClick) =>
-  //             appbarMenuLinks.map((link, key) => (
-  //               <MenuItem
-  //                 key={key}
-  //                 onClick={async () => {
-  //                   await link.download();
-  //                   onClick();
-  //                 }}
-  //               >
-  //                 <TextWithIcon
-  //                   text={link.text}
-  //                   Icon={VerticalAlignBottomIcon}
-  //                 />
-  //               </MenuItem>
-  //             ))
-  //           }
-  //         </Menu>
-  //       </>
-  //     );
-  //   },
-  // },
   {
     CustomNavButton() {
       return (
-        <HashLink to={`/#${mainPageSectionIds.about}`}>
-          <NavButton content="About" />
+        <HashLink to={`/#${mainPageSectionIds.workExperience}`}>
+          <NavButton content="Experiences" />
+        </HashLink>
+      );
+    },
+  },
+  {
+    CustomNavButton() {
+      return (
+        <HashLink to={`/#${mainPageSectionIds.skills}`}>
+          <NavButton content="Skills" />
+        </HashLink>
+      );
+    },
+  },
+  {
+    CustomNavButton() {
+      return (
+        <HashLink to={`/#${mainPageSectionIds.education}`}>
+          <NavButton content="Education" />
         </HashLink>
       );
     },
@@ -87,7 +72,7 @@ const appbarLinks = [
       return (
         <HashLink to={`/#${mainPageSectionIds.contact}`}>
           <NavButton
-            content="Contact me"
+            content="Let's connect"
             variant="contained"
             color="secondary"
           />
@@ -109,7 +94,7 @@ const appbarBurgerLinks = [
               onClick();
             }}
           >
-            Project
+            Projects
           </MenuItem>
         </HashLink>
       );
@@ -118,13 +103,13 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink to={`/#${mainPageSectionIds.about}`}>
+        <HashLink to={`/#${mainPageSectionIds.workExperience}`}>
           <MenuItem
             onClick={() => {
               onClick();
             }}
           >
-            About
+            Experiences
           </MenuItem>
         </HashLink>
       );
@@ -133,13 +118,28 @@ const appbarBurgerLinks = [
   {
     CustomMenuItem({ onClick }) {
       return (
-        <HashLink to={`/#${mainPageSectionIds.contact}`}>
+        <HashLink to={`/#${mainPageSectionIds.skills}`}>
           <MenuItem
             onClick={() => {
               onClick();
             }}
           >
-            Contact me
+            Skills
+          </MenuItem>
+        </HashLink>
+      );
+    },
+  },
+  {
+    CustomMenuItem({ onClick }) {
+      return (
+        <HashLink to={`/#${mainPageSectionIds.education}`}>
+          <MenuItem
+            onClick={() => {
+              onClick();
+            }}
+          >
+            Education
           </MenuItem>
         </HashLink>
       );
@@ -164,11 +164,11 @@ const appbarBurgerLinks = [
 const formDownloadLinks = { CV: "#", resume: "#" };
 
 const bioOverview = {
-  title: "Hi, I’m Earth!",
+  title: "I'm a Frontend Engineer",
   paragraphs: [
-    "As an experienced junior web developer specializing building web apps, particularly admin panels, I bring a strong foundation in front-end development.",
-    "My proficiency in React and TypeScript, coupled with my experience in MUI (Material UI) and unit testing automation, allows me to develop robust and efficient web apps. I am also adept at using GitHub for version control and project management.",
-    "I am a self-motivated individual who is always eager to learn and grow in my role.",
+    "Front End Software Engineer with 3 years of experience working in small teams to develop clean and testable, user-friendly, and feature-rich React web applications.",
+    "A self-motivated and lifelong learner familiar with modern web development technologies.",
+    "Eager to contribute to team-oriented environments and learn new technologies.",
   ],
 };
 

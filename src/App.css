@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.smt-truncated-text > span {
+  font-family: "Noto Sans", sans-serif;
+}

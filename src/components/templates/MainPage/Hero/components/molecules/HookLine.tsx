@@ -1,21 +1,23 @@
-import { Typography } from "@mui/material";
-
-import defaultTheme from "../../../../../../theme/defaultTheme";
+import { Typography, useTheme } from "@mui/material";
 
 import Container from "../atoms/Container";
 import StyledTypography from "../atoms/StyledTypography";
 
 const HookLine = () => {
+  const defaultTheme = useTheme();
+
   return (
-    <Container>
+    <Container sx={{
+      width: {
+        lg: "80%",
+      }
+    }}>
       <StyledTypography
         sx={{
           fontSize: {
-            xs: "2rem",
-            lg: defaultTheme.typography.h3.fontSize
-          },
-          lineHeight: {
-            xs: defaultTheme.typography.h4.lineHeight,
+            xs: "1.8rem",
+            lg: defaultTheme.typography.h3.fontSize + "px",
+            xl: defaultTheme.typography.h2.fontSize + "px",
           },
           textAlign: {
             xs: "center",
@@ -33,12 +35,8 @@ const HookLine = () => {
               xs: "3rem",
               sm: "4rem",
               md: "5rem",
-              lg: defaultTheme.typography.h1.fontSize,
-              xl: "8rem"
-            },
-            lineHeight: {
-              xs: defaultTheme.typography.h2.lineHeight,
-              md: defaultTheme.typography.h1.lineHeight,
+              lg: "4.8rem",
+              xl: "5rem",
             },
           }}
         >
@@ -55,19 +53,13 @@ const HookLine = () => {
               xs: "2.5rem",
               sm: "3.4rem",
               md: "4.5rem",
-              lg: "5.5rem",
-              xl: "7rem"
-            },
-            lineHeight: {
-              xs: defaultTheme.typography.h3.lineHeight,
-              md: defaultTheme.typography.h2.lineHeight,
+              lg: "4.5rem",
+              xl: "4.8rem",
             },
           }}
         >
-          {" "}
-          Web Project{" "}
+          React Projects
         </Typography>
-        needs
       </StyledTypography>
     </Container>
   );

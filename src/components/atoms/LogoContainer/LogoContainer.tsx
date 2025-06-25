@@ -20,6 +20,7 @@ const LogoContainer = ({
   borderColor,
   alt = paramDefaultValues.alt,
   src,
+  sx,
 }: TLogoContainerProps) => {
   return (
     <Box
@@ -33,6 +34,7 @@ const LogoContainer = ({
       borderColor={borderColor}
       alt={alt}
       src={src}
+      sx={sx}
     />
   );
 };

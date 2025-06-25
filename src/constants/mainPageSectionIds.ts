@@ -2,6 +2,15 @@ const mainPageSectionIds = {
   get projects() {
     return "projects";
   },
+  get workExperience() {
+    return "workExperience";
+  },
+  get education() {
+    return "education";
+  },
+  get skills() {
+    return "skills";
+  },
   get about() {
     return "about";
   },

@@ -17,7 +17,7 @@ const styles = {
   },
 
   container: { 
-    mx: { xs: "20px", xl: "60px" }
+    mx: { xs: "10px", xl: "60px" }
   },
 
   toolbar: { justifyContent: "space-between" },

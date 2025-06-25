@@ -11,6 +11,7 @@ export type TLogoContainerProps = Pick<
   | "borderColor"
   | "alt"
   | "src"
+  | "sx"
 >;
 
 export type TLogoContainerChildBaseProps = Omit<TLogoContainerProps, "src">;

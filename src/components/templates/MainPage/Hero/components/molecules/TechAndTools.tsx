@@ -15,11 +15,15 @@ import VitestIcon from "../../../../../molecules/icons/VitestIcon";
 import ReduxIcon from "../../../../../molecules/icons/ReduxIcon";
 
 import defaultTheme from "../../../../../../theme/defaultTheme";
-import { BORDER_WIDTH } from "../../../../../../constants/styles";
+import { BORDER_WIDTH, OFFSET } from "../../../../../../constants/styles";
+import NextJsIcon from "../../../../../molecules/icons/NextJsIcon";
+import ReactAdminIcon from "../../../../../molecules/icons/ReactAdminIcon";
+import ReactQueryIcon from "../../../../../molecules/icons/ReactQueryIcon";
 
 const logoDimensions = {
   width: {
-    sm: "50px",
+    xs: "25px",
+    sm: "35px",
     md: "35px",
     xl: "40px",
   },
@@ -46,7 +50,7 @@ const TechAndTools = (props: StackProps) => {
           flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "center",
-          gap: 1,
+          gap: theme.spacing(OFFSET),
           border: BORDER_WIDTH,
           borderColor: theme.palette.border.main,
           borderRadius: theme.shape.borderRadius,
@@ -61,16 +65,13 @@ const TechAndTools = (props: StackProps) => {
         }}
       >
         <ReactIcon {...logoDimensions} />
+        <ReactAdminIcon {...logoDimensions} />
+        <NextJsIcon {...logoDimensions} />
         <TypeScriptIcon {...logoDimensions} />
-        <MuiIcon {...logoDimensions} />
-        <GitHubIcon {...logoDimensions} />
-        <GitIcon {...logoDimensions} />
-        <ViteIcon {...logoDimensions} />
-        <Html5Icon {...logoDimensions} />
-        <CssIcon {...logoDimensions} />
-        <RTLIcon {...logoDimensions} />
         <VitestIcon {...logoDimensions} />
-        <ReduxIcon {...logoDimensions} />
+        <MuiIcon {...logoDimensions} />
+        <RTLIcon {...logoDimensions} />
+        <ReactQueryIcon {...logoDimensions} />
       </Box>
     </Stack>
   );

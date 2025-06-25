@@ -1,16 +1,15 @@
-import { Box } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 import mainPageSectionIds from "../../../constants/mainPageSectionIds";
 
 import Hero from "./Hero/Hero";
 import AppBarContainer from "../../atoms/AppBarContainer/AppBarContainer";
 import Bio from "./Bio/Bio";
-import Contact from "./Contact/Contact";
 import Footer from "./Footer/Footer";
 import Projects from "./Projects/Projects";
 
-import { LogoEarth } from "./utils";
 import styles from "./styles";
+import { SPACING } from "../../../constants/styles";
 
 const MainPage = ({
   landingPageScrollToURL,
@@ -20,25 +19,35 @@ const MainPage = ({
   skills,
   experiences,
   educations,
-  projectSecTitle,
-  projects,
-  onDownloadCv,
-  onDownloadResume,
   linkedInURL,
   githubURL,
 }) => {
+  const theme = useTheme();
+
   return (
     <Box sx={styles.mainPageBase}>
       <Box sx={styles.maxWidthSetter}>
         <Hero scrollToURL={landingPageScrollToURL} />
 
         <AppBarContainer
-          logo={<LogoEarth />}
+          logo={
+            <Typography
+              color={theme.palette.secondary.main}
+              fontWeight={theme.typography.fontWeightBold}
+            >
+              Earth Jan Baquir Marzan
+            </Typography>
+          }
           navLinks={appbarLinks}
           menuList={appbarMenuLinks}
         />
 
-        <Box sx={styles.bioPadding}>
+        <Box
+          sx={{
+            ...styles.padding,
+            mt: theme.spacing(SPACING * 3),
+          }}
+        >
           <Bio
             id={mainPageSectionIds.about}
             overview={bioOverview}
@@ -48,16 +57,11 @@ const MainPage = ({
           />
         </Box>
 
-        <Box sx={styles.projectsPadding}>
+        <Box sx={{
+          ...styles.padding,
+          mt: theme.spacing(SPACING * 4),
+        }}>
           <Projects />
-        </Box>
-
-        <Box sx={styles.contactPadding}>
-          <Contact
-            id={mainPageSectionIds.contact}
-            onDownloadCv={onDownloadCv}
-            onDownloadResume={onDownloadResume}
-          />
         </Box>
 
         <Footer linkedInURL={linkedInURL} githubURL={githubURL} />

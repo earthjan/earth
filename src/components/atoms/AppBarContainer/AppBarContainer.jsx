@@ -41,10 +41,10 @@ const AppBarContainer = ({ logo, navLinks, menuList }) => {
   useHideAppBarOnScroll("appbar", "-100px");
 
   return (
-    <AppBar id="appbar"  sx={styles.appBar.sx}>
+    <AppBar id="appbar" sx={styles.appBar.sx}>
       <Box sx={styles.container}>
         <Toolbar sx={styles.toolbar} disableGutters>
-          {logo}
+          <Box sx={{ flexShrink: 0 }}>{logo}</Box>
           <Menu items={menuList} />
           <NavLinks navPages={navLinks} />
         </Toolbar>

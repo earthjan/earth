@@ -10,7 +10,6 @@ const buttonStyles = {
   fontSize: {
     sm: "1.3rem",
     md: "1.2rem",
-    xl: "1.5rem",
   },
 };
 
@@ -26,19 +25,6 @@ const ButtonList = () => {
         },
       }}
     >
-      <HashLink to={`/#${mainPageSectionIds.contact}`}>
-        <Button
-          variant="contained"
-          color={"secondary" as any}
-          sx={{
-            ...buttonStyles,
-            fontWeight: "bold",
-            borderRadius: 10,
-          }}
-        >
-          Contact Me
-        </Button>
-      </HashLink>
       <HashLink to={`/#${mainPageSectionIds.projects}`}>
         <Button
           variant="outlined"
@@ -50,6 +36,22 @@ const ButtonList = () => {
           View Projects
         </Button>
       </HashLink>
+
+      <Button
+        variant="contained"
+        color={"secondary" as any}
+        onClick={(e) => {
+          e.preventDefault();
+          window.open("mailto:earth.baquir.marzan@gmail.com", "_blank");
+        }}
+        sx={{
+          ...buttonStyles,
+          fontWeight: "bold",
+          borderRadius: 10,
+        }}
+      >
+        Let's Connect
+      </Button>
     </Container>
   );
 };

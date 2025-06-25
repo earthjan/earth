@@ -1,6 +1,8 @@
+import { SPACING } from "../../../constants/styles";
+
 export const navButtonStyles = {
   my: 2,
-  marginLeft: { xs: "55px" },
+  marginLeft: { xs: SPACING },
   display: "block",
   textTransform: "none",
   fontSize: {
