@@ -141,7 +141,21 @@ function BayanEdAdminPanelProjectSmallScreen() {
       </CardMedia>
 
       <CardContent>
-        <Typography variant="h3">BayanEd Admin Panel</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            mb: theme.spacing(SPACING),
+          }}
+        >
+          <Typography variant="h3">BayanEd Admin Panel</Typography>
+          <Chip
+            color="secondary"
+            size="small"
+            label="Built & Maintained by Me"
+          />
+        </Box>
         <ShowMoreText
           className="smt-truncated-text"
           more={
@@ -240,7 +254,21 @@ function BayanEdAdminPanelProjectLargeScreen() {
             maxHeight: "250px",
           }}
         >
+          <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            mb: theme.spacing(SPACING),
+          }}
+        >
           <Typography variant="h3">BayanEd Admin Panel</Typography>
+          <Chip
+            color="secondary"
+            size="small"
+            label="Built & Maintained by Me"
+          />
+        </Box>
           <ShowMoreText
             className="smt-truncated-text"
             more={

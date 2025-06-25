@@ -3,7 +3,7 @@ const mainPageSectionIds = {
     return "projects";
   },
   get workExperience() {
-    return "workExperience";
+    return "experience";
   },
   get education() {
     return "education";
