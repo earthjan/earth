@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 import type {} from "@mui/lab/themeAugmentation";
+import { borderRadius, style, Theme } from "@mui/system";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -120,7 +121,17 @@ const defaultTheme = createTheme({
     },
     fontFamily: "'Noto Sans', sans-serif",
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        "root": {
+          borderRadius: "10px",
+        }
+      }
+    }
+  }
 });
+
 
 export default defaultTheme;
 

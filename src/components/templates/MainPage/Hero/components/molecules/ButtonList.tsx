@@ -30,7 +30,6 @@ const ButtonList = () => {
           variant="outlined"
           sx={{
             ...buttonStyles,
-            borderRadius: 10,
           }}
         >
           View Projects
@@ -47,7 +46,6 @@ const ButtonList = () => {
         sx={{
           ...buttonStyles,
           fontWeight: "bold",
-          borderRadius: 10,
         }}
       >
         Let's Connect

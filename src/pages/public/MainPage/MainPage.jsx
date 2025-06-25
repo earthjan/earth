@@ -1,4 +1,4 @@
-import { MenuItem } from "@mui/material";
+import { Button, MenuItem } from "@mui/material";
 
 import MainPageTemplate from "../../../components/templates/MainPage/MainPage";
 import { NavButton, HashLink } from "../../../components/atoms/atoms";
@@ -70,13 +70,15 @@ const appbarLinks = [
   {
     CustomNavButton() {
       return (
-        <HashLink to={`/#${mainPageSectionIds.contact}`}>
-          <NavButton
-            content="Let's connect"
-            variant="contained"
-            color="secondary"
-          />
-        </HashLink>
+        <NavButton
+          content="Let's connect"
+          variant="contained"
+          color="secondary"
+          onClick={(e) => {
+            e.preventDefault();
+            window.open("mailto:earth.baquir.marzan@gmail.com", "_blank");
+          }}
+        />
       );
     },
   },
@@ -85,6 +87,24 @@ const appbarLinks = [
  * An `array<string | ReactElement>` of links that has custom menu items (`CustomMenuItem`) for app bar's burger menu
  */
 const appbarBurgerLinks = [
+  {
+    CustomMenuItem({ onClick }) {
+      return (
+        <Button
+          variant="contained"
+          color="secondary"
+          sx={{ borderRadius: 0, textTransform: "none" }}
+          onClick={(e) => {
+            e.preventDefault();
+            onClick();
+            window.open("mailto:earth.baquir.marzan@gmail.com", "_blank");
+          }}
+        >
+          Let's Connect
+        </Button>
+      );
+    },
+  },
   {
     CustomMenuItem({ onClick }) {
       return (
