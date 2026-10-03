@@ -1,0 +1,72 @@
+/* Global styles and motion. Values are tokens (CSS variables injected from src/theme/tokens.json). */
+body{margin:0;background:var(--color-surface-0);color:var(--color-text-primary);font-family:var(--font-text);-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+::selection{background:var(--color-steel-700);color:#fff}
+
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes gridpan{from{background-position:0 0,0 0}to{background-position:-48px 48px,-48px 48px}}
+@keyframes drawline{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes scrollcue{0%{transform:translateY(0);opacity:1}80%{transform:translateY(10px);opacity:0}100%{opacity:0}}
+@keyframes underline{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes logoin{from{opacity:0;transform:translateY(12px) scale(.9)}to{opacity:1;transform:none}}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinr{to{transform:rotate(-360deg)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+@keyframes drift{0%,100%{transform:translate(0,0) rotate(0)}33%{transform:translate(18px,-14px) rotate(20deg)}66%{transform:translate(-12px,10px) rotate(-12deg)}}
+@keyframes wave{to{stroke-dashoffset:-240}}
+@keyframes breathe{0%,100%{opacity:.25}50%{opacity:.7}}
+@keyframes ping{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.8);opacity:0}}
+@keyframes sweep{from{transform:rotate(-40deg) scale(.85)}to{transform:rotate(80deg) scale(1.1)}}
+.spin{animation:spin 60s linear infinite}.spin2{animation:spin 14s linear infinite}.spinr{animation:spinr 40s linear infinite}
+.floaty{animation:floaty 9s ease-in-out infinite}.drift{animation:drift 16s ease-in-out infinite}.drift2{animation:drift 22s ease-in-out infinite reverse}
+.wave{animation:wave 6s linear infinite}.breathe{animation:breathe 4s ease-in-out infinite}
+.ping{animation:ping 2s cubic-bezier(0,0,.2,1) infinite}
+.par{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+@supports (animation-timeline: view()){ .scrollspin{animation:sweep linear both;animation-timeline:view();animation-range:entry 0% exit 100%} }
+
+.rise{animation:rise .7s cubic-bezier(.4,0,.2,1) both}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
+.gridbg{background-image:linear-gradient(var(--color-decor-grid) 1px,transparent 1px),linear-gradient(90deg,var(--color-decor-grid) 1px,transparent 1px);background-size:48px 48px;animation:gridpan 8s linear infinite}
+.hl{position:relative;white-space:nowrap}
+.hl::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;background:var(--color-accent-main);transform-origin:right;animation:underline .9s .7s cubic-bezier(.4,0,.2,1) both}
+.cue{animation:scrollcue 1.8s cubic-bezier(.4,0,.2,1) infinite}
+.logo{animation:logoin .5s cubic-bezier(.4,0,.2,1) both;transition:background-color .2s,transform .2s}
+.logo:hover{background-color:var(--color-surface-4)!important;transform:translateY(-3px)}
+.l1{animation-delay:.55s}.l2{animation-delay:.62s}.l3{animation-delay:.69s}.l4{animation-delay:.76s}.l5{animation-delay:.83s}.l6{animation-delay:.9s}.l7{animation-delay:.97s}.l8{animation-delay:1.04s}
+
+@supports (animation-timeline: view()){
+ .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+ .line{transform-origin:top;animation:drawline linear both;animation-timeline:view();animation-range:entry 0% cover 55%}
+}
+
+.card{transition:box-shadow .28s cubic-bezier(.4,0,.2,1),transform .28s cubic-bezier(.4,0,.2,1),background-color .28s}
+.card:hover{transform:translateY(-4px);background-color:var(--color-surface-4);box-shadow:var(--elevation-8)}
+.navlink{transition:color .2s,background-color .2s}
+.navlink:hover{background-color:var(--color-overlay-hover);color:#fff!important}
+.chip{transition:background-color .2s,transform .2s}
+.chip:hover{background-color:var(--color-surface-5)!important;transform:translateY(-2px)}
+.icn{transition:background-color .2s}
+.icn:hover{background-color:var(--color-overlay-hover)!important}
+/* certification cards: whole card opens the credential */
+.certcard{cursor:pointer;transition:border-color .2s,background-color .28s,box-shadow .28s,transform .28s}
+.certcard .stretch{position:static}
+.certcard .stretch::before{content:"";position:absolute;inset:0;border-radius:var(--radius-md);z-index:1}
+.certcard:hover{border-color:var(--color-steel-400)!important}
+.certcard:hover .vlink{background-color:var(--color-accent-state-focus)!important;border-color:var(--color-steel-300)!important}
+.certcard .varrow,.certcard .ccorner svg{transition:transform .25s cubic-bezier(.4,0,.2,1)}
+.certcard:hover .varrow{transform:translate(2px,-2px)}
+.certcard .ccorner{transition:background-color .2s,color .2s}
+.certcard:hover .ccorner{background:var(--color-accent-main)!important;color:var(--color-text-on-accent)!important}
+.certcard:hover .ccorner svg{transform:translate(2px,-2px)}
+.certcard:focus-within{outline:2px solid var(--color-accent-main);outline-offset:3px}
+.certcard .stretch:focus-visible{outline:none}
+.chev{transition:transform .25s}
+@media (max-width:860px){.navlinks{display:none!important}.brand{font-size:var(--font-size-base)!important}}
+@media (max-width:640px){.sec{padding:var(--space-18) var(--space-4)!important}.hero{padding:var(--space-24) var(--space-4) var(--space-18)!important}.tl{display:none!important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* skip link */
+.skip-link{position:absolute;left:var(--space-4);top:var(--space-4);z-index:1300;padding:var(--space-3) var(--space-4);border-radius:var(--radius-sm);background:var(--color-accent-main);color:var(--color-text-on-accent);font-family:var(--font-text);font-size:var(--font-size-md);font-weight:var(--font-weight-medium);text-decoration:none;transform:translateY(-200%)}
+.skip-link:focus{transform:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--color-accent-main);outline-offset:3px}

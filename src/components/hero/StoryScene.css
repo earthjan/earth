@@ -1,0 +1,61 @@
+/* Story scene keyframes: contract copied from the design canvas (15s loop). */
+/* story scene: 15s loop. lead 0-5s, architect 5-10s, ship 10-15s */
+.scene{pointer-events:none}
+.actB,.actC{opacity:0}
+.actA{animation:actA 15s infinite}.actC{animation:actC 15s infinite}.actB{animation:actB 15s infinite}
+@keyframes actA{0%{opacity:0}2.67%{opacity:1}30.67%{opacity:1}33.33%{opacity:0}100%{opacity:0}}
+@keyframes actC{0%{opacity:0}33.33%{opacity:0}36%{opacity:1}64%{opacity:1}66.67%{opacity:0}100%{opacity:0}}
+@keyframes actB{0%{opacity:0}66.67%{opacity:0}68.67%{opacity:1}97.33%{opacity:1}99.33%{opacity:0}100%{opacity:0}}
+.mate{animation:mate 15s infinite}
+@keyframes mate{0%{transform:scale(0)}3.33%{transform:scale(0)}6%{transform:scale(1)}100%{transform:scale(1)}}
+.tline{stroke-dasharray:220;animation:tline 15s infinite}
+@keyframes tline{0%{stroke-dashoffset:220}5.33%{stroke-dashoffset:220}10.67%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+.cardA{animation:cardA 15s infinite}.cardB{animation:cardB 15s infinite}.cardC{animation:cardC 15s infinite}
+@keyframes cardA{0%{transform:translateX(0)}9.33%{transform:translateX(0)}12.67%{transform:translateX(157px)}16.67%{transform:translateX(157px)}20%{transform:translateX(314px)}100%{transform:translateX(314px)}}
+@keyframes cardB{0%{transform:translateX(0)}14.67%{transform:translateX(0)}18%{transform:translateX(157px)}21.33%{transform:translateX(157px)}24.67%{transform:translateX(314px)}100%{transform:translateX(314px)}}
+@keyframes cardC{0%{transform:translateX(0)}20%{transform:translateX(0)}23.33%{transform:translateX(157px)}100%{transform:translateX(157px)}}
+.nudge{animation:nudge 3s ease-in-out infinite}@keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(6px,4px)}}
+.b1,.b2,.b3,.b4,.b5{transform-origin:center}
+.b1{animation:b1 15s infinite}.b2{animation:b2 15s infinite}.b3{animation:b3 15s infinite}.b4{animation:b4 15s infinite}.b5{animation:b5 15s infinite}
+@keyframes b1{0%{opacity:0;transform:scale(.85)}38%{opacity:0;transform:scale(.85)}40%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes b2{0%{opacity:0;transform:scale(.85)}44%{opacity:0;transform:scale(.85)}46%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes b3{0%{opacity:0;transform:scale(.85)}50%{opacity:0;transform:scale(.85)}51.67%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes b4{0%{opacity:0;transform:scale(.85)}51.33%{opacity:0;transform:scale(.85)}53%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes b5{0%{opacity:0;transform:scale(.85)}52.67%{opacity:0;transform:scale(.85)}54.33%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+.c1{stroke-dasharray:60;animation:c1 15s infinite}.c2{stroke-dasharray:460;animation:c2 15s infinite}
+@keyframes c1{0%{stroke-dashoffset:60}40.67%{stroke-dashoffset:60}43.33%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+@keyframes c2{0%{stroke-dashoffset:460}46.67%{stroke-dashoffset:460}50.67%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+.archCur{animation:archCur 15s infinite}
+@keyframes archCur{0%{transform:translate(66px,88px)}35.33%{transform:translate(66px,88px)}38%{transform:translate(296px,176px)}42%{transform:translate(296px,176px)}44%{transform:translate(326px,286px)}48%{transform:translate(326px,286px)}50%{transform:translate(96px,406px)}51.33%{transform:translate(262px,406px)}52.67%{transform:translate(420px,406px)}58.33%{transform:translate(420px,406px)}62%{transform:translate(300px,300px)}100%{transform:translate(300px,300px)}}
+.walk{animation:walk 15s infinite}
+@keyframes walk{0%{transform:translateX(0)}71.79%{transform:translateX(0)}74.36%{transform:translateX(120px)}76.28%{transform:translateX(120px)}78.85%{transform:translateX(240px)}81.41%{transform:translateX(240px)}83.97%{transform:translateX(360px)}100%{transform:translateX(360px)}}
+.bob{animation:bob .5s ease-in-out infinite alternate}@keyframes bob{to{transform:translateY(-3px)}}
+.frame{transform-origin:top;animation:frame 15s infinite}
+@keyframes frame{0%{transform:scaleY(0)}69.23%{transform:scaleY(0)}72.44%{transform:scaleY(1)}100%{transform:scaleY(1)}}
+.code{transform-origin:left;animation:code 15s infinite}
+@keyframes code{0%{transform:scaleX(0)}73.72%{transform:scaleX(0)}76.28%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+.chk{animation:chk 15s infinite}
+@keyframes chk{0%{transform:scale(0)}78.85%{transform:scale(0)}80.77%{transform:scale(1)}100%{transform:scale(1)}}
+.rocket{animation:rocket 15s infinite}
+@keyframes rocket{0%{transform:translateY(34px);opacity:0}83.33%{transform:translateY(34px);opacity:0}86.54%{transform:translateY(0);opacity:1}93.59%{transform:translateY(-10px);opacity:1}100%{transform:translateY(-10px);opacity:1}}
+.flame{animation:breathe .4s ease-in-out infinite}
+.track{transform-origin:left;animation:track 15s infinite}
+@keyframes track{0%{transform:scaleX(0)}69.23%{transform:scaleX(0)}87.18%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+.chipIn{animation:chipIn 15s infinite}
+@keyframes chipIn{0%{transform:scale(.6);opacity:0}87.82%{transform:scale(.6);opacity:0}90.38%{transform:scale(1);opacity:1}100%{transform:scale(1);opacity:1}}
+.t1{animation:t1 15s infinite}.t2{animation:t2 15s infinite}.t3{animation:t3 15s infinite}.t4{animation:t4 15s infinite}
+@keyframes t1{0%{border-color:var(--color-outline-default)}68.59%{border-color:var(--color-outline-default)}69.87%{border-color:var(--color-accent-main)}73.72%{border-color:var(--color-accent-main)}75.64%{border-color:var(--color-steel-700)}100%{border-color:var(--color-steel-700)}}
+@keyframes t2{0%{border-color:var(--color-outline-default)}73.72%{border-color:var(--color-outline-default)}75%{border-color:var(--color-accent-main)}78.21%{border-color:var(--color-accent-main)}80.13%{border-color:var(--color-steel-700)}100%{border-color:var(--color-steel-700)}}
+@keyframes t3{0%{border-color:var(--color-outline-default)}78.21%{border-color:var(--color-outline-default)}79.49%{border-color:var(--color-accent-main)}82.69%{border-color:var(--color-accent-main)}84.62%{border-color:var(--color-steel-700)}100%{border-color:var(--color-steel-700)}}
+@keyframes t4{0%{border-color:var(--color-outline-default)}82.69%{border-color:var(--color-outline-default)}83.97%{border-color:var(--color-accent-main)}100%{border-color:var(--color-accent-main)}}
+.seg1{animation:seg1 15s linear infinite}.seg2{animation:seg2 15s linear infinite}.seg3{animation:seg3 15s linear infinite}
+@keyframes seg1{0%{transform:scaleX(0)}33.2%{transform:scaleX(1)}33.4%,100%{transform:scaleX(0)}}
+@keyframes seg2{0%,33.3%{transform:scaleX(0)}66.5%{transform:scaleX(1)}66.7%,100%{transform:scaleX(0)}}
+@keyframes seg3{0%,66.6%{transform:scaleX(0)}99.8%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+.lbl1{animation:lbl1 15s infinite}.lbl2{animation:lbl2 15s infinite}.lbl3{animation:lbl3 15s infinite}
+@keyframes lbl1{0%,32%{color:var(--color-steel-50)}34%,100%{color:var(--color-steel-400)}}
+@keyframes lbl2{0%,32%{color:var(--color-steel-400)}34%,65%{color:var(--color-steel-50)}67%,100%{color:var(--color-steel-400)}}
+@keyframes lbl3{0%,65%{color:var(--color-steel-400)}67%,99%{color:var(--color-steel-50)}100%{color:var(--color-steel-400)}}
+@media (max-width:1100px){.scene{display:none!important}}
+@media (prefers-reduced-motion:reduce){.scene *{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.seg2,.seg3{transform:scaleX(0)}.lbl1{color:var(--color-steel-50)}}
