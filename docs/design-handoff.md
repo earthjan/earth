@@ -95,7 +95,7 @@ Fonts are self-hosted: `@fontsource/roboto` (400/500/700) and `@fontsource-varia
 
 | Component | Variant | Props | Notes |
 |---|---|---|---|
-| `AppBar` | sticky, under hero | `links: {label, href}[]` | Height `size.appBar` 64. Brand left (`type.brand`), nav links (`type.button`, `color.text.secondary`, padding `space.3`×`space.4`, radius `radius.sm`), filled "Let's connect" button (height `size.button.md` 40). Nav links hide ≤ `breakpoint.md`. `elevation.4`. |
+| `AppBar` | sticky, under hero | `links: {label, href}[]` | Height `size.appBar` 64. Brand left (`type.brand`), nav links (`type.button`, `color.text.secondary`, padding `space.3`×`space.4`, radius `radius.sm`), filled "Let's connect" button (height `size.button.md` 40). Nav links hide ≤ `breakpoint.lg` (they need ~920px beside the name and button). ≤ `breakpoint.xs` (480) the name shortens to "Earth Jan Marzan" and truncates with an ellipsis before the button ever shrinks; the button never shrinks (`flex-shrink: 0`). `elevation.4`. |
 | `Button` | filled | MUI `variant="contained"` | Height 48 (`size.button.lg`), padding x `space.6`, radius `radius.sm`, bg `color.accent.main`, text `color.text.onAccent`, `type.button`, `elevation.2`. |
 | `Button` | outlined | `variant="outlined"` | Same metrics, 1px `color.outline.strong`, text `color.accent.main`. |
 | `Button` | text | `variant="text"` | Height ≥ 44, padding x `space.3`/`space.4`, text `color.accent.main`. Used for "Show more" and "Try app". |
@@ -143,9 +143,10 @@ No loading, empty or error states: all content is static data bundled at build t
 | Breakpoint | Changes |
 |---|---|
 | Desktop (> 1100px) | Default. Hero text right-aligned in the right column; story scene in the left 460px. |
-| `breakpoint.lg` (≤ 1100px) | Story scene hidden (it would sit under the headline). Hero text stays right-aligned. |
-| `breakpoint.md` (≤ 860px) | App bar nav links hidden (brand + Let's connect remain). Two-column sections stack (title above body). Project and cert grids drop to 1 column when a column would be < 440px (`repeat(auto-fill, minmax(min(100%, 440px), 1fr))`). |
-| `breakpoint.sm` (≤ 640px) | Gutter 16, section padding 72, hero padding 96/72, timeline node column hidden (cards only). Display title follows its clamp down to 44px. |
+| `breakpoint.lg` (≤ 1100px) | Story scene hidden (it would sit under the headline). App bar nav links hidden; Let's connect stays pinned right. Hero text stays right-aligned. |
+| `breakpoint.md` (≤ 860px) | App bar name drops to 16px. Two-column sections stack (title above body). Project and cert grids drop to 1 column when a column would be < 440px (`repeat(auto-fill, minmax(min(100%, 440px), 1fr))`). |
+| `breakpoint.sm` (≤ 640px) | Gutter 16 (app bar included), section padding 72, hero padding 96/72, timeline node column hidden (cards only). Display title follows its clamp down to 44px. |
+| `breakpoint.xs` (≤ 480px) | App bar shows "Earth Jan Marzan"; button padding x `space.3`, gap `space.2`. Verified at 320, 360, 390 and 412px with no horizontal scroll. |
 
 ---
 

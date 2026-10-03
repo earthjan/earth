@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 
 import { navLinks } from "../data/profile";
-import { space, typeStyle, vars } from "../theme/tokens";
+import { mq, space, typeStyle, vars } from "../theme/tokens";
 
 /** Sits under the hero and sticks to the top once scrolled past it (like the original site). */
 export default function AppBar() {
@@ -25,6 +25,8 @@ export default function AppBar() {
           mx: "auto",
           height: 64,
           px: space(6),
+          [mq.down("sm")]: { px: space(4), gap: space(3) },
+          [mq.down("xs")]: { gap: space(2) },
           display: "flex",
           alignItems: "center",
           gap: space(4),
@@ -34,9 +36,22 @@ export default function AppBar() {
           component="a"
           className="brand"
           href="#top"
-          sx={{ ...typeStyle("brand"), textDecoration: "none", color: vars.color.steel["50"], whiteSpace: "nowrap" }}
+          aria-label="Earth Jan Baquir Marzan, back to top"
+          sx={{
+            ...typeStyle("brand"),
+            textDecoration: "none",
+            color: vars.color.steel["50"],
+            whiteSpace: "nowrap",
+            // the name gives way before the button does
+            minWidth: 0,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            "& .short": { display: "none" },
+            [mq.down("xs")]: { "& .full": { display: "none" }, "& .short": { display: "inline" } },
+          }}
         >
-          Earth Jan Baquir Marzan
+          <span className="full">Earth Jan Baquir Marzan</span>
+          <span className="short">Earth Jan Marzan</span>
         </Box>
         <Box className="navlinks" sx={{ ml: "auto", display: "flex", gap: space(1) }}>
           {navLinks.map((link) => (
@@ -57,7 +72,19 @@ export default function AppBar() {
             </Box>
           ))}
         </Box>
-        <Button variant="contained" size="medium" href="#contact" sx={{ ml: space(2), boxShadow: "none" }}>
+        <Button
+          variant="contained"
+          size="medium"
+          href="#contact"
+          sx={{
+            ml: space(2),
+            boxShadow: "none",
+            flexShrink: 0,
+            // nav links are hidden at lg and below: keep the button on the right edge
+            [mq.down("lg")]: { ml: "auto" },
+            [mq.down("xs")]: { px: space(3) },
+          }}
+        >
           Let&apos;s connect
         </Button>
       </Box>

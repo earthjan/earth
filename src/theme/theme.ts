@@ -21,7 +21,14 @@ const theme = createTheme({
     divider: c.outline.subtle,
   },
   breakpoints: {
-    values: { xs: 0, ...t.layout.breakpoint },
+    // MUI's xs must start at 0; the token "xs" (480) is only used for max-width media queries.
+    values: {
+      xs: 0,
+      sm: t.layout.breakpoint.sm,
+      md: t.layout.breakpoint.md,
+      lg: t.layout.breakpoint.lg,
+      xl: t.layout.breakpoint.xl,
+    },
   },
   spacing: t.space.unit,
   shape: { borderRadius: t.radius.sm },
