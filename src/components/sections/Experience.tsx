@@ -2,12 +2,13 @@ import { useState } from "react";
 import { Box, Button } from "@mui/material";
 
 import { MetaLine, Section, SectionTitle, Tag } from "../ui/primitives";
+import ExperienceMobile from "./ExperienceMobile";
 import { experience } from "../../data/experience";
 import type { Role } from "../../data/experience";
-import { space, typeStyle, vars } from "../../theme/tokens";
+import { mq, space, typeStyle, vars } from "../../theme/tokens";
 
 const decor = (
-  <svg className="scrollspin" aria-hidden="true" width="340" height="340" viewBox="0 0 340 340" fill="none" style={{ position: "absolute", right: "-120px", top: "60px", pointerEvents: "none" }}>
+  <svg className="scrollspin decor-md" aria-hidden="true" width="340" height="340" viewBox="0 0 340 340" fill="none" style={{ position: "absolute", right: "-120px", top: "60px", pointerEvents: "none" }}>
     <circle cx="170" cy="170" r="160" stroke="#2E3A40" strokeWidth="1.5" />
     <circle cx="170" cy="10" r="5" fill="#607D8B" />
   </svg>
@@ -222,9 +223,11 @@ function RoleCard({ role }: { role: Role }) {
 export default function Experience() {
   return (
     <Section id="experience" alt decor={decor}>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: space(12) }}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: space(12), [mq.down("md")]: { gap: space(8) } }}>
         <SectionTitle>Experience</SectionTitle>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <ExperienceMobile />
+        {/* desktop: vertical timeline with full cards */}
+        <Box className="desk-md" sx={{ display: "flex", flexDirection: "column" }}>
           {experience.map((role, i) => {
             const last = i === experience.length - 1;
             const current = !role.end;

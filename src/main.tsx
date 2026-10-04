@@ -11,6 +11,9 @@ import "./styles/global.css";
 import App from "./App";
 import theme from "./theme/theme";
 import { cssVariables } from "./theme/tokens";
+import { applyUiScale } from "./theme/uiScale";
+
+applyUiScale();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

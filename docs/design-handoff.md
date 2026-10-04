@@ -27,6 +27,7 @@ Section order: Hero → App bar (sticky) → Overview → Experience → Feature
 | Rule | Token | Value |
 |---|---|---|
 | Content container | `layout.container` | 1120px max, centered |
+| Large-screen scale | `layout.scale.base` / `.max` | Above 1440px the whole page scales proportionally (`zoom` on `#root` = viewport width / 1440, capped at 1.5). Every px value in this spec is the 1440px value. Full-screen blocks divide their height by the scale. |
 | Horizontal gutter | `layout.gutter.base` / `.sm` | 24px, 16px at ≤ `breakpoint.sm` |
 | Section padding (y) | `layout.section.y` / `.ySm` | 112px, 72px at ≤ `breakpoint.sm` |
 | Hero height | — | Full screen: `min-height: 100svh`, content vertically centered, padding `space.16` × `space.6` (64 / 24) on desktop. The app bar always starts exactly at the fold. |
@@ -112,6 +113,14 @@ Fonts are self-hosted: `@fontsource/roboto` (400/500/700) and `@fontsource-varia
 | `Divided` | — | `parts: string[]` | Replaces "·" separators. Parts separated by a 1px vertical line, `currentColor` @ 35%, margin x `space.3`, stretching the full height of its container (inside chips it cancels the chip's vertical padding so it touches top and bottom edges). `aria-hidden` on the line. |
 | `AwardCard` | primary / default | `title, meta, gwa, icon` | Padding `space.6`, `radius.md`. Primary: `color.surface.tint` + 1px `color.steel.500`. Default: `color.surface.3` + 1px `color.outline.default`. Icon 48px circle `color.steel.800`. Number `type.stat`. |
 | `CertCard` | — | `name, issuer, issued, credentialId, description, skills[], url` | Whole card is one link (stretched `::before` over the card). Padding `space.6`, right `space.16` for the corner arrow. Logo tile 48 (`size.certTile`), `radius.lg`, `color.surface.3`, Uxcel mark 28px. Name `type.h5`. Pill "Show credential" (`type.label`, height 40, `radius.pill`, 1px `color.outline.strong`). Corner arrow: 36px circle `color.surface.3`. |
+| `SnapScroller` | — | `label, children` | Mobile/tablet horizontal scroller (≤ `breakpoint.md`). Full bleed (cancels the section gutter), `scroll-snap-type: x mandatory`, cards snap to the gutter, gap `space.3`, scrollbar hidden, next card peeks. `role="region"` + `aria-label`, focusable. |
+| `PagerDots` | — | `count, index, onSelect` | Same as the carousel dots: 32px hit area, dot 8px `color.outline.strong`, active 24×8 `color.accent.main`. |
+| `TimelineStrip` | — | roles | Experience pager ≤ `breakpoint.md`: one point per role, newest left, nodes at left / center / right on a 2px `color.steel.800` rail; fill `accent.main → steel.500` runs to the selected point. Current role node 18px filled + ping; past 14px hollow (2px `steel.500`), selected past node filled `steel.400` with a 4px gap ring. Labels: `type.overline` ("Present" / start year) over short company (`font.size.sm`, selected `color.accent.main`). |
+| `RoleCardMobile` | current / featured / default | `Role` | Width `calc(100% - space.6)`, max `size.scrollCard.experience` (440). Padding `space.5`, gap `space.4`, `radius.md`. Current: `surface.tint` + `outline.strong`; featured: `surface.3` + `outline.strong` + `elevation.4`; default: `surface.2` + `outline.subtle`. Content: dates (+ Present chip), role `type.h4`, company \| location, highlight badge, stats row, "View details" text button. No bullets or tags on the card. Current role without highlights shows a decorative live pulse. |
+| `Stats` | — | `{value, label}[3]` | Row between 1px `outline.default` rules, padding `space.4` 0; cells divided by 1px vertical lines. Value Roboto Flex `font.size.3xl` / heavy / lh 1.1; label `font.size.xs` muted, max 2 lines. |
+| `RoleSheet` | — | `Role` | MD2 modal bottom sheet (MUI `Drawer` bottom, lazy-loaded). `surface.3`, top radius `radius.lg`, `elevation.8`, max height 85svh (scrolls inside), max width 640 centered on tablets. Drag handle 32×4 `outline.strong`; dates + 44px close button; role, company \| location, highlight, progression, all bullets (`type.body1`), tags. Scrim `surface.scrim`. |
+| `SkillGroupCard` | primary / default | `title, icon, skills[]` | Width `calc(100% - space.6)`, max `size.scrollCard.skillGroup` (400). Padding `space.5`, `radius.md`. Header: 40px icon circle (primary `accent.main` / default `steel.800`) + title Roboto Flex 18 bold. Chips: padding `space.2` × `space.4`, `font.size.md`, pill; primary chips `accent.stateHover` bg + 1px `steel.600`, default `surface.3` + `outline.default`. Primary card `surface.tint` + `outline.strong` + `elevation.2`. |
+| `CertTicket` | — | `Certification` | Width `size.scrollCard.ticket` (280). Whole card is the link. Top: 40px logo tile, issuer + "Issued …", name Roboto Flex 18 bold, description clamped to 4 lines, skill chip. Perforation: 1px dashed `outline.strong` with 18px notches in the section background. Stub: overline "Credential ID" + ID (`font.size.md`, medium, tracking wider) and a 40px outlined arrow circle that fills `accent.main` on hover/focus. |
 | `Footer` | — | — | `color.surface.1`, top border `color.surface.3`. CTA `type.h2` max 18ch, outlined LinkedIn + filled Email. Bottom row: credit (`type.caption`, `color.text.muted`) + 44px icon buttons. |
 
 ---
@@ -143,9 +152,10 @@ No loading, empty or error states: all content is static data bundled at build t
 
 | Breakpoint | Changes |
 |---|---|
+| Large (> 1440px) | Everything scales by viewport width / 1440 (max 1.5), so the layout keeps the 1440px proportions. |
 | Desktop (> 1100px) | Default. Full-screen hero, content centered vertically. Hero text right-aligned in the right column; story scene in the left 460px. |
 | `breakpoint.lg` (≤ 1100px) | Desktop hero replaced by `MobileHero` (full-screen story slides, CTAs pinned). App bar nav links hidden; Let's connect stays pinned right. |
-| `breakpoint.md` (≤ 860px) | App bar name drops to 16px. Two-column sections stack (title above body). Project and cert grids drop to 1 column when a column would be < 440px (`repeat(auto-fill, minmax(min(100%, 440px), 1fr))`). |
+| `breakpoint.md` (≤ 860px) | Experience, Skills and Certifications switch to horizontal scrollers: timeline strip + condensed role cards + details sheet; three skill groups (specialties first); credential tickets. Title → content gap `space.8`. Section decor hidden. App bar name drops to 16px. Two-column sections stack (title above body). Project and cert grids drop to 1 column when a column would be < 440px (`repeat(auto-fill, minmax(min(100%, 440px), 1fr))`). |
 | `breakpoint.sm` (≤ 640px) | Gutter 16 (app bar included), section padding 72, timeline node column hidden (cards only). Display title follows its clamp down to 44px. |
 | `breakpoint.xs` (≤ 480px) | App bar shows "Earth Jan Marzan"; button padding x `space.3`, gap `space.2`. Hero CTAs stack. Verified at 320, 360, 375, 390 and 412px with no horizontal scroll; hero verified full screen at 375×667, 360×780, 390×844 and 768×1024. |
 
@@ -159,6 +169,8 @@ No loading, empty or error states: all content is static data bundled at build t
 - **Missing image**: carousel slide shows `color.steel.900` panel with the grid pattern and the alt text as caption.
 - **Slow connection**: fonts use `font-display: swap`; images lazy-load below the fold and reserve space with `aspect-ratio: 12 / 7`, so nothing jumps.
 - **Reduced motion** (`prefers-reduced-motion: reduce`): every animation and transition off; story scene shows act 1 (Lead) static; mobile hero stays on Intro until a tab is tapped and shows each act as a static frame; carousel does not auto-advance.
+- **Current role without highlights**: the card keeps the row height and shows a decorative live pulse, no placeholder copy; add `stats` + `bullets` to the role and it renders like the others.
+- **Scroller end**: the last card can't snap to the gutter; it counts as current once the scroller reaches its end.
 - **Short phones** (e.g. 375×667): the act stage scales down to the space between the slide title and the CTAs; the CTAs never leave the screen.
 - **No `animation-timeline` support** (Safari/Firefox): scroll-driven reveals and section rings fall back to static, fully visible content.
 
@@ -175,6 +187,8 @@ No loading, empty or error states: all content is static data bundled at build t
 | Timeline rail | Scroll | scaleY 0→1 from top | scroll-linked | linear |
 | Story scene | Loop | Act A Lead 0–5s, Act B Architect 5–10s, Act C Ship 10–15s; acts crossfade; legend segment fills per act | `storyLoop` 15s | per keyframes |
 | Mobile hero slides | Auto (every 5s while ≥ 35% on screen) / tab / swipe (> 48px horizontal) | Slide in: fade + 16px from the right. Each act plays its 5s slice of the desktop keyframes once; the active tab bar fills over 5s. Loops Intro → Lead → Architect → Ship. Restarts the current slide when scrolled back into view. | `long` in, `storyLoop / 3` per slide | `decelerate` in, linear fill |
+| Scrollers | Swipe / dot / timeline point | Native scroll snap; dots and points scroll smoothly to the card (instant with reduced motion). Rail fill follows the selected point. | `long` 500ms | `standard` |
+| Role sheet | "View details" | Slide up from the bottom, scrim fades in; out on close, Escape or scrim tap | in `long` 500ms, out `medium` 280ms | `decelerate` |
 | Current-role node | Loop | Ping: scale 1→2.8, opacity .55→0 | 2s | `decelerate` |
 | Carousel | Auto (every 5s) / control | translateX slide | `long` 500ms | `standard` |
 | Decorative rings / waves / grid | Loop | Rotation 14–60s, dash flow 6s, grid pan 8s | — | linear |
@@ -193,4 +207,6 @@ Story scene keyframes are the contract; copy them verbatim from the design (`Sto
 - **Mobile hero**: progress is a `tablist` (`aria-label="Hero story"`); each tab `aria-selected` + `aria-controls` its `tabpanel`; inactive act panels are `aria-hidden`. The Intro panel holds the page's only visible `<h1>` (the desktop hero is `display: none` at this width).
 - **Cert cards**: one link per card, label "Show credential for {name} (opens in a new tab)".
 - **Contrast**: `color.text.muted` on `color.surface.2` is 6.4:1; `color.text.onAccent` on `color.accent.main` is 10:1. Do not introduce text darker than `color.text.muted`.
+- **Scrollers**: each is a focusable `region` with a label ("Roles", "Skill groups", "Certifications"); arrow keys scroll it. Timeline points and dots are buttons with `aria-current` and labels ("Show Technical Lead, Samsung Electronics", "Show Mobile Design").
+- **Role sheet**: `role="dialog"`, `aria-modal`, labelled by the role title; focus moves into the sheet and returns to "View details" on close.
 - **Touch targets**: ≥ 44px (`size.touch`) for every interactive element.

@@ -59,20 +59,35 @@ export const overview = {
   ],
 };
 
-export const skills = [
-  "Software design & architecture",
-  "React",
-  "TypeScript",
-  "Next.js",
-  "React Admin",
-  "MUI",
-  "TanStack Query",
-  "Vitest",
-  "React Testing Library",
-  "Swagger / API contracts",
-  "Figma & FigJam",
-  "Frontend team leadership",
+export type SkillGroup = {
+  title: string;
+  icon: "code" | "flask" | "palette";
+  /** The group he specializes in: listed first and emphasized. */
+  primary?: boolean;
+  skills: string[];
+};
+
+export const skillGroups: SkillGroup[] = [
+  {
+    title: "Specialized in",
+    icon: "code",
+    primary: true,
+    skills: ["React", "TypeScript", "Next.js", "MUI", "Software design & architecture"],
+  },
+  {
+    title: "Data, testing & APIs",
+    icon: "flask",
+    skills: ["TanStack Query", "React Admin", "Vitest", "React Testing Library", "Swagger / API contracts"],
+  },
+  {
+    title: "Design & leadership",
+    icon: "palette",
+    skills: ["Frontend team leadership", "Figma & FigJam", "UX design"],
+  },
 ];
+
+/** Flat list for the desktop chip cloud, specialties first. */
+export const skills = skillGroups.flatMap((g) => g.skills);
 
 export const footer = {
   cta: "Have a React project that needs shipping?",

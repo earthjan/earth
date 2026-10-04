@@ -1,6 +1,8 @@
 /* Global styles and motion. Values are tokens (CSS variables injected from src/theme/tokens.json). */
 body{margin:0;background:var(--color-surface-0);color:var(--color-text-primary);font-family:var(--font-text);-webkit-font-smoothing:antialiased}
 html{scroll-behavior:smooth}
+/* large screens: proportional scale above the design width (see src/theme/uiScale.ts) */
+#root{zoom:var(--ui-scale,1)}
 ::selection{background:var(--color-steel-700);color:#fff}
 
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
@@ -62,10 +64,18 @@ html{scroll-behavior:smooth}
 .certcard:focus-within{outline:2px solid var(--color-accent-main);outline-offset:3px}
 .certcard .stretch:focus-visible{outline:none}
 .chev{transition:transform .25s}
+/* certification tickets (mobile): lift on hover, arrow fills */
+.tix{transition:transform .28s cubic-bezier(.4,0,.2,1),box-shadow .28s cubic-bezier(.4,0,.2,1),background-color .28s}
+.tix-go{transition:background-color .2s,color .2s,border-color .2s}
+@media (hover:hover){.tix:hover{transform:translateY(-4px);background-color:var(--color-surface-3)!important;box-shadow:var(--elevation-8)!important}}
+.tix:hover .tix-go,.tix:focus-visible .tix-go{background:var(--color-accent-main);border-color:var(--color-accent-main)!important;color:var(--color-text-on-accent)!important}
 /* nav links need ~920px next to the full name and button; hide them at the lg token */
 @media (max-width:1100px){.navlinks{display:none!important}}
 @media (max-width:860px){.brand{font-size:var(--font-size-base)!important}}
 @media (max-width:640px){.sec{padding:var(--space-18) var(--space-4)!important}.tl{display:none!important}}
+/* experience, skills, certifications: desktop layouts above md, horizontal scrollers at md and below */
+@media (max-width:860px){.desk-md{display:none!important}.decor-md{display:none}}
+@media (min-width:861px){.mob-md{display:none!important}}
 /* hero: desktop layout above lg, full-screen story slides at lg and below */
 .hero-mobile{display:none}
 @media (max-width:1100px){.hero-desktop{display:none!important}.hero-mobile{display:flex}.decor-wide{display:none}}

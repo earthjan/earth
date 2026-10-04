@@ -14,6 +14,11 @@ export type Role = {
   tags: string[];
   /** Larger card with full detail. */
   featured?: boolean;
+  /** Mobile timeline strip: point label ("Present" or start year) and short company name. */
+  node: string;
+  shortCompany: string;
+  /** Mobile card: three key numbers taken from the bullets; the bullets open in the details sheet. */
+  stats?: { value: string; label: string }[];
 };
 
 export const experience: Role[] = [
@@ -24,6 +29,8 @@ export const experience: Role[] = [
     start: "May 2026",
     bullets: [],
     tags: [],
+    node: "Present",
+    shortCompany: "HTHA",
   },
   {
     title: "Technical Lead",
@@ -44,6 +51,13 @@ export const experience: Role[] = [
       "Influenced and drove team execution within the first month, resulting in promotion to Tech Lead, measured by consistent feature delivery across the first 2 sprints.",
     ],
     tags: ["React", "TypeScript", "Swagger", "Team leadership"],
+    node: "2025",
+    shortCompany: "Samsung",
+    stats: [
+      { value: "10", label: "features shipped" },
+      { value: "5", label: "member team" },
+      { value: "6", label: "two-week sprints" },
+    ],
   },
   {
     title: "Mid Level Front End Engineer",
@@ -57,5 +71,12 @@ export const experience: Role[] = [
       "Built a prototype of CyberLife, a link-in-bio solution web app, in 2 weeks with 3 medium features for the thesis of 5 BS Business Administration students.",
     ],
     tags: ["React Admin", "MUI", "TanStack Query", "Vitest", "Figma"],
+    node: "2022",
+    shortCompany: "Digitalinnov",
+    stats: [
+      { value: "8 mo", label: "BayanEd build" },
+      { value: "1,944", label: "tests written" },
+      { value: "2 wk", label: "CyberLife prototype" },
+    ],
   },
 ];

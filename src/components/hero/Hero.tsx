@@ -41,8 +41,8 @@ export default function Hero() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        // full screen: the app bar starts right below the fold
-        minHeight: "100svh",
+        // full screen: the app bar starts right below the fold (divided by the large-screen zoom)
+        minHeight: "calc(var(--viewport-h, 100svh) / var(--ui-scale, 1))",
         boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
