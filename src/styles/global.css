@@ -65,7 +65,10 @@ html{scroll-behavior:smooth}
 /* nav links need ~920px next to the full name and button; hide them at the lg token */
 @media (max-width:1100px){.navlinks{display:none!important}}
 @media (max-width:860px){.brand{font-size:var(--font-size-base)!important}}
-@media (max-width:640px){.sec{padding:var(--space-18) var(--space-4)!important}.hero{padding:var(--space-24) var(--space-4) var(--space-18)!important}.tl{display:none!important}}
+@media (max-width:640px){.sec{padding:var(--space-18) var(--space-4)!important}.tl{display:none!important}}
+/* hero: desktop layout above lg, full-screen story slides at lg and below */
+.hero-mobile{display:none}
+@media (max-width:1100px){.hero-desktop{display:none!important}.hero-mobile{display:flex}.decor-wide{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
 /* skip link */

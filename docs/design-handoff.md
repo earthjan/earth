@@ -29,7 +29,7 @@ Section order: Hero → App bar (sticky) → Overview → Experience → Feature
 | Content container | `layout.container` | 1120px max, centered |
 | Horizontal gutter | `layout.gutter.base` / `.sm` | 24px, 16px at ≤ `breakpoint.sm` |
 | Section padding (y) | `layout.section.y` / `.ySm` | 112px, 72px at ≤ `breakpoint.sm` |
-| Hero padding | `layout.hero.*` | 160 top / 136 bottom; 96 / 72 at ≤ `breakpoint.sm` |
+| Hero height | — | Full screen: `min-height: 100svh`, content vertically centered, padding `space.16` × `space.6` (64 / 24) on desktop. The app bar always starts exactly at the fold. |
 | Section title → content | `space.12` | 48px |
 | Two-column section (title left, body right) | — | `flex-wrap: wrap`, title `flex: 1 1 260px`, body `flex: 999 1 520px`, gap `space.10` × `space.16` |
 | Text measure | `layout.measure.sm/md/lg` | 52ch lead, 62ch paragraphs, 68ch lists. Never wider. |
@@ -102,6 +102,7 @@ Fonts are self-hosted: `@fontsource/roboto` (400/500/700) and `@fontsource-varia
 | `SectionTitle` | — | `children` | `type.h2`, `color.text.heading`, margin 0. Reveal on scroll. |
 | `TechLogoTile` | — | `src, label` | 56×56 (`size.logoTile`), `radius.lg`, `color.surface.2`, 26px logo tinted `color.steel.100`. Native `title` + `alt`. |
 | `StoryScene` | — | none | Decorative, `aria-hidden`. 460×560 box with a 3-segment progress legend 44px above it. Hidden ≤ `breakpoint.lg` (1100). See Motion. |
+| `MobileHero` | — | none | Replaces the desktop hero ≤ `breakpoint.lg`. Full screen (`100svh`), max width 560, padding `space.4` (bottom `space.6` + safe-area inset). Three rows: (1) progress tabs, (2) slide stage (`flex: 1`), (3) pinned CTAs. Slides: **Intro** (h1 `type.display` max 14ch, lead at `font.size.lg`, tech logo tiles, all right-aligned, vertically centered), then **Lead**, **Architect**, **Ship** (overline label `color.steel.300` + title `type.h3`, then the act drawn on a 460×520 stage scaled to fit, never above 1:1). Tabs: one per slide, ≥ 44px tall, label `type.overline` (active `color.steel.50`, idle `color.steel.400`) over a 3px bar (`color.outline.subtle`, fill `color.accent.main`). CTAs: outlined "View experience" (filled with `color.surface.0` so background lines don't show through) + filled "Let's connect", 2 columns, 1 column ≤ `breakpoint.xs`. Hero ornaments placed for desktop (triangle, plus marks, dot grid) are hidden at this width; ring, grid and wave stay. |
 | `Avatar` | lead 120 / ship & architect 80 | `size` | SVG badge: steel avatar with eyeglasses, no cap. Always paired with the `EarthCursor`. |
 | `EarthCursor` | — | — | Arrow (18×20, fill `color.accent.main`, 1.5px `color.surface.0` stroke) + tag "Earth" (`type.label` 12/700, bg `color.accent.main`, radius `radius.sm radius.lg radius.lg radius.lg`, `elevation.2`). |
 | `TimelineItem` | current / past | `role, company, location, start, end?, chips[], bullets[], extraBullets[]` | Node column 28px. Current: 18px filled `color.accent.main` node + ping, card `color.surface.tint` + 1px `color.outline.strong`, Present chip. Past: 14px hollow node (2px `color.steel.500`). Rail 2px; current segment gradient `accent.main → steel.800`, others `color.steel.800`. Card padding `space.8`, radius `radius.md`. |
@@ -142,11 +143,11 @@ No loading, empty or error states: all content is static data bundled at build t
 
 | Breakpoint | Changes |
 |---|---|
-| Desktop (> 1100px) | Default. Hero text right-aligned in the right column; story scene in the left 460px. |
-| `breakpoint.lg` (≤ 1100px) | Story scene hidden (it would sit under the headline). App bar nav links hidden; Let's connect stays pinned right. Hero text stays right-aligned. |
+| Desktop (> 1100px) | Default. Full-screen hero, content centered vertically. Hero text right-aligned in the right column; story scene in the left 460px. |
+| `breakpoint.lg` (≤ 1100px) | Desktop hero replaced by `MobileHero` (full-screen story slides, CTAs pinned). App bar nav links hidden; Let's connect stays pinned right. |
 | `breakpoint.md` (≤ 860px) | App bar name drops to 16px. Two-column sections stack (title above body). Project and cert grids drop to 1 column when a column would be < 440px (`repeat(auto-fill, minmax(min(100%, 440px), 1fr))`). |
-| `breakpoint.sm` (≤ 640px) | Gutter 16 (app bar included), section padding 72, hero padding 96/72, timeline node column hidden (cards only). Display title follows its clamp down to 44px. |
-| `breakpoint.xs` (≤ 480px) | App bar shows "Earth Jan Marzan"; button padding x `space.3`, gap `space.2`. Verified at 320, 360, 390 and 412px with no horizontal scroll. |
+| `breakpoint.sm` (≤ 640px) | Gutter 16 (app bar included), section padding 72, timeline node column hidden (cards only). Display title follows its clamp down to 44px. |
+| `breakpoint.xs` (≤ 480px) | App bar shows "Earth Jan Marzan"; button padding x `space.3`, gap `space.2`. Hero CTAs stack. Verified at 320, 360, 375, 390 and 412px with no horizontal scroll; hero verified full screen at 375×667, 360×780, 390×844 and 768×1024. |
 
 ---
 
@@ -157,7 +158,8 @@ No loading, empty or error states: all content is static data bundled at build t
 - **Missing project link**: hide the "Try app" button (BayanEd has none).
 - **Missing image**: carousel slide shows `color.steel.900` panel with the grid pattern and the alt text as caption.
 - **Slow connection**: fonts use `font-display: swap`; images lazy-load below the fold and reserve space with `aspect-ratio: 12 / 7`, so nothing jumps.
-- **Reduced motion** (`prefers-reduced-motion: reduce`): every animation and transition off; story scene shows act 1 (Lead) static; carousel does not auto-advance.
+- **Reduced motion** (`prefers-reduced-motion: reduce`): every animation and transition off; story scene shows act 1 (Lead) static; mobile hero stays on Intro until a tab is tapped and shows each act as a static frame; carousel does not auto-advance.
+- **Short phones** (e.g. 375×667): the act stage scales down to the space between the slide title and the CTAs; the CTAs never leave the screen.
 - **No `animation-timeline` support** (Safari/Firefox): scroll-driven reveals and section rings fall back to static, fully visible content.
 
 ---
@@ -172,6 +174,7 @@ No loading, empty or error states: all content is static data bundled at build t
 | Section titles and cards | Scroll into view | Fade + rise 24px (`animation-timeline: view()`, range entry 0% → cover 28%) | scroll-linked | linear |
 | Timeline rail | Scroll | scaleY 0→1 from top | scroll-linked | linear |
 | Story scene | Loop | Act A Lead 0–5s, Act B Architect 5–10s, Act C Ship 10–15s; acts crossfade; legend segment fills per act | `storyLoop` 15s | per keyframes |
+| Mobile hero slides | Auto (every 5s while ≥ 35% on screen) / tab / swipe (> 48px horizontal) | Slide in: fade + 16px from the right. Each act plays its 5s slice of the desktop keyframes once; the active tab bar fills over 5s. Loops Intro → Lead → Architect → Ship. Restarts the current slide when scrolled back into view. | `long` in, `storyLoop / 3` per slide | `decelerate` in, linear fill |
 | Current-role node | Loop | Ping: scale 1→2.8, opacity .55→0 | 2s | `decelerate` |
 | Carousel | Auto (every 5s) / control | translateX slide | `long` 500ms | `standard` |
 | Decorative rings / waves / grid | Loop | Rotation 14–60s, dash flow 6s, grid pan 8s | — | linear |
@@ -187,6 +190,7 @@ Story scene keyframes are the contract; copy them verbatim from the design (`Sto
 - **Focus order**: hero CTAs (View experience, Let's connect) → app bar (brand, nav, Let's connect) → section content in reading order. Skip link "Skip to content" as the first focusable element, visible on focus.
 - **Decorative**: story scene, rings, waves, grid, timeline nodes/rails, divider lines are `aria-hidden="true"`.
 - **Labels**: icon-only buttons get `aria-label` ("Previous screenshot", "Next screenshot", "LinkedIn", "GitHub", "Email"). Carousel: `aria-roledescription="carousel"` + `aria-label`, dots have `aria-label="Show screenshot n: {alt}"` and `aria-current`.
+- **Mobile hero**: progress is a `tablist` (`aria-label="Hero story"`); each tab `aria-selected` + `aria-controls` its `tabpanel`; inactive act panels are `aria-hidden`. The Intro panel holds the page's only visible `<h1>` (the desktop hero is `display: none` at this width).
 - **Cert cards**: one link per card, label "Show credential for {name} (opens in a new tab)".
 - **Contrast**: `color.text.muted` on `color.surface.2` is 6.4:1; `color.text.onAccent` on `color.accent.main` is 10:1. Do not introduce text darker than `color.text.muted`.
 - **Touch targets**: ≥ 44px (`size.touch`) for every interactive element.

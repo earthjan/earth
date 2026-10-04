@@ -4,8 +4,9 @@ import { Box, Button } from "@mui/material";
 
 import HeroDecor from "./HeroDecor";
 import StoryScene from "./StoryScene";
+import MobileHero from "./MobileHero";
 import { hero, techStack } from "../../data/profile";
-import { space, typeStyle, vars } from "../../theme/tokens";
+import { mq, space, typeStyle, vars } from "../../theme/tokens";
 
 /** Parallax depth per layer, in px of travel for the full pointer range (spec: States and Interactions). */
 const DEPTH = { ring: -20, accents: -80, sceneX: 16, sceneY: 12 };
@@ -40,14 +41,23 @@ export default function Hero() {
       sx={{
         position: "relative",
         overflow: "hidden",
-        p: `${space(40)} ${space(6)} ${space(34)}`,
+        // full screen: the app bar starts right below the fold
+        minHeight: "100svh",
+        boxSizing: "border-box",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        p: `${space(16)} ${space(6)}`,
+        [mq.down("lg")]: { p: 0 },
       }}
     >
       <HeroDecor par1={layer(DEPTH.ring)} par3={layer(DEPTH.accents)} />
 
       <Box
+        className="hero-desktop"
         sx={{
           position: "relative",
+          width: "100%",
           maxWidth: vars.container,
           mx: "auto",
           display: "flex",
@@ -131,8 +141,10 @@ export default function Hero() {
         </Box>
       </Box>
 
+      <MobileHero />
+
       <Box
-        className="cue"
+        className="cue hero-desktop"
         aria-hidden="true"
         sx={{
           position: "absolute",

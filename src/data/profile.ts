@@ -29,6 +29,13 @@ export const hero = {
     ". I lead frontend teams, design software architecture, and deliver clean, testable features from design to release.",
 };
 
+/** Story acts (desktop scene captions, mobile slide titles). */
+export const story = [
+  { label: "Lead", title: "5-person frontend team, 4 features shipped" },
+  { label: "Architect", title: "Software design and API contracts" },
+  { label: "Ship", title: "Design to release, end to end" },
+];
+
 export const techStack = [
   { label: "React", src: react },
   { label: "TypeScript", src: typescript },

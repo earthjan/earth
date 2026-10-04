@@ -1,0 +1,61 @@
+/* Mobile story: each act plays once (5s) when its slide becomes active. Generated from the 15s desktop keyframes. */
+@keyframes m-tline{0%{stroke-dashoffset:220}15.99%{stroke-dashoffset:220}32.01%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+@keyframes m-mate{0%{transform:scale(0)}9.99%{transform:scale(0)}18%{transform:scale(1)}100%{transform:scale(1)}}
+@keyframes m-cardA{0%{transform:translateX(0)}27.99%{transform:translateX(0)}38.01%{transform:translateX(157px)}50.01%{transform:translateX(157px)}60%{transform:translateX(314px)}100%{transform:translateX(314px)}}
+@keyframes m-cardB{0%{transform:translateX(0)}44.01%{transform:translateX(0)}54%{transform:translateX(157px)}63.99%{transform:translateX(157px)}74.01%{transform:translateX(314px)}100%{transform:translateX(314px)}}
+@keyframes m-cardC{0%{transform:translateX(0)}60%{transform:translateX(0)}69.99%{transform:translateX(157px)}100%{transform:translateX(157px)}}
+@keyframes m-c1{0%{stroke-dashoffset:60}22.01%{stroke-dashoffset:60}29.99%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+@keyframes m-c2{0%{stroke-dashoffset:460}40.01%{stroke-dashoffset:460}52.01%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+@keyframes m-b1{0%{opacity:0;transform:scale(.85)}14%{opacity:0;transform:scale(.85)}20%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes m-b2{0%{opacity:0;transform:scale(.85)}32%{opacity:0;transform:scale(.85)}38%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes m-b3{0%{opacity:0;transform:scale(.85)}50%{opacity:0;transform:scale(.85)}55.01%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes m-b4{0%{opacity:0;transform:scale(.85)}53.99%{opacity:0;transform:scale(.85)}59%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes m-b5{0%{opacity:0;transform:scale(.85)}58.01%{opacity:0;transform:scale(.85)}62.99%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+@keyframes m-archCur{0%{transform:translate(66px,88px)}5.99%{transform:translate(66px,88px)}14%{transform:translate(296px,176px)}26%{transform:translate(296px,176px)}32%{transform:translate(326px,286px)}44%{transform:translate(326px,286px)}50%{transform:translate(96px,406px)}53.99%{transform:translate(262px,406px)}58.01%{transform:translate(420px,406px)}74.99%{transform:translate(420px,406px)}86%{transform:translate(300px,300px)}100%{transform:translate(300px,300px)}}
+@keyframes m-walk{0%{transform:translateX(0)}15.37%{transform:translateX(0)}23.08%{transform:translateX(120px)}28.84%{transform:translateX(120px)}36.55%{transform:translateX(240px)}44.23%{transform:translateX(240px)}51.91%{transform:translateX(360px)}100%{transform:translateX(360px)}}
+@keyframes m-frame{0%{transform:scaleY(0)}7.69%{transform:scaleY(0)}17.32%{transform:scaleY(1)}100%{transform:scaleY(1)}}
+@keyframes m-code{0%{transform:scaleX(0)}21.16%{transform:scaleX(0)}28.84%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+@keyframes m-chk{0%{transform:scale(0)}36.55%{transform:scale(0)}42.31%{transform:scale(1)}100%{transform:scale(1)}}
+@keyframes m-rocket{0%{transform:translateY(34px);opacity:0}49.99%{transform:translateY(34px);opacity:0}59.62%{transform:translateY(0);opacity:1}80.77%{transform:translateY(-10px);opacity:1}100%{transform:translateY(-10px);opacity:1}}
+@keyframes m-track{0%{transform:scaleX(0)}7.69%{transform:scaleX(0)}61.54%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+@keyframes m-chipIn{0%{transform:scale(.6);opacity:0}63.46%{transform:scale(.6);opacity:0}71.14%{transform:scale(1);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes m-t1{0%{border-color:var(--color-outline-default)}5.77%{border-color:var(--color-outline-default)}9.61%{border-color:var(--color-accent-main)}21.16%{border-color:var(--color-accent-main)}26.92%{border-color:var(--color-steel-700)}100%{border-color:var(--color-steel-700)}}
+@keyframes m-t2{0%{border-color:var(--color-outline-default)}21.16%{border-color:var(--color-outline-default)}25%{border-color:var(--color-accent-main)}34.63%{border-color:var(--color-accent-main)}40.39%{border-color:var(--color-steel-700)}100%{border-color:var(--color-steel-700)}}
+@keyframes m-t3{0%{border-color:var(--color-outline-default)}34.63%{border-color:var(--color-outline-default)}38.47%{border-color:var(--color-accent-main)}48.07%{border-color:var(--color-accent-main)}53.86%{border-color:var(--color-steel-700)}100%{border-color:var(--color-steel-700)}}
+@keyframes m-t4{0%{border-color:var(--color-outline-default)}48.07%{border-color:var(--color-outline-default)}51.91%{border-color:var(--color-accent-main)}100%{border-color:var(--color-accent-main)}}
+.m-tline{stroke-dasharray:220}
+.m-slide.is-active .m-tline{animation:m-tline 5s both}
+.m-slide.is-active .m-mate{animation:m-mate 5s both}
+.m-slide.is-active .m-cardA{animation:m-cardA 5s both}
+.m-slide.is-active .m-cardB{animation:m-cardB 5s both}
+.m-slide.is-active .m-cardC{animation:m-cardC 5s both}
+.m-c1{stroke-dasharray:60}
+.m-slide.is-active .m-c1{animation:m-c1 5s both}
+.m-c2{stroke-dasharray:460}
+.m-slide.is-active .m-c2{animation:m-c2 5s both}
+.m-b1{transform-origin:center}
+.m-slide.is-active .m-b1{animation:m-b1 5s both}
+.m-b2{transform-origin:center}
+.m-slide.is-active .m-b2{animation:m-b2 5s both}
+.m-b3{transform-origin:center}
+.m-slide.is-active .m-b3{animation:m-b3 5s both}
+.m-b4{transform-origin:center}
+.m-slide.is-active .m-b4{animation:m-b4 5s both}
+.m-b5{transform-origin:center}
+.m-slide.is-active .m-b5{animation:m-b5 5s both}
+.m-slide.is-active .m-archCur{animation:m-archCur 5s both}
+.m-slide.is-active .m-walk{animation:m-walk 5s both}
+.m-frame{transform-origin:top}
+.m-slide.is-active .m-frame{animation:m-frame 5s both}
+.m-code{transform-origin:left}
+.m-slide.is-active .m-code{animation:m-code 5s both}
+.m-slide.is-active .m-chk{animation:m-chk 5s both}
+.m-slide.is-active .m-rocket{animation:m-rocket 5s both}
+.m-track{transform-origin:left}
+.m-slide.is-active .m-track{animation:m-track 5s both}
+.m-slide.is-active .m-chipIn{animation:m-chipIn 5s both}
+.m-slide.is-active .m-t1{animation:m-t1 5s both}
+.m-slide.is-active .m-t2{animation:m-t2 5s both}
+.m-slide.is-active .m-t3{animation:m-t3 5s both}
+.m-slide.is-active .m-t4{animation:m-t4 5s both}
+@media (prefers-reduced-motion:reduce){.m-slide *{animation:none!important}}
