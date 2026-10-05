@@ -155,7 +155,7 @@ No loading, empty or error states: all content is static data bundled at build t
 | Large (> 1440px) | Everything scales by viewport width / 1440 (max 1.5), so the layout keeps the 1440px proportions. |
 | Desktop (> 1100px) | Default. Full-screen hero, content centered vertically. Hero text right-aligned in the right column; story scene in the left 460px. |
 | `breakpoint.lg` (≤ 1100px) | Desktop hero replaced by `MobileHero` (full-screen story slides, CTAs pinned). App bar nav links hidden; Let's connect stays pinned right. |
-| `breakpoint.md` (≤ 860px) | Experience, Skills and Certifications switch to horizontal scrollers: timeline strip + condensed role cards + details sheet; three skill groups (specialties first); credential tickets. Title → content gap `space.8`. Section decor hidden. App bar name drops to 16px. Two-column sections stack (title above body). Project and cert grids drop to 1 column when a column would be < 440px (`repeat(auto-fill, minmax(min(100%, 440px), 1fr))`). |
+| `breakpoint.md` (≤ 860px) | Overview shows the lead and fact chips; the other paragraphs fold behind a "Show more" text button (`aria-expanded`). Experience, Skills and Certifications switch to horizontal scrollers: timeline strip + condensed role cards + details sheet; three skill groups (specialties first); credential tickets. Title → content gap `space.8`. Section decor hidden. App bar name drops to 16px. Two-column sections stack (title above body). Project and cert grids drop to 1 column when a column would be < 440px (`repeat(auto-fill, minmax(min(100%, 440px), 1fr))`). |
 | `breakpoint.sm` (≤ 640px) | Gutter 16 (app bar included), section padding 72, timeline node column hidden (cards only). Display title follows its clamp down to 44px. |
 | `breakpoint.xs` (≤ 480px) | App bar shows "Earth Jan Marzan"; button padding x `space.3`, gap `space.2`. Hero CTAs stack. Verified at 320, 360, 375, 390 and 412px with no horizontal scroll; hero verified full screen at 375×667, 360×780, 390×844 and 768×1024. |
 
@@ -171,7 +171,7 @@ No loading, empty or error states: all content is static data bundled at build t
 - **Reduced motion** (`prefers-reduced-motion: reduce`): every animation and transition off; story scene shows act 1 (Lead) static; mobile hero stays on Intro until a tab is tapped and shows each act as a static frame; carousel does not auto-advance.
 - **Current role without highlights**: the card keeps the row height and shows a decorative live pulse, no placeholder copy; add `stats` + `bullets` to the role and it renders like the others.
 - **Scroller end**: the last card can't snap to the gutter; it counts as current once the scroller reaches its end.
-- **Short phones** (e.g. 375×667): the act stage scales down to the space between the slide title and the CTAs; the CTAs never leave the screen.
+- **Short phones** (e.g. 375×667, POCO C85 with browser bars): the Intro content scales down uniformly (from its right edge) to fit the slide, the act stage scales to the space left, and act titles drop to `font.size.xl` below 680px tall. Tabs and CTAs never scale; the CTAs never leave the screen.
 - **No `animation-timeline` support** (Safari/Firefox): scroll-driven reveals and section rings fall back to static, fully visible content.
 
 ---
@@ -186,7 +186,7 @@ No loading, empty or error states: all content is static data bundled at build t
 | Section titles and cards | Scroll into view | Fade + rise 24px (`animation-timeline: view()`, range entry 0% → cover 28%) | scroll-linked | linear |
 | Timeline rail | Scroll | scaleY 0→1 from top | scroll-linked | linear |
 | Story scene | Loop | Act A Lead 0–5s, Act B Architect 5–10s, Act C Ship 10–15s; acts crossfade; legend segment fills per act | `storyLoop` 15s | per keyframes |
-| Mobile hero slides | Auto (every 5s while ≥ 35% on screen) / tab / swipe (> 48px horizontal) | Slide in: fade + 16px from the right. Each act plays its 5s slice of the desktop keyframes once; the active tab bar fills over 5s. Loops Intro → Lead → Architect → Ship. Restarts the current slide when scrolled back into view. | `long` in, `storyLoop / 3` per slide | `decelerate` in, linear fill |
+| Mobile hero slides | Auto (every 5s while ≥ 35% on screen) / tab / swipe (> 48px horizontal) / tap anywhere except tabs and buttons (next slide) | Slide in: fade + 16px from the right. Each act plays its 5s slice of the desktop keyframes once; the active tab bar fills over 5s. Loops Intro → Lead → Architect → Ship. Restarts the current slide when scrolled back into view. | `long` in, `storyLoop / 3` per slide | `decelerate` in, linear fill |
 | Scrollers | Swipe / dot / timeline point | Native scroll snap; dots and points scroll smoothly to the card (instant with reduced motion). Rail fill follows the selected point. | `long` 500ms | `standard` |
 | Role sheet | "View details" | Slide up from the bottom, scrim fades in; out on close, Escape or scrim tap | in `long` 500ms, out `medium` 280ms | `decelerate` |
 | Current-role node | Loop | Ping: scale 1→2.8, opacity .55→0 | 2s | `decelerate` |

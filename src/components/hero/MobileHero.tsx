@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import type { ReactNode, TouchEvent } from "react";
+import type { MouseEvent, ReactNode, TouchEvent } from "react";
 import { Box, Button } from "@mui/material";
 
 import { ArchitectAct, LeadAct, ShipAct } from "./MobileActs";
@@ -14,6 +14,8 @@ const SLIDE_MS = tokens.motion.storyLoop / 3;
 const STAGE = { w: 460, h: 520, bleed: 48 };
 const ACTS = [LeadAct, ArchitectAct, ShipAct];
 const LABELS = ["Intro", ...story.map((s) => s.label)];
+/** Short phones (e.g. POCO C85 with browser bars): content scales, the tabs and buttons don't. */
+const SHORT = "@media (max-height: 680px)";
 
 const prefersReducedMotion = () =>
   typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -46,9 +48,41 @@ function ScaledStage({ children }: { children: ReactNode }) {
 }
 
 /**
+ * Scales its content down (never up) so it fits the slide on short screens, e.g. 360 x 600 phones.
+ * Layout is unchanged; the content shrinks uniformly from `origin`.
+ */
+function FitBox({ children, origin, sx }: { children: ReactNode; origin: string; sx: object }) {
+  const outer = useRef<HTMLDivElement>(null);
+  const inner = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useLayoutEffect(() => {
+    const o = outer.current;
+    const i = inner.current;
+    if (!o || !i) return;
+    const fit = () => {
+      const h = i.offsetHeight; // layout height, unaffected by the transform
+      if (h) setScale(Math.min(1, o.clientHeight / h));
+    };
+    const ro = new ResizeObserver(fit);
+    ro.observe(o);
+    ro.observe(i);
+    return () => ro.disconnect();
+  }, []);
+
+  return (
+    <Box ref={outer} sx={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+      <Box ref={inner} sx={{ ...sx, flex: "0 0 auto", transform: scale < 1 ? `scale(${scale})` : "none", transformOrigin: origin }}>
+        {children}
+      </Box>
+    </Box>
+  );
+}
+
+/**
  * Hero for screens up to the lg breakpoint, where the desktop scene does not fit beside the title.
  * Full-screen story: Intro (title + stack) → Lead → Architect → Ship, 5s each, looping.
- * The two calls to action stay pinned at the bottom on every slide.
+ * The two calls to action stay pinned at the bottom on every slide. Tap anywhere else for the next slide.
  */
 export default function MobileHero() {
   const [slide, setSlide] = useState(0);
@@ -95,6 +129,12 @@ export default function MobileHero() {
     if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) go(slide + (dx < 0 ? 1 : -1));
   };
 
+  // stories-style: a tap anywhere outside the tabs and buttons shows the next slide
+  const onTap = (e: MouseEvent<HTMLElement>) => {
+    if ((e.target as Element).closest("a, button")) return;
+    go(slide + 1);
+  };
+
   const slideState = (i: number) => (i === slide ? "is-active" : "");
   const slideKey = (i: number) => (i === slide ? `active-${i}-${cycle}` : `idle-${i}`);
 
@@ -104,7 +144,11 @@ export default function MobileHero() {
       className="hero-mobile"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      onClick={onTap}
       sx={{
+        cursor: "pointer",
+        WebkitTapHighlightColor: "transparent",
+        userSelect: "none",
         position: "relative",
         width: "100%",
         maxWidth: 560,
@@ -166,17 +210,9 @@ export default function MobileHero() {
           aria-labelledby="hero-tab-0"
           key={slideKey(0)}
           className={`m-slide ${slideState(0)}`}
-          sx={{
-            position: "absolute",
-            inset: 0,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "flex-end",
-            textAlign: "right",
-            gap: space(5),
-          }}
+          sx={{ position: "absolute", inset: 0 }}
         >
+          <FitBox origin="right center" sx={{ display: "flex", flexDirection: "column", alignItems: "flex-end", textAlign: "right", gap: space(5) }}>
           <Box component="h1" sx={{ m: 0, maxWidth: "14ch", ...typeStyle("display"), color: vars.color.text.heading }}>
             {hero.title}
           </Box>
@@ -204,6 +240,7 @@ export default function MobileHero() {
               </Box>
             ))}
           </Box>
+          </FitBox>
         </Box>
 
         {story.map((act, n) => {
@@ -223,7 +260,7 @@ export default function MobileHero() {
                 <Box component="span" sx={{ ...typeStyle("overline"), color: vars.color.steel["300"] }}>
                   {act.label}
                 </Box>
-                <Box component="p" sx={{ m: 0, ...typeStyle("h3"), color: vars.color.text.heading }}>
+                <Box component="p" sx={{ m: 0, ...typeStyle("h3"), color: vars.color.text.heading, [SHORT]: { fontSize: vars.font.size.xl } }}>
                   {act.title}
                 </Box>
               </Box>
